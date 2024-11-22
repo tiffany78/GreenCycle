@@ -5,11 +5,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/admin/DataSampah")
+@RequestMapping("/admin/")
 
 public class SampahController {
-    @GetMapping("/")
-    public String index() {
+    @GetMapping("/DataSampah")
+    public String dataSampah() {
         return "admin/DataSampah/index";
+    }
+
+    @GetMapping("/TambahSampah")
+    public String tambahSampah() {
+        return "admin/TambahSampah/index";
     }
 }
