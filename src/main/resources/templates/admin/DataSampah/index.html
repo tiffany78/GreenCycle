@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./vars.css">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="/css/admin/DataSampah/style.css">
+  <link rel="stylesheet" href="/css/admin/DataSampah/vars.css">
   
   
   <style>
@@ -42,14 +42,14 @@
     <div class="body">
       <div class="judul-page">
         <div class="data-sampah">Data Sampah</div>
-        <div class="button">
-          <img class="div" src="div0.svg" />
+        <button class="button" th:onclick="'window.location.href=\'/admin/TambahSampah\''">
+          <img class="div" src="/images/admin/div0.svg" />
           <div class="tambah-sampah">Tambah Sampah</div>
-        </div>
+        </button>
       </div>
       <div class="fitur">
         <div class="search-bar">
-          <img class="search" src="search0.svg"/>
+          <img class="search" src="/images/admin/search0.svg"/>
           <input type="text" id="searchSampah" name="searchSampah" placeholder="Cari Sampah">
         </div>
       </div>
@@ -76,7 +76,7 @@
             <td>2024-11-21</td>
             <td>
               <button class="edit-button">
-              <img class="edit-icon" src="edit2.svg" alt="Edit" />
+              <img class="edit-icon" src="/images/admin/edit2.svg" alt="Edit" th:onclick="'window.location.href=\'/admin/EditHarga\''"/>
             </button></td>
           </tr>
           <tr>
@@ -87,7 +87,7 @@
             <td>2024-11-21</td>
             <td>
               <button class="edit-button">
-              <img class="edit-icon" src="edit2.svg" alt="Edit" />
+              <img class="edit-icon" src="/images/admin/edit2.svg" alt="Edit" />
             </button></td>
           </tr>
         </tbody>
@@ -101,7 +101,7 @@
     <div class="setoran-member">Setoran Member</div>
     <div class="setoran-tpa">Setoran TPA</div>
     <div class="storage">Storage</div>
-    <img class="logout" src="logout0.svg" />
+    <img class="logout" src="/images/admin/logout0.svg" />
   </div>
 </body>
 </html>
