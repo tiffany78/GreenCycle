@@ -17,4 +17,9 @@ public class SampahController {
     public String tambahSampah() {
         return "admin/TambahSampah/index";
     }
+
+    @GetMapping("/EditHarga")
+    public String editHarga() {
+        return "admin/EditHarga/index";
+    }
 }

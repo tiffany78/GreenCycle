@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/admin/EditHarga/style.css">
+  <link rel="stylesheet" href="/css/admin/EditHarga/vars.css">
+  
+  
+  <style>
+   a,
+   button,
+   input,
+   select,
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   * {
+       box-sizing: border-box;
+       margin: 0;
+       padding: 0;
+       border: none;
+       text-decoration: none;
+       background: none;
+   
+       -webkit-font-smoothing: antialiased;
+   }
+   
+   menu, ol, ul {
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+   }
+   </style>
+  <title>Edit Harga</title>
+</head>
+<body>
+  <div class="html-a-edit-harga">
+    <div class="body">
+      <div class="judul-page">
+        <div class="edit-harga">Edit Harga</div>
+      </div>
+      <div class="isi">
+        <fieldset>
+          <div class="nama">
+            <div class="nama2">Nama</div>
+            <div class="frame">
+              <div class="kotak"></div>
+              <div class="kaleng"><span>Kaleng</span></div>
+            </div>
+          </div>
+          <div class="unit">
+            <div class="unit2">Unit</div>
+            <div class="frame">
+              <div class="kotak"></div>
+              <div class="kg"><span>kg</span></div>
+            </div>
+          </div>
+          <div class="harga">
+            <div class="harga2">Harga Baru</div>
+            <input type="text" id="harga-sampah" class="frame2" placeholder="contoh: 10000">
+          </div>
+        </fieldset>
+        <div class="button" th:onclick="'window.location.href=\'/admin/DataSampah\''">
+          <button class="batal">
+            <!-- <div class="batal-perubahan">Batal</div> -->
+            <input class="batal-perubahan" type="submit" value="Kembali">
+          </button>
+          <button class="simpan">
+            <!-- <div class="simpan-perubahan">Simpan</div> -->
+            <input class="simpan-perubahan" type="submit" value="Simpan">
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="header">
+      <div class="home">Home</div>
+      <div class="data-sampah">Data Sampah</div>
+      <div class="informasi-member">Informasi Member</div>
+      <div class="setoran-member">Setoran Member</div>
+      <div class="setoran-tpa">Setoran TPA</div>
+      <div class="storage">Storage</div>
+      <img class="logout" src="/images/admin/logout0.svg" />
+    </div>
+  </div>
+  
+</body>
+</html>
