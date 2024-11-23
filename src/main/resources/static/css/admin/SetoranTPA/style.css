@@ -1,0 +1,413 @@
+.html-a-setoran-tpa-1,
+.html-a-setoran-tpa-1 * {
+  box-sizing: border-box;
+}
+.html-a-setoran-tpa-1 {
+  background: #edf0f2;
+  height: 1021px;
+  position: relative;
+  overflow: hidden;
+}
+.body {
+  background: #ffffff;
+  padding: 15px 10px 15px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 1400px;
+  height: 891px;
+  position: absolute;
+  left: 20px;
+  top: 98px;
+}
+.judul-page {
+  border-style: solid;
+  border-color: #dee1ff;
+  border-width: 0px 0px 1px 0px;
+  padding: 10px 25px 10px 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  width: 1326px;
+  height: 104px;
+  position: relative;
+}
+.setoran-sampah-tpa {
+  color: #101540;
+  text-align: center;
+  font-family: "Poppins-Medium", sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 522px;
+  position: relative;
+}
+.rekapan {
+  background: #24893a;
+  border-radius: 5px;
+  padding: 10px 15px 10px 15px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 253px;
+  position: relative;
+}
+.file {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  overflow: visible;
+}
+.rekapan-setoran {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tambah {
+  background: #24893a;
+  border-radius: 5px;
+  padding: 10px 15px 10px 15px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 253px;
+  position: relative;
+}
+.div {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  position: relative;
+  overflow: visible;
+}
+.tambah-setoran {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fitur {
+  border-style: solid;
+  border-color: #dee1ff;
+  border-width: 0px 0px 1px 0px;
+  padding: 10px 25px 10px 25px;
+  display: flex;
+  flex-direction: row;
+  gap: 560px;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 104px;
+  position: relative;
+}
+.search-bar {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 479px;
+  position: relative;
+  overflow: hidden;
+}
+.search {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  overflow: visible;
+}
+.filter-tgl {
+  flex-shrink: 0;
+  width: 305px;
+  height: 104px;
+  position: relative;
+  overflow: hidden;
+}
+.akhir {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 16px;
+  border-style: solid;
+  border-color: var(--neutral-700, #8b8b8b);
+  border-width: 1px;
+  padding: 0px 10px 0px 10px;
+  width: 140px;
+  height: 50px;
+  position: absolute;
+  left: 156px;
+  top: 26px;
+}
+.tanggal-akhir {
+  color: rgba(40, 40, 40, 0.5);
+  text-align: left;
+  font-family: var(
+    --tablet-body-body-2-font-family,
+    "Inter-Regular",
+    sans-serif
+  );
+  font-size: var(--tablet-body-body-2-font-size, 14px);
+  font-weight: var(--tablet-body-body-2-font-weight, 400);
+  position: absolute;
+  left: 25px;
+  top: 7px;
+}
+.awal {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 16px;
+  border-style: solid;
+  border-color: var(--neutral-700, #8b8b8b);
+  border-width: 1px;
+  padding: 0px 10px 0px 10px;
+  width: 140px;
+  height: 50px;
+  position: absolute;
+  left: 6px;
+  top: 26px;
+}
+.tanggal-awal {
+  color: rgba(40, 40, 40, 0.5);
+  text-align: left;
+  font-family: var(
+    --tablet-body-body-2-font-family,
+    "Inter-Regular",
+    sans-serif
+  );
+  font-size: var(--tablet-body-body-2-font-size, 14px);
+  font-weight: var(--tablet-body-body-2-font-weight, 400);
+  position: absolute;
+  left: 25px;
+  top: 7px;
+}
+.filter-tanggal {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  position: absolute;
+  left: 6px;
+  top: 0px;
+  width: 100px;
+  height: 15px;
+}
+.header {
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0px 0px 1px 0px;
+  padding: 10px 25px 10px 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.isi-tpa {
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0px 0px 1px 0px;
+  padding: 10px 25px 10px 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.tpa-kampung-kandang {
+  color: #000000;
+  text-align: center;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.detail {
+  flex-shrink: 0;
+  width: 170px;
+  height: 36px;
+  position: relative;
+  overflow: visible;
+}
+
+.header2 {
+  background: #ffffff;
+  padding: 10px 25px 10px 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 76px;
+  position: fixed;
+  top: 0px;
+}
+
+.home {
+  color: #101540;
+  text-align: center;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: relative;
+  width: 101px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.data-sampah {
+  color: #101540;
+  text-align: center;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: relative;
+  width: 179px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.informasi-member {
+  color: #101540;
+  text-align: center;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: relative;
+  width: 245px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.setoran-member {
+  color: #101540;
+  text-align: center;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: relative;
+  width: 213px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.frame {
+  border-radius: 10px;
+  border-style: solid;
+  border-color: var(--grey-40, #d0d0d0);
+  border-width: 1px;
+  flex-shrink: 0;
+  width: 350px;
+  height: 50px;
+  position: relative;
+  padding-left: 10px;
+}
+.setoran-tpa {
+  color: #101540;
+  text-align: center;
+  font-family: "Poppins-Bold", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: underline;
+  position: relative;
+  width: 167px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.storage {
+  color: #101540;
+  text-align: center;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: relative;
+  width: 167px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logout {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  overflow: visible;
+}
+/* detail button CSS*/
+.details-row td {
+  background-color: #f9f9f9;
+  border-top: 1px solid #ccc;
+  padding: 10px;
+}
+.detail-content {
+  font-size: 14px;
+  color: #333;
+}
+
+/* INI CSS TABLE (sampai bawah) */
+.tpa-table {
+  width: 100%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.tpa-table th,
+.tpa-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.tpa-table th {
+  background-color: #f4f4f4;
+  font-size: 18px;
+}
+
+.tpa-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
