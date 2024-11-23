@@ -22,4 +22,9 @@ public class SampahController {
     public String editHarga() {
         return "admin/EditHarga/index";
     }
+
+    @GetMapping("/LandingPage")
+    public String home(){
+        return "admin/LandingPage/index";
+    }
 }
