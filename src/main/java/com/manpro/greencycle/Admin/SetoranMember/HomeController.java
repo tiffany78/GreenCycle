@@ -16,13 +16,5 @@ public class HomeController {
     public String tambahMember() {
         return "admin/TambahSetoranMember/index"; // Mengacu pada src/main/resources/templates/index.html
     }
-    @GetMapping("/Storage")
-    public String storage() {
-        return "admin/Storage/index"; // Mengacu pada src/main/resources/templates/index.html
-    }
-    @GetMapping("/Login")
-    public String loginAdmin() {
-        return "admin/Login/index"; // Mengacu pada src/main/resources/templates/index.html
-    }
 }
 
