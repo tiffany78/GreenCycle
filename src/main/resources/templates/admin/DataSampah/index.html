@@ -50,7 +50,10 @@
       <div class="fitur">
         <div class="search-bar">
           <img class="search" src="/images/admin/search0.svg"/>
-          <input type="text" id="searchSampah" name="searchSampah" placeholder="Cari Sampah">
+          <!-- Search nama SAMPAH -->
+          <form method="GET" th:action="@{/admin/DataSampah}">
+            <input type="text" name="filter" class="searchSampah" th:value="${filter}" placeholder="Cari Nama Sampah" onkeyup="this.form.submit()"/>
+          </form>
         </div>
       </div>
       <!-- INI BAGIAN HEADER TABLE -->
@@ -72,11 +75,11 @@
             <td th:text="${stat.index + 1}"></td>
             <td th:text="${sampah.nama}"></td>
             <td th:text="${sampah.unit}"></td>
-            <td th:text="${sampah.harga}"></td>
-            <td th:text="${sampah.tanggal}"></td>
+            <td th:text="'Rp' + ${sampah.harga}"></td>
+            <td th:text="${sampah.tanggal_perubahan}"></td>
             <td>
               <form class="edit-button" method="GET" th:action="@{/admin/EditHarga}">
-                <input type="hidden" name="id" th:value="${sampah.id}">
+                <input type="hidden" name="id" th:value="${sampah.id_sampah}">
                 <button type="submit">
                     <img class="edit-icon" src="/images/admin/edit2.svg" alt="Edit"/>
                 </button>

@@ -215,6 +215,9 @@
   flex-shrink: 0;
   position: relative;
 }
+.simpan[disabled]{
+  background: #6a6a6a;
+}
 .simpan-perubahan {
   color: #ffffff;
   text-align: center;

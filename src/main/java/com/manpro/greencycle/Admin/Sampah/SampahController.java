@@ -16,8 +16,14 @@ public class SampahController {
     private SampahRepository repo;
 
     @GetMapping("/DataSampah")
-    public String dataSampah(Model model) {
+    public String dataSampah(@RequestParam(value = "filter", required = false) String filter, Model model) {
         List<Sampah> list = this.repo.findAll();
+
+        if (filter != null && !filter.isEmpty()) {
+            list = this.repo.filterSampah(filter);
+            model.addAttribute("filter", filter);
+        }
+
         model.addAttribute("sampah", list);
         return "admin/DataSampah/index";
     }
@@ -31,25 +37,28 @@ public class SampahController {
     public String tambahSampah2(
         @RequestParam("nama-sampah") String nama,
         @RequestParam("unit-sampah") String unit,
-        @RequestParam("harga-sampah") int harga){
+        @RequestParam("harga-sampah") double harga){
             this.repo.tambahSampah(nama, unit, harga);
-            return "admin/TambahSampah/index";
+            return "redirect:/admin/DataSampah";
     }
 
     @GetMapping("/EditHarga")
-    public String editHarga(@RequestParam(value="id", required=true) int id, Model model) {
-        List<Sampah> sampah = this.repo.getSampahById(id);
+    public String editHarga(@RequestParam(value="id", required=true) int idSampah, Model model) {
+        List<Sampah> sampah = this.repo.getSampahById(idSampah);
         Sampah curr = sampah.get(0);  // Ambil sampah berdasarkan ID
         model.addAttribute("namaSampah", curr.getNama());
         model.addAttribute("unitSampah", curr.getUnit());
+        model.addAttribute("id", curr.getId_sampah());
         return "admin/EditHarga/index";
     }
 
     @PostMapping("/EditHarga")
     public String editHarga2(
-        @RequestParam("harga-sampah") int harga){
+        @RequestParam("id") int idSampah,
+        @RequestParam("harga-sampah") double hargaBaru) {
+            this.repo.editHarga(idSampah, hargaBaru);
             return "redirect:/admin/DataSampah";
-        }
+    }
 
     @GetMapping("/LandingPage")
     public String home(){

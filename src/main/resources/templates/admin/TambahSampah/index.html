@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="/css/admin/TambahSampah/style.css">
   <link rel="stylesheet" href="/css/admin/TambahSampah/vars.css">
   
+   <!--JS utk tombol simpan perubahan-->
+   <script src="/js/admin/TambahSampah/scripts.js" defer></script>
   
   <style>
    a,
@@ -43,7 +45,7 @@
       <div class="judul-page">
         <div class="data-sampah">Data Sampah</div>
       </div>
-      <form class="isi" method="POST" th:action="@{/admin/TambahSampah}">
+      <form class="isi" method="POST" th:action="@{/admin/TambahSampah}" id="form-tambah-sampah">
         <div class="sampah">
           <div class="nama-sampah">Nama Sampah</div>
           <input type="text" id="nama-sampah" name="nama-sampah" class="frame" placeholder="Masukkan Nama Sampah">
@@ -60,7 +62,7 @@
           <a class="kembali" th:href="@{/admin/DataSampah}">
             <div class="kembali2">Kembali</div>
           </a>
-          <button class="simpan" type="submit">
+          <button class="simpan" type="submit" disabled>
             <div class="simpan-perubahan">Simpan Perubahan</div>
           </button>
         </div>

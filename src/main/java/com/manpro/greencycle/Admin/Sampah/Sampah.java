@@ -8,9 +8,9 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class Sampah {
-    private int id;
+    private int id_sampah;
     private String nama;
     private String unit;
-    private int harga;
-    private Date tanggal;
+    private double harga;
+    private Date tanggal_perubahan;
 }

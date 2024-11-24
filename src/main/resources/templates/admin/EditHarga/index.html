@@ -7,7 +7,9 @@
   <link rel="stylesheet" href="/css/admin/EditHarga/style.css">
   <link rel="stylesheet" href="/css/admin/EditHarga/vars.css">
   
-  
+  <!--JS utk tombol simpan perubahan-->
+  <script src="/js/admin/EditHarga/scripts.js" defer></script>
+
   <style>
    a,
    button,
@@ -43,8 +45,9 @@
       <div class="judul-page">
         <div class="edit-harga">Edit Harga</div>
       </div>
-      <form class="isi" method="POST" th:action="@{/admin/EditHarga}">
+      <form class="isi" method="POST" th:action="@{/admin/EditHarga}" id="form-edit-harga">
         <fieldset>
+          <input type="hidden" id="id" name="id" th:value="${id}">
           <div class="nama">
             <div class="nama2">Nama</div>
             <div class="frame">
@@ -68,7 +71,7 @@
           <a class="batal" th:href="@{/admin/DataSampah}">
             <div class="batal-perubahan">Batal Perubahan</div>
           </a>
-          <button class="simpan" type="submit">
+          <button class="simpan" type="submit" disabled>
             <div class="simpan-perubahan">Simpan Perubahan</div>
           </button>
         </div>
@@ -76,7 +79,7 @@
     </div>
     <div class="header">
       <button class="home" th:onclick="'window.location.href=\'/admin/LandingPage\''">Home</button>
-      <button class="data-sampah2" th:onclick="'window.location.href=\'/admin/DataSampah\''">Data Sampah</button>
+      <button class="data-sampah" th:onclick="'window.location.href=\'/admin/DataSampah\''">Data Sampah</button>
       <button class="informasi-member">Informasi Member</button>
       <button class="setoran-member">Setoran Member</button>
       <button class="setoran-tpa">Setoran TPA</button>
