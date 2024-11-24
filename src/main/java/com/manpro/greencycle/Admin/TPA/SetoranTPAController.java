@@ -38,4 +38,14 @@ public class SetoranTPAController {
     public List<SampahDetail> getSetoranDetails(@PathVariable int setoranId) {
         return repo.getSetoranDetails(setoranId);
     }
+
+    @GetMapping("/RekapanSetoran")
+    public String rekapanSetoran() {
+        return "admin/RekapanSetoran/index";
+    }
+
+    @GetMapping("/TambahSetoranTPA")
+    public String tambahSetoranTPA() {
+        return "admin/TambahSetoranTPA/index";
+    }
 }
