@@ -1,6 +1,7 @@
 .html-a-storage,
 .html-a-storage * {
   box-sizing: border-box;
+  font-family: "Poppins-Regular", sans-serif;
 }
 .html-a-storage {
   background: #edf0f2;
@@ -87,6 +88,11 @@
   position: relative;
   overflow: visible;
 }
+.search-sampah{
+  width: 450px;
+  height: 30px;
+  padding-left: 5px;
+}
 .header {
   border-style: solid;
   border-color: #000000;
@@ -101,133 +107,34 @@
   flex-shrink: 0;
   position: relative;
 }
-.jenis-sampah {
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  position: relative;
-  width: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+/* Table CSS */
+.data-table {
+width: 100%;
+margin: 20px auto;
+border-collapse: collapse;
+text-align: center;
 }
-.kuantitas {
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  position: relative;
-  width: 125px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+.data-table th,
+.data-table td {
+border: 1px solid #ddd;
+padding: 10px;
+font-size: 16px;
+font-weight: 400;
 }
-.satuan {
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  position: relative;
-  width: 125px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+.data-table th {
+background-color: #f4f4f4;
+font-size: 18px;
 }
-.isi-rekapan-sampah {
-  border-style: solid;
-  border-color: #000000;
-  border-width: 0px 0px 1px 0px;
-  padding: 10px 25px 10px 25px;
-  display: flex;
-  flex-direction: row;
-  gap: 450px;
-  align-items: center;
-  justify-content: flex-start;
-  align-self: stretch;
-  flex-shrink: 0;
-  position: relative;
+
+.data-table tbody tr:hover {
+background-color: #f1f1f1;
 }
-.kaleng {
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-  width: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-._3 {
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-  width: 125px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.kg {
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-  width: 125px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.rekapan-unit {
-  background: #62804b;
-  border-style: solid;
-  border-color: #000000;
-  border-width: 0px 0px 1px 0px;
-  padding: 10px 25px 10px 25px;
-  display: flex;
-  flex-direction: row;
-  gap: 1px;
-  align-items: center;
-  justify-content: flex-start;
-  align-self: stretch;
-  flex-shrink: 0;
-  position: relative;
-}
-.rekapan-unit2 {
-  color: #ffffff;
-  text-align: center;
-  font-family: "Poppins-Bold", sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  position: relative;
-  width: 330px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.total {
-  color: #ffffff;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  position: relative;
-  width: 124.13px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
+
+/* CSS Header */
 .header2 {
   background: #ffffff;
   padding: 10px 25px 10px 25px;
