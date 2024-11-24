@@ -43,38 +43,36 @@
       <div class="judul-page">
         <div class="edit-harga">Edit Harga</div>
       </div>
-      <div class="isi">
+      <form class="isi" method="POST" th:action="@{/admin/EditHarga}">
         <fieldset>
           <div class="nama">
             <div class="nama2">Nama</div>
             <div class="frame">
               <div class="kotak"></div>
-              <div class="kaleng"><span>Kaleng</span></div>
+              <div id="nama-sampah" class="namaSampah" th:text="${namaSampah}"></div>
             </div>
           </div>
           <div class="unit">
-            <div class="unit2">Unit</div>
-            <div class="frame">
-              <div class="kotak"></div>
-              <div class="kg"><span>kg</span></div>
-            </div>
+              <div class="unit2">Unit</div>
+              <div class="frame">
+                <div class="kotak"></div>
+                <div id="unit-sampah" class="unitSampah" th:text="${unitSampah}"></div>
+              </div>
           </div>
           <div class="harga">
             <div class="harga2">Harga Baru</div>
-            <input type="text" id="harga-sampah" class="frame2" placeholder="contoh: 10000">
+            <input type="text" id="harga-sampah" name="harga-sampah" class="frame2" placeholder="contoh: 10000">
           </div>
         </fieldset>
-        <div class="button" th:onclick="'window.location.href=\'/admin/DataSampah\''">
-          <button class="batal">
-            <!-- <div class="batal-perubahan">Batal</div> -->
-            <input class="batal-perubahan" type="submit" value="Kembali">
-          </button>
-          <button class="simpan">
-            <!-- <div class="simpan-perubahan">Simpan</div> -->
-            <input class="simpan-perubahan" type="submit" value="Simpan">
+        <div class="button">
+          <a class="batal" th:href="@{/admin/DataSampah}">
+            <div class="batal-perubahan">Batal Perubahan</div>
+          </a>
+          <button class="simpan" type="submit">
+            <div class="simpan-perubahan">Simpan Perubahan</div>
           </button>
         </div>
-      </div>
+      </form>
     </div>
     <div class="header">
       <button class="home" th:onclick="'window.location.href=\'/admin/LandingPage\''">Home</button>

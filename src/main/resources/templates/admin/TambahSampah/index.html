@@ -43,28 +43,28 @@
       <div class="judul-page">
         <div class="data-sampah">Data Sampah</div>
       </div>
-      <div class="isi">
+      <form class="isi" method="POST" th:action="@{/admin/TambahSampah}">
         <div class="sampah">
           <div class="nama-sampah">Nama Sampah</div>
-          <input type="text" id="nama-sampah" class="frame" placeholder="Masukkan Nama Sampah">
+          <input type="text" id="nama-sampah" name="nama-sampah" class="frame" placeholder="Masukkan Nama Sampah">
         </div>
         <div class="unit">
           <div class="unit-sampah">Unit Sampah</div>
-          <input type="text" id="unit-sampah" class="frame" placeholder="Masukkan Unit Sampah">
+          <input type="text" id="unit-sampah" name="unit-sampah" class="frame" placeholder="Masukkan Unit Sampah">
         </div>
         <div class="harga">
           <div class="harga2">Harga</div>
-          <input type="text" id="unit-sampah" class="frame" placeholder="contoh: 10000">
+          <input type="text" id="harga-sampah" name="harga-sampah" class="frame" placeholder="contoh: 10000">
         </div>
-        <div class="button" th:onclick="'window.location.href=\'/admin/DataSampah\''">
-          <button class="kembali">
+        <div class="button">
+          <a class="kembali" th:href="@{/admin/DataSampah}">
             <div class="kembali2">Kembali</div>
-          </button>
-          <button class="simpan">
+          </a>
+          <button class="simpan" type="submit">
             <div class="simpan-perubahan">Simpan Perubahan</div>
           </button>
         </div>
-      </div>
+      </form>
     </div>
     <div class="header">
       <button class="home" th:onclick="'window.location.href=\'/admin/LandingPage\''">Home</button>

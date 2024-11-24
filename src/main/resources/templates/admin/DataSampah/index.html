@@ -68,29 +68,22 @@
         </thead>
         <!-- INI BAGIAN ISI TABLE -->
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Contoh Nama</td>
-            <td>kg</td>
-            <td>Rp1.000</td>
-            <td>2024-11-21</td>
+          <tr th:each="sampah, stat : ${sampah}">
+            <td th:text="${stat.index + 1}"></td>
+            <td th:text="${sampah.nama}"></td>
+            <td th:text="${sampah.unit}"></td>
+            <td th:text="${sampah.harga}"></td>
+            <td th:text="${sampah.tanggal}"></td>
             <td>
-              <button class="edit-button">
-              <img class="edit-icon" src="/images/admin/edit2.svg" alt="Edit" th:onclick="'window.location.href=\'/admin/EditHarga\''"/>
-            </button></td>
+              <form class="edit-button" method="GET" th:action="@{/admin/EditHarga}">
+                <input type="hidden" name="id" th:value="${sampah.id}">
+                <button type="submit">
+                    <img class="edit-icon" src="/images/admin/edit2.svg" alt="Edit"/>
+                </button>
+              </form>
+            </td>            
           </tr>
-          <tr>
-            <td>1</td>
-            <td>Contoh Nama</td>
-            <td>kg</td>
-            <td>Rp1.000</td>
-            <td>2024-11-21</td>
-            <td>
-              <button class="edit-button">
-              <img class="edit-icon" src="/images/admin/edit2.svg" alt="Edit" />
-            </button></td>
-          </tr>
-        </tbody>
+        </tbody>        
       </table>
     </div>
   </div>
