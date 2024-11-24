@@ -69,7 +69,18 @@
           </tr>
         </tbody>
       </table>
+
+      <h2>Rekap Sampah</h2>
+      <table class="rekap-table">
+        <tbody>
+          <tr th:each="data: ${rekapdata}">
+            <td th:text="'Rekapan Unit Sampah ' + ${data.unit} + ':'"></td>
+            <td th:text="${data.kuantitas} + ' ' + ${data.unit}"></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+
   <div class="header2">
     <div class="home">Home</div>
     <div class="data-sampah">Data Sampah</div>
