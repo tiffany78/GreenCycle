@@ -45,49 +45,44 @@
     <div class="body">
       <div class="judul-page">
         <div class="setoran-sampah-tpa">Setoran Sampah TPA</div>
-        <div class="button">
-          <div class="rekapan">
-            <img class="file" src="/images/admin/file0.svg" />
+        <button class="button">
+          <div class="rekapan"  th:onclick="'window.location.href=\'/admin/RekapanSetoran\''">
+            <img class="div" src="/images/admin/file0.svg" />
             <div class="rekapan-setoran">Rekapan Setoran</div>
           </div>
-          <div class="tambah">
+          <div class="tambah" th:onclick="'window.location.href=\'/admin/TambahSetoran\''">
             <img class="div" src="/images/admin/div0.svg" />
             <div class="tambah-setoran">Tambah Setoran</div>
           </div>
-        </div>
+        </button>
       </div>
 
-      <!-- FILTER-FILTER -->
-      <div class="fitur">
-        <div class="search-bar">
+   <!-- FILTER-FILTER -->
+    <form method="GET" action="/admin/SetoranTPA" id="filterForm" class="fitur">
+      <div class="search-bar">
           <img class="search" src="/images/admin/search0.svg" />
           <!-- Search nama TPA -->
-          <form method="GET" th:action="@{/admin/SetoranTPA/}">
-            <input type="text" name="filter" class="frame" th:value="${filter}" placeholder="Cari Nama TPA" onkeydown="this.form.submit()"/>
-          </form>
-        </div>
-        <!-- Tanggal awal -->
-        <div class="filter-tgl">
+          <input id= "filterInput" type="text" name="filter" class="frame" th:value="${filter}" placeholder="Cari Nama TPA"/>
+      </div>
+    
+    <div class="filter-tgl">
+          <!-- Tanggal awal -->
           <div class="awal">
-            <div class="tanggal-awal">
-              Tanggal Awal
-              <form method="GET" action="@{/admin/SetoranTPA/}">
-                <input type="date" name="tgl_awal" onchange="this.form.submit()"/>
-              </form>
-            </div>
+              <div class="tanggal-awal">
+                  Tanggal Awal
+                  <input type="date" name="tgl_awal" th:value="${tgl_awal}" onchange="this.form.submit()" />
+              </div>
           </div>
           <!-- Tanggal Akhir -->
           <div class="akhir">
-            <div class="tanggal-akhir">
-              Tanggal Akhir
-              <form method="GET" action="@{/admin/SetoranTPA/}">
-                <input type="date" name="tgl_akhir" onchange="this.form.submit()"/>
-              </form>
-            </div>
+              <div class="tanggal-akhir">
+                  Tanggal Akhir
+                  <input type="date" name="tgl_akhir" th:value="${tgl_akhir}" onchange="this.form.submit()" />
+              </div>
           </div>
-          <div class="filter-tanggal">Filter Tanggal</div>
-        </div>
-      </div>
+      <div class="filter-tanggal">Filter Tanggal</div>
+    </div>
+  </form>
 
       <table class="tpa-table">
         <thead>
