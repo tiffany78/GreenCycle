@@ -11,7 +11,7 @@
 }
 .body {
   background: #ffffff;
-  padding: 10px;
+  padding: 15px 10px 15px 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -20,8 +20,8 @@
   width: 100%;
   height: 891px;
   position: absolute;
-  left: 20px;
-  top: 110px;
+  left : 20px;
+  top: 98px;
 }
 .judul-page { 
   border-style: solid;
@@ -133,6 +133,27 @@ font-size: 18px;
 background-color: #f1f1f1;
 }
 
+/* CSS TABEL REKAP */
+.rekap-table {
+width: 100%;
+margin: 20px auto;
+border-collapse: collapse;
+text-align: center;
+}
+
+.rekap-table td {
+border: 1px solid #ddd;
+padding: 10px;
+font-size: 16px;
+font-weight: 400;
+background-color: #62804B;
+color : white;
+font-weight: bold;
+}
+
+.rekap-table tbody tr:hover {
+background-color: #f1f1f1;
+}
 
 /* CSS Header */
 .header2 {
