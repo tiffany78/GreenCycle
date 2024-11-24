@@ -58,6 +58,31 @@ public class JdbcSetoranTPARepository implements SetoranTPARepository {
         );
     }
 
-    
+    @Override
+    public List<TPA> getAllTPA(){
+        String sql = "SELECT * FROM tpa";
+        return jdbcTemplate.query(sql, this::mapRowToTPA);
+    }
 
+    private TPA mapRowToTPA(ResultSet resultSet, int rowNum) throws SQLException {
+        return new TPA(
+            resultSet.getInt("id_tpa"),
+            resultSet.getString("nama")
+        );
+    }
+
+    @Override
+    public List<Storage> getAllStorage(){
+        String sql = "SELECT * FROM storage_view";
+        return jdbcTemplate.query(sql, this::mapRowToStorage);
+    }
+
+    private Storage mapRowToStorage (ResultSet resultSet, int rowNum) throws SQLException{
+        return new Storage(
+            resultSet.getInt("id_sampah"),
+            resultSet.getString("sampah"),
+            resultSet.getString("unit"),
+            resultSet.getInt("kapasitas")
+        );
+    }
 }

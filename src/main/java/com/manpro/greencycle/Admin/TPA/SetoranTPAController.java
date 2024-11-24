@@ -45,7 +45,12 @@ public class SetoranTPAController {
     }
 
     @GetMapping("/TambahSetoranTPA")
-    public String tambahSetoranTPA() {
+    public String tambahSetoranTPA(Model model) {
+        List<TPA> list = this.repo.getAllTPA();
+        model.addAttribute("tpaList", list);
+
+        List<Storage> list2 = this.repo.getAllStorage();
+        model.addAttribute("storage", list2);
         return "admin/TambahSetoranTPA/index";
     }
 }

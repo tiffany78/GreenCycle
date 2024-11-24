@@ -109,7 +109,13 @@
   width: 395px;
   position: relative;
 }
-.jenis-sampah {
+
+/* INI CSS TABLE (sampai bawah) */
+.data-table {
+  width: 60%;
+  border-collapse: collapse;
+  text-align: center;
+  margin-left: 0;
   color: var(--grey-100, #121212);
   text-align: center;
   font-family: var(--body-2-normal-font-family, "Nunito-Regular", sans-serif);
@@ -117,7 +123,42 @@
   line-height: var(--body-2-normal-line-height, 24px);
   font-weight: var(--body-2-normal-font-weight, 400);
   position: relative;
-  width: 100px;
+}
+.data-table th,
+.data-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 400;
+}
+.data-table th {
+  background-color: #f4f4f4;
+  font-size: 18px;
+}
+.valueSetoran{
+  width: 100%;
+  height: 30px;
+  border: #000000 1px;
+  padding-left: 10px;
+}
+
+.error-message{
+  color: red;
+}
+
+.error-message.hidden{
+  display: none;
+  color: red;
+}
+
+.font-table {
+  color: var(--grey-100, #121212);
+  text-align: center;
+  font-family: var(--body-2-normal-font-family, "Nunito-Regular", sans-serif);
+  font-size: var(--body-2-normal-font-size, 14px);
+  line-height: var(--body-2-normal-line-height, 24px);
+  font-weight: var(--body-2-normal-font-weight, 400);
+  position: relative;
 }
 .kuantitas {
   color: var(--grey-100, #121212);

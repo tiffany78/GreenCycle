@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/admin/TambahSetoranTPA/style.css">
   <link rel="stylesheet" href="/css/admin/TambahSetoranTPA/vars.css">
+
+  <!--JS-->
+  <script src="/js/admin/TambahSetoranTPA/scripts.js" defer></script>
   
   
   <style>
@@ -45,27 +48,44 @@
       </div>
       <div class="frame-119">
         <div class="input-tpa">
-          <div class="tpa">TPA</div>
-          <div class="frame"></div>
+          <div for="tpaList" class="tpa">TPA</div>
+          <select class="frame" id="tpaList" name="tpaList" required>
+            <!-- Opsi Default -->
+            <option value="" disabled selected>Pilih TPA</option>
+            <option th:each="tpaList : ${tpaList}" 
+            th:value="${tpaList.id_tpa}" 
+            th:text="${tpaList.nama}">
+            </option>
+          </select>        
         </div>
         <div class="list-storage-green-cycle">List Storage Green Cycle</div>
-        <div class="header-storage">
-          <div class="jenis-sampah">Jenis Sampah</div>
-          <div class="kuantitas">Kuantitas</div>
-          <div class="banyaknya-setoran">Banyaknya Setoran</div>
-        </div>
-        <div class="isi-storage">
-          <div class="kaleng">Kaleng</div>
-          <div class="_4-kg">4 kg</div>
-          <div class="frame2"></div>
-          <div class="kg">kg</div>
-        </div>
-        <div class="isi-storage">
-          <div class="botol">Botol</div>
-          <div class="_3-kg">3 kg</div>
-          <div class="frame2"></div>
-          <div class="kg">kg</div>
-        </div>
+        <!-- BAGIAN TABLE SETORAN TPA -->
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Jenis Sampah</th>
+              <th>Unit</th>
+              <th>Kapasitas</th>
+              <th>Banyaknya Setoran</th>
+            </tr>
+          </thead>
+          <!-- BAGIAN ISI TABLE -->
+           <tbody>
+            <tr th:each="storage, stat : ${storage}">
+              <td th:text="${storage.id_sampah}"></td>
+              <td th:text="${storage.sampah}"></td>
+              <td th:text="${storage.unit}"></td>
+              <td th:text="${storage.kapasitas}"></td>
+              <td>
+                <input type="text" name="valueSetoran" class="valueSetoran" placeholder="Masukkan banyaknya setoran" kapasitas="${storage.kapasitas}">
+              </td>
+              <td>
+                <span class="error-message hidden">Tidak Valid</span>
+              </td>
+            </tr>
+           </tbody>
+        </table>
         <div class="button">
           <div class="kembali">
             <div class="kembali2">Kembali</div>
@@ -83,7 +103,7 @@
       <div class="setoran-member">Setoran Member</div>
       <div class="setoran-tpa">Setoran TPA</div>
       <div class="storage">Storage</div>
-      <img class="logout" src="logout0.svg" />
+      <img class="logout" src="/images/admin/logout0.svg" />
     </div>
   </div>
   
