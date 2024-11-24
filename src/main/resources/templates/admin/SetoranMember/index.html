@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/admin/SetoranMember/style.css">
+  <link rel="stylesheet" href="/css/admin/SetoranMember/vars.css">
+
+
+  <style>
+    a,
+    button,
+    input,
+    select,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      border: none;
+      text-decoration: none;
+      background: none;
+
+      -webkit-font-smoothing: antialiased;
+    }
+
+    menu,
+    ol,
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <title>Setoran Sampah Member</title>
+</head>
+
+<body>
+  <div class="html-a-setoran-member-1">
+    <div class="body">
+      <div class="judul-page">
+        <div class="setoran-sampah-member">Setoran Sampah Member</div>
+        <a href="TSMember" class="button">
+          <img class="div" src="/images/admin/div0.svg" />
+          <div class="tambah-setoran">Tambah Setoran</div>
+        </a>
+      </div>
+      <div class="fitur">
+        <div class="search-bar">
+          <img class="search" src="/images/admin/search0.svg" />
+          <input type="text" id="searchSampah" name="CariMember" placeholder="">
+        </div>
+        <div class="filter-tanggal">
+          <div>
+            <label for="tanggalAwal">Tanggal Awal</label>
+            <input type="date" id="tanggalAwal" placeholder="Tanggal Awal">
+          </div>
+          <div>
+            <label for="tanggalAkhir">Tanggal Akhir</label>
+            <input type="date" id="tanggalAkhir" placeholder="Tanggal Akhir">
+          </div>
+        </div>
+      </div>
+
+      <!-- INI BAGIAN HEADER TABLE -->
+      <!-- css nya ada di paling bawah yaa -->
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Member</th>
+            <th>Subtotal</th>
+            <th>Tanggal Setor</th>
+            <th>Detail</th>
+          </tr>
+        </thead>
+        <!-- INI BAGIAN ISI TABLE -->
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Contoh Nama</td>
+            <td>Rp1.000</td>
+            <td>2024-11-21</td>
+            <td>
+              <button class="edit-button">
+                <img class="edit-icon" src="/images/admin/detail1.svg" alt="Edit" />
+              </button>
+            </td>
+          </tr>
+          <tr class="detail-row" id="detail-row-1">
+            <td colspan="5">
+              <ul id="detail-list-1"></ul>
+            </td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Contoh Nama</td>
+            <td>Rp1.000</td>
+            <td>2024-11-21</td>
+            <td>
+              <button class="edit-button">
+                <img class="edit-icon" src="/images/admin/detail1.svg" alt="Edit" />
+              </button>
+            </td>
+          </tr>
+          <tr class="detail-row" id="detail-row-2">
+            <td colspan="5">
+              <ul id="detail-list-2"></ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Total Pendapatan -->
+      <div class="rekapan">
+        <div class="total">Total Pendapatan :</div>
+        <div class="nominal">Rp44.000</div>
+      </div>
+
+    </div>
+  </div>
+  <div class="header2">
+    <div class="home">Home</div>
+    <div class="data-sampah2">Data Sampah</div>
+    <div class="informasi-member">Informasi Member</div>
+    <div class="setoran-member">Setoran Member</div>
+    <div class="setoran-tpa">Setoran TPA</div>
+    <div class="storage">Storage</div>
+    <img class="logout" src="/images/admin/logout0.svg" />
+  </div>
+  <div class="total-pendapatan">
+    Total Pendapatan: <span>Rp0</span>
+  </div>
+  <script src="/js/SetoranMember/scripts.js"></script>
+</body>
+
+</html>
