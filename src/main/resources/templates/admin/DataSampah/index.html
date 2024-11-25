@@ -52,7 +52,7 @@
           <img class="search" src="/images/admin/search0.svg"/>
           <!-- Search nama SAMPAH -->
           <form method="GET" th:action="@{/admin/DataSampah}">
-            <input type="text" name="filter" class="searchSampah" th:value="${filter}" placeholder="Cari Nama Sampah" onkeyup="this.form.submit()"/>
+            <input type="text" name="filter" class="searchSampah" th:value="${filter}" placeholder="Cari Nama Sampah" input="this.form.submit()"/>
           </form>
         </div>
       </div>

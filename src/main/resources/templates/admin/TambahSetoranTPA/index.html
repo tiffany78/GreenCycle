@@ -46,7 +46,7 @@
       <div class="judul-page">
         <div class="tambah-setoran-tpa">Tambah Setoran TPA</div>
       </div>
-      <div class="frame-119">
+      <form class="frame-119" method="POST" th:action="@{/admin/TambahSetoranTPA3}" id="form-tambah-setoran"> 
         <div class="input-tpa">
           <div for="tpaList" class="tpa">TPA</div>
           <select class="frame" id="tpaList" name="tpaList" required>
@@ -54,7 +54,8 @@
             <option value="" disabled selected>Pilih TPA</option>
             <option th:each="tpaList : ${tpaList}" 
             th:value="${tpaList.id_tpa}" 
-            th:text="${tpaList.nama}">
+            th:text="${tpaList.nama}"
+            th:selected="${tpaList.id_tpa == tpaList}">
             </option>
           </select>        
         </div>
@@ -71,29 +72,34 @@
             </tr>
           </thead>
           <!-- BAGIAN ISI TABLE -->
-           <tbody>
-            <tr th:each="storage, stat : ${storage}">
-              <td th:text="${storage.id_sampah}"></td>
-              <td th:text="${storage.sampah}"></td>
-              <td th:text="${storage.unit}"></td>
-              <td th:text="${storage.kapasitas}"></td>
-              <td>
-                <input type="text" name="valueSetoran" class="valueSetoran" placeholder="Masukkan banyaknya setoran" kapasitas="${storage.kapasitas}">
-              </td>
-              <td>
-                <span class="error-message hidden">Tidak Valid</span>
-              </td>
-            </tr>
-           </tbody>
-        </table>
-        <div class="button">
-          <div class="kembali">
-            <div class="kembali2">Kembali</div>
+            <tbody>
+              <tr th:each="storage, stat : ${storage}">
+                <td th:text="${storage.id_sampah}"></td>
+                <td th:text="${storage.sampah}"></td>
+                <td th:text="${storage.unit}"></td>
+                <td th:text="${storage.kapasitas}"></td>
+                <td>
+                  <input type="text" 
+                   th:name="'valueSetoran[' + ${storage.id_sampah} + ']'" 
+                   class="valueSetoran" 
+                   placeholder="Masukkan banyaknya setoran" 
+                   th:attr="kapasitas=${storage.kapasitas}">
+                </td>
+                <td>
+                  <span class="error-message hidden">Tidak Valid</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="button">
+            <a class="kembali" th:href="@{/admin/SetoranTPA}">
+              <div class="kembali2">Kembali</div>
+            </a>
+            <button class="simpan" type="submit">
+              <div class="simpan2">Simpan</div>
+            </button>
           </div>
-          <div class="simpan">
-            <div class="simpan2">Simpan</div>
-          </div>
-        </div>
+        </form>
       </div>
     </div>
     <div class="header2">

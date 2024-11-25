@@ -73,7 +73,7 @@ public class JdbcSetoranTPARepository implements SetoranTPARepository {
 
     @Override
     public List<Storage> getAllStorage(){
-        String sql = "SELECT * FROM storage_view";
+        String sql = "SELECT * FROM storage_view ORDER BY id_sampah";
         return jdbcTemplate.query(sql, this::mapRowToStorage);
     }
 
@@ -84,5 +84,15 @@ public class JdbcSetoranTPARepository implements SetoranTPARepository {
             resultSet.getString("unit"),
             resultSet.getInt("kapasitas")
         );
+    }
+
+    @Override
+    public void addSetoranTPA(int id_tpa, int id_sampah, int kuantitas){
+        LocalDate currDate = LocalDate.now();
+        String sql = "INSERT INTO setoranpusat (id_tpa, id_sampah, kuantitas_sampah, tgl_transaksi) VALUES (?, ?, ?, ?)";
+        jdbcTemplate.update(sql, id_tpa, id_sampah, kuantitas, currDate);
+
+        sql = "UPDATE storage SET kapasitas = kapasitas - " + kuantitas + " WHERE id_sampah = " + id_sampah;
+        jdbcTemplate.update(sql);
     }
 }

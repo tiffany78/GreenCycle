@@ -112,7 +112,6 @@
 
 /* INI CSS TABLE (sampai bawah) */
 .data-table {
-  width: 60%;
   border-collapse: collapse;
   text-align: center;
   margin-left: 0;
@@ -257,6 +256,7 @@
   justify-content: flex-start;
   flex-shrink: 0;
   position: relative;
+  margin-top: 10px;
 }
 .kembali {
   border-radius: 5px;

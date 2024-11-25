@@ -8,4 +8,5 @@ public interface SetoranTPARepository {
     List<SampahDetail> getSetoranDetails(int setoranId);
     List<TPA> getAllTPA();
     List<Storage> getAllStorage();
+    void addSetoranTPA(int id_tpa, int id_sampah, int kuantitas);
 }
