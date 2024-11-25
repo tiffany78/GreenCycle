@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/admin/LandingPage/style.css">
+  <link rel="stylesheet" href="/css/admin/LandingPage/vars.css">
+  
+  
+  <style>
+   a,
+   button,
+   input,
+   select,
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   * {
+       box-sizing: border-box;
+       margin: 0;
+       padding: 0;
+       border: none;
+       text-decoration: none;
+       background: none;
+   
+       -webkit-font-smoothing: antialiased;
+   }
+   
+   menu, ol, ul {
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+   }
+   </style>
+  <title>Landing Page</title>
+</head>
+<body>
+  <div class="html-a-landing-page">
+    <div
+      class="section"
+      style="
+        background: url(/images/admin/section0.png) center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      ">
+      <div class="hello-ferdinand">
+        <span>Hello, </span><span th:text="${session.username}">Admin</span>!
+      </div>
+    </div>
+    <div class="header">
+      <button class="home" th:onclick="'window.location.href=\'/admin/LandingPage\''">Home</button>
+      <button class="data-sampah" th:onclick="'window.location.href=\'/admin/DataSampah\''">Data Sampah</button>
+      <button class="informasi-member">Informasi Member</button>
+      <button class="setoran-member">Setoran Member</button>
+      <button class="setoran-tpa" th:onclick="'window.location.href=\'/admin/SetoranTPA\''">Setoran TPA</button>
+      <button class="storage">Storage</button>
+      <button th:onclick="'window.location.href=\'/login\''">
+        <img class="logout" src="/images/admin/logout0.svg"/>
+      </button>
+    </div>
+  </div>
+  
+</body>
+</html>

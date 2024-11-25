@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/admin/Storage/vars.css">
+  <link rel="stylesheet" href="/css/admin/Storage/style.css">
+  
+  
+  <style>
+   a,
+   button,
+   input,
+   select,
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   * {
+       box-sizing: border-box;
+       margin: 0;
+       padding: 0;
+       border: none;
+       text-decoration: none;
+       background: none;
+   
+       -webkit-font-smoothing: antialiased;
+   }
+   
+   menu, ol, ul {
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+   }
+   </style>
+  <title>Storage</title>
+</head>
+<body>
+  <div class="html-a-storage">
+    <div class="body">
+      <div class="judul-page">
+        <div class="storage">Storage</div>
+      </div>
+      <div class="fitur">
+        <div class="search-bar">
+          <img class="search" src="/images/admin/search0.svg"/>
+
+          <!--FORM FOR SEARCHING-->
+          <form method="GET" th:action="@{/admin/Storage}">
+            <input type="text" name="filter" th:value="${filter}" placeholder="Cari nama sampah" class="search-sampah" input=this.form.submit()/>
+          </form>
+
+        </div>
+      </div>
+
+      <table class="data-table">
+        <thead>
+          <th>Jenis Sampah</th>
+          <th>Kuantitas</th>
+          <th>Satuan</th>
+        </thead>
+        <tbody>
+          <tr th:each="sampah, stat : ${sampah}">
+            <td th:text="${sampah.nama}"></td>
+            <td th:text="${sampah.kuantitas}"></td>
+            <td th:text="${sampah.unit}"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 th:if="${filter == ''}">Rekap Sampah</h2>
+      <table class="rekap-table">
+        <tbody>
+          <tr th:each="data: ${rekapdata}">
+            <td th:text="'Rekapan Unit Sampah ' + ${data.unit} + ':'"></td>
+            <td th:text="${data.kuantitas} + ' ' + ${data.unit}"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  <div class="header2">
+    <button class="home" th:onclick="'window.location.href=\'/admin/LandingPage\''">Home</button>
+    <button class="data-sampah" th:onclick="'window.location.href=\'/admin/DataSampah\''">Data Sampah</button>
+    <button class="informasi-member" th:onclick="'window.location.href=\'/admin/InformasiMember\''">Informasi Member</button>
+    <button class="setoran-member" th:onclick="'window.location.href=\'/admin/STMember\''">Setoran Member</button>
+    <button class="setoran-tpa" th:onclick="'window.location.href=\'/admin/SetoranTPA\''">Setoran TPA</button>
+    <button class="storage2">Storage</button>
+    <img class="logout" src="/images/admin/logout0.svg" />
+  </div>
+
+</body>
+</html>

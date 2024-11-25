@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/admin/TambahSetoranTPA/style.css">
   <link rel="stylesheet" href="/css/admin/TambahSetoranTPA/vars.css">
+
+  <!--JS-->
+  <script src="/js/admin/TambahSetoranTPA/scripts.js" defer></script>
   
   
   <style>
@@ -43,49 +46,73 @@
       <div class="judul-page">
         <div class="tambah-setoran-tpa">Tambah Setoran TPA</div>
       </div>
-      <div class="frame-119">
+      <form class="frame-119" method="POST" th:action="@{/admin/TambahSetoranTPA3}" id="form-tambah-setoran"> 
         <div class="input-tpa">
-          <div class="tpa">TPA</div>
-          <div class="frame"></div>
+          <div for="tpaList" class="tpa">TPA</div>
+          <select class="frame" id="tpaList" name="tpaList" required>
+            <!-- Opsi Default -->
+            <option value="" disabled selected>Pilih TPA</option>
+            <option th:each="tpaList : ${tpaList}" 
+            th:value="${tpaList.id_tpa}" 
+            th:text="${tpaList.nama}"
+            th:selected="${tpaList.id_tpa == tpaList}">
+            </option>
+          </select>        
         </div>
         <div class="list-storage-green-cycle">List Storage Green Cycle</div>
-        <div class="header-storage">
-          <div class="jenis-sampah">Jenis Sampah</div>
-          <div class="kuantitas">Kuantitas</div>
-          <div class="banyaknya-setoran">Banyaknya Setoran</div>
-        </div>
-        <div class="isi-storage">
-          <div class="kaleng">Kaleng</div>
-          <div class="_4-kg">4 kg</div>
-          <div class="frame2"></div>
-          <div class="kg">kg</div>
-        </div>
-        <div class="isi-storage">
-          <div class="botol">Botol</div>
-          <div class="_3-kg">3 kg</div>
-          <div class="frame2"></div>
-          <div class="kg">kg</div>
-        </div>
-        <div class="button">
-          <div class="kembali">
-            <div class="kembali2">Kembali</div>
+        <!-- BAGIAN TABLE SETORAN TPA -->
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Jenis Sampah</th>
+              <th>Unit</th>
+              <th>Kapasitas</th>
+              <th>Banyaknya Setoran</th>
+            </tr>
+          </thead>
+          <!-- BAGIAN ISI TABLE -->
+            <tbody>
+              <tr th:each="storage, stat : ${storage}">
+                <td th:text="${storage.id_sampah}"></td>
+                <td th:text="${storage.sampah}"></td>
+                <td th:text="${storage.unit}"></td>
+                <td th:text="${storage.kapasitas}"></td>
+                <td style="width: 225px;">
+                  <input type="text" 
+                   th:name="'valueSetoran[' + ${storage.id_sampah} + ']'" 
+                   class="valueSetoran" 
+                   placeholder="Masukkan banyaknya setoran" 
+                   th:attr="kapasitas=${storage.kapasitas}">
+                </td>
+                <td>
+                  <span class="error-message hidden">Tidak Valid</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="button">
+            <a class="kembali" th:href="@{/admin/SetoranTPA}">
+              <div class="kembali2">Kembali</div>
+            </a>
+            <button class="simpan" type="submit">
+              <div class="simpan2">Simpan</div>
+            </button>
           </div>
-          <div class="simpan">
-            <div class="simpan2">Simpan</div>
-          </div>
-        </div>
+        </form>
       </div>
     </div>
     <div class="header2">
-      <div class="home">Home</div>
-      <div class="data-sampah">Data Sampah</div>
+      <button class="home" th:onclick="'window.location.href=\'/admin/LandingPage\''">Home</button>
+      <button class="data-sampah" th:onclick="'window.location.href=\'/admin/DataSampah\''">Data Sampah</button>
       <div class="informasi-member">Informasi Member</div>
       <div class="setoran-member">Setoran Member</div>
-      <div class="setoran-tpa">Setoran TPA</div>
+      <button class="setoran-tpa" th:onclick="'window.location.href=\'/admin/SetoranTPA\''">Setoran TPA</button>
       <div class="storage">Storage</div>
-      <img class="logout" src="logout0.svg" />
+      <button th:onclick="'window.location.href=\'/login\''">
+        <img class="logout" src="/images/admin/logout0.svg"/>
+      </button>
     </div>
   </div>
-  
 </body>
 </html>

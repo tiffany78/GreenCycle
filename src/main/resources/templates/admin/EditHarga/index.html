@@ -7,7 +7,9 @@
   <link rel="stylesheet" href="/css/admin/EditHarga/style.css">
   <link rel="stylesheet" href="/css/admin/EditHarga/vars.css">
   
-  
+  <!--JS utk tombol simpan perubahan-->
+  <script src="/js/admin/EditHarga/scripts.js" defer></script>
+
   <style>
    a,
    button,
@@ -43,47 +45,48 @@
       <div class="judul-page">
         <div class="edit-harga">Edit Harga</div>
       </div>
-      <div class="isi">
+      <form class="isi" method="POST" th:action="@{/admin/EditHarga}" id="form-edit-harga">
         <fieldset>
+          <input type="hidden" id="id" name="id" th:value="${id}">
           <div class="nama">
             <div class="nama2">Nama</div>
             <div class="frame">
               <div class="kotak"></div>
-              <div class="kaleng"><span>Kaleng</span></div>
+              <div id="nama-sampah" class="namaSampah" th:text="${namaSampah}"></div>
             </div>
           </div>
           <div class="unit">
-            <div class="unit2">Unit</div>
-            <div class="frame">
-              <div class="kotak"></div>
-              <div class="kg"><span>kg</span></div>
-            </div>
+              <div class="unit2">Unit</div>
+              <div class="frame">
+                <div class="kotak"></div>
+                <div id="unit-sampah" class="unitSampah" th:text="${unitSampah}"></div>
+              </div>
           </div>
           <div class="harga">
             <div class="harga2">Harga Baru</div>
-            <input type="text" id="harga-sampah" class="frame2" placeholder="contoh: 10000">
+            <input type="text" id="harga-sampah" name="harga-sampah" class="frame2" placeholder="contoh: 10000.00">
           </div>
         </fieldset>
-        <div class="button" th:onclick="'window.location.href=\'/admin/DataSampah\''">
-          <button class="batal">
-            <!-- <div class="batal-perubahan">Batal</div> -->
-            <input class="batal-perubahan" type="submit" value="Kembali">
-          </button>
-          <button class="simpan">
-            <!-- <div class="simpan-perubahan">Simpan</div> -->
-            <input class="simpan-perubahan" type="submit" value="Simpan">
+        <div class="button">
+          <a class="batal" th:href="@{/admin/DataSampah}">
+            <div class="batal-perubahan">Batal Perubahan</div>
+          </a>
+          <button class="simpan" type="submit" disabled>
+            <div class="simpan-perubahan">Simpan Perubahan</div>
           </button>
         </div>
-      </div>
+      </form>
     </div>
     <div class="header">
-      <div class="home">Home</div>
-      <div class="data-sampah">Data Sampah</div>
-      <div class="informasi-member">Informasi Member</div>
-      <div class="setoran-member">Setoran Member</div>
-      <div class="setoran-tpa">Setoran TPA</div>
-      <div class="storage">Storage</div>
-      <img class="logout" src="/images/admin/logout0.svg" />
+      <button class="home" th:onclick="'window.location.href=\'/admin/LandingPage\''">Home</button>
+      <button class="data-sampah" th:onclick="'window.location.href=\'/admin/DataSampah\''">Data Sampah</button>
+      <button class="informasi-member">Informasi Member</button>
+      <button class="setoran-member">Setoran Member</button>
+      <button class="setoran-tpa" th:onclick="'window.location.href=\'/admin/SetoranTPA\''">Setoran TPA</button>
+      <button class="storage">Storage</button>
+      <button th:onclick="'window.location.href=\'/login\''">
+        <img class="logout" src="/images/admin/logout0.svg"/>
+      </button>
     </div>
   </div>
   

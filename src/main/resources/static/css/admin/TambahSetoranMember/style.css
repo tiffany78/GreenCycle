@@ -1,26 +1,25 @@
-.html-a-edit-harga,
-.html-a-edit-harga * {
+.html-a-tambah-setoran-member,
+.html-a-tambah-setoran-member * {
   box-sizing: border-box;
 }
-.html-a-edit-harga {
+.html-a-tambah-setoran-member {
   background: #edf0f2;
   height: 1021px;
   position: relative;
   overflow: hidden;
 }
 .body {
-  background: #ffffff;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-  justify-content: flex-start;
-  width: 1400px;
-  height: 891px;
-  position: absolute;
-  left: 20px;
-  top: 110px;
+    background: #ffffff;
+    padding: 15px 10px 15px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 891px;
+    position: absolute;
+    top: 98px;
 }
 .judul-page {
   border-style: solid;
@@ -36,20 +35,18 @@
   height: 104px;
   position: relative;
 }
-.edit-harga {
+.tambah-setoran-member {
   color: #101540;
   text-align: center;
   font-family: "Poppins-Medium", sans-serif;
   font-size: 32px;
   font-weight: 500;
-  position: absolute;
-  left: 0px;
-  top: 28px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.isi {
+.input-tambah-setoran {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -59,17 +56,27 @@
   width: 1326px;
   position: relative;
 }
-.nama {
+.input-member-dan-jenis-sampah {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 735px;
+  position: relative;
+}
+.sampah {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 9px;
   align-items: flex-start;
   justify-content: flex-start;
   flex-shrink: 0;
-  width: 350px;
+  width: 260px;
   position: relative;
 }
-.nama2 {
+.sampah2 {
   color: var(--grey-100, #121212);
   text-align: left;
   font-family: var(--body-2-normal-font-family, "Nunito-Regular", sans-serif);
@@ -79,46 +86,26 @@
   position: relative;
 }
 .frame {
-  flex-shrink: 0;
-  width: 350px;
-  height: 50px;
-  position: relative;
-}
-.kotak {
-  background: #d9d9d9;
   border-radius: 10px;
   border-style: solid;
   border-color: var(--grey-40, #d0d0d0);
   border-width: 1px;
-  width: 350px;
+  flex-shrink: 0;
+  width: 260px;
   height: 50px;
-  position: absolute;
-  left: 0px;
-  top: 0px;
+  position: relative;
 }
-.namaSampah {
-  color: var(--grey-100, #121212);
-  text-align: center;
-  font-family: var(--body-2-normal-font-family, "Nunito-Regular", sans-serif);
-  font-size: var(--body-2-normal-font-size, 14px);
-  line-height: var(--body-2-normal-line-height, 24px);
-  font-weight: var(--body-2-normal-font-weight, 400);
-  position: absolute;
-  left: 7px;
-  top: 13px;
-  width: 330px;
-}
-.unit {
+.kuantitas {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 9px;
   align-items: flex-start;
   justify-content: flex-start;
   flex-shrink: 0;
-  width: 350px;
+  width: 260px;
   position: relative;
 }
-.unit2 {
+.kuantitas2 {
   color: var(--grey-100, #121212);
   text-align: left;
   font-family: var(--body-2-normal-font-family, "Nunito-Regular", sans-serif);
@@ -126,50 +113,134 @@
   line-height: var(--body-2-normal-line-height, 24px);
   font-weight: var(--body-2-normal-font-weight, 400);
   position: relative;
-}
-.unitSampah {
-  color: var(--grey-100, #121212);
-  text-align: center;
-  font-family: var(--body-2-normal-font-family, "Nunito-Regular", sans-serif);
-  font-size: var(--body-2-normal-font-size, 14px);
-  line-height: var(--body-2-normal-line-height, 24px);
-  font-weight: var(--body-2-normal-font-weight, 400);
-  position: absolute;
-  left: 7px;
-  top: 13px;
-  width: 330px;
-}
-.harga {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-shrink: 0;
-  width: 350px;
-  position: relative;
-}
-.harga2 {
-  color: var(--grey-100, #121212);
-  text-align: left;
-  font-family: var(--body-2-normal-font-family, "Nunito-Regular", sans-serif);
-  font-size: var(--body-2-normal-font-size, 14px);
-  line-height: var(--body-2-normal-line-height, 24px);
-  font-weight: var(--body-2-normal-font-weight, 400);
-  position: relative;
-}
-.frame2 {
-  border-radius: 10px;
-  border-style: solid;
-  border-color: var(--grey-40, #d0d0d0);
-  border-width: 1px;
-  flex-shrink: 0;
-  width: 350px;
-  height: 50px;
-  position: relative;
-  padding-left: 10px;
 }
 .button {
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #24893a;
+  border-width: 1px;
+  padding: 10px 15px 10px 15px;
+  flex-shrink: 0;
+  width: 95px;
+  height: 25px;
+  position: relative;
+}
+.tambah-sampah {
+  color: #000000;
+  text-align: center;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  position: absolute;
+  left: 8px;
+  top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.setoran-member {
+  color: #101540;
+  text-align: center;
+  font-family: "Poppins-Medium", sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.input-field {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 361px;
+  position: relative;
+}
+.nama-member {
+  color: var(--grey-100, #121212);
+  text-align: left;
+  font-family: var(--body-2-normal-font-family, "Nunito-Regular", sans-serif);
+  font-size: var(--body-2-normal-font-size, 14px);
+  line-height: var(--body-2-normal-line-height, 24px);
+  font-weight: var(--body-2-normal-font-weight, 400);
+  position: relative;
+}
+.rectangle-3 {
+  border-radius: 10px;
+  border-style: solid;
+  border-color: var(--grey-40, #d0d0d0);
+  border-width: 1px;
+  flex-shrink: 0;
+  width: 260px;
+  height: 30px;
+  position: relative;
+}
+.header-sampah {
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0px 0px 1px 0px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 270px;
+  position: relative;
+}
+.jenis-sampah {
+  color: var(--grey-100, #121212);
+  text-align: left;
+  font-family: var(--body-2-normal-font-family, "Nunito-Regular", sans-serif);
+  font-size: var(--body-2-normal-font-size, 14px);
+  line-height: var(--body-2-normal-line-height, 24px);
+  font-weight: var(--body-2-normal-font-weight, 400);
+  position: relative;
+}
+.kuantatitas {
+  color: var(--grey-100, #121212);
+  text-align: left;
+  font-family: var(--body-2-normal-font-family, "Nunito-Regular", sans-serif);
+  font-size: var(--body-2-normal-font-size, 14px);
+  line-height: var(--body-2-normal-line-height, 24px);
+  font-weight: var(--body-2-normal-font-weight, 400);
+  position: relative;
+}
+.isi-sampah {
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0px 0px 1px 0px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 270px;
+  position: relative;
+}
+.kaleng {
+  color: var(--grey-100, #121212);
+  text-align: left;
+  font-family: var(--body-2-normal-font-family, "Nunito-Regular", sans-serif);
+  font-size: var(--body-2-normal-font-size, 14px);
+  line-height: var(--body-2-normal-line-height, 24px);
+  font-weight: var(--body-2-normal-font-weight, 400);
+  position: relative;
+}
+._2 {
+  color: var(--grey-100, #121212);
+  text-align: left;
+  font-family: var(--body-2-normal-font-family, "Nunito-Regular", sans-serif);
+  font-size: var(--body-2-normal-font-size, 14px);
+  line-height: var(--body-2-normal-line-height, 24px);
+  font-weight: var(--body-2-normal-font-weight, 400);
+  position: relative;
+}
+.button2 {
   display: flex;
   flex-direction: row;
   gap: 20px;
@@ -178,7 +249,7 @@
   flex-shrink: 0;
   position: relative;
 }
-.batal {
+.kembali {
   border-radius: 5px;
   border-style: solid;
   border-color: #24893a;
@@ -192,7 +263,7 @@
   flex-shrink: 0;
   position: relative;
 }
-.batal-perubahan {
+.kembali2 {
   color: #24893a;
   text-align: center;
   font-family: "Poppins-Regular", sans-serif;
@@ -215,10 +286,7 @@
   flex-shrink: 0;
   position: relative;
 }
-.simpan[disabled]{
-  background: #6a6a6a;
-}
-.simpan-perubahan {
+.simpan2 {
   color: #ffffff;
   text-align: center;
   font-family: "Poppins-Regular", sans-serif;
@@ -230,16 +298,16 @@
   justify-content: center;
 }
 .header {
-  background: #ffffff;
-  padding: 10px 25px 10px 25px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 76px;
-  position: fixed;
-  top: 0px;
+    background: #ffffff;
+    padding: 10px 25px 10px 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 76px;
+    position: fixed;
+    top: 0px;
 }
 .home {
   color: #101540;
@@ -256,10 +324,9 @@
 .data-sampah {
   color: #101540;
   text-align: center;
-  font-family: "Poppins-Bold", sans-serif;
+  font-family: "Poppins-Regular", sans-serif;
   font-size: 24px;
-  font-weight: 700;
-  text-decoration: underline;
+  font-weight: 400;
   position: relative;
   width: 179px;
   display: flex;
@@ -278,12 +345,13 @@
   align-items: center;
   justify-content: center;
 }
-.setoran-member {
+.setoran-member2 {
   color: #101540;
   text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
+  font-family: "Poppins-Bold", sans-serif;
   font-size: 24px;
-  font-weight: 400;
+  font-weight: 700;
+  text-decoration: underline;
   position: relative;
   width: 213px;
   display: flex;

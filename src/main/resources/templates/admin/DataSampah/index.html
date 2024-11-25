@@ -50,7 +50,10 @@
       <div class="fitur">
         <div class="search-bar">
           <img class="search" src="/images/admin/search0.svg"/>
-          <input type="text" id="searchSampah" name="searchSampah" placeholder="Cari Sampah">
+          <!-- Search nama SAMPAH -->
+          <form method="GET" th:action="@{/admin/DataSampah}">
+            <input type="text" name="filter" class="searchSampah" th:value="${filter}" placeholder="Cari Nama Sampah" input="this.form.submit()"/>
+          </form>
         </div>
       </div>
       <!-- INI BAGIAN HEADER TABLE -->
@@ -68,40 +71,35 @@
         </thead>
         <!-- INI BAGIAN ISI TABLE -->
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Contoh Nama</td>
-            <td>kg</td>
-            <td>Rp1.000</td>
-            <td>2024-11-21</td>
+          <tr th:each="sampah, stat : ${sampah}">
+            <td th:text="${stat.index + 1}"></td>
+            <td th:text="${sampah.nama}"></td>
+            <td th:text="${sampah.unit}"></td>
+            <td th:text="'Rp' + ${sampah.harga}"></td>
+            <td th:text="${#dates.format(sampah.tanggal_perubahan, 'dd/MM/yyyy')}"></td>
             <td>
-              <button class="edit-button">
-              <img class="edit-icon" src="/images/admin/edit2.svg" alt="Edit" th:onclick="'window.location.href=\'/admin/EditHarga\''"/>
-            </button></td>
+              <form class="edit-button" method="GET" th:action="@{/admin/EditHarga}">
+                <input type="hidden" name="id" th:value="${sampah.id_sampah}">
+                <button type="submit">
+                    <img class="edit-icon" src="/images/admin/edit2.svg" alt="Edit"/>
+                </button>
+              </form>
+            </td>            
           </tr>
-          <tr>
-            <td>1</td>
-            <td>Contoh Nama</td>
-            <td>kg</td>
-            <td>Rp1.000</td>
-            <td>2024-11-21</td>
-            <td>
-              <button class="edit-button">
-              <img class="edit-icon" src="/images/admin/edit2.svg" alt="Edit" />
-            </button></td>
-          </tr>
-        </tbody>
+        </tbody>        
       </table>
     </div>
   </div>
   <div class="header2">
-    <div class="home">Home</div>
-    <div class="data-sampah2">Data Sampah</div>
-    <div class="informasi-member">Informasi Member</div>
-    <div class="setoran-member">Setoran Member</div>
-    <div class="setoran-tpa">Setoran TPA</div>
-    <div class="storage">Storage</div>
-    <img class="logout" src="/images/admin/logout0.svg" />
+    <button class="home" th:onclick="'window.location.href=\'/admin/LandingPage\''">Home</button>
+    <button class="data-sampah2" th:onclick="'window.location.href=\'/admin/DataSampah\''">Data Sampah</button>
+    <button class="informasi-member">Informasi Member</button>
+    <button class="setoran-member">Setoran Member</button>
+    <button class="setoran-tpa" th:onclick="'window.location.href=\'/admin/SetoranTPA\''">Setoran TPA</button>
+    <button class="storage">Storage</button>
+    <button th:onclick="'window.location.href=\'/login\''">
+      <img class="logout" src="/images/admin/logout0.svg"/>
+    </button>
   </div>
 </body>
 </html>

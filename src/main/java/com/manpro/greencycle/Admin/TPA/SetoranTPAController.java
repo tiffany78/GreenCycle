@@ -2,12 +2,15 @@ package com.manpro.greencycle.Admin.TPA;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -54,7 +57,52 @@ public class SetoranTPAController {
     }
 
     @GetMapping("/TambahSetoranTPA")
-    public String tambahSetoranTPA() {
+    public String tambahSetoranTPA(Model model) {
+        List<TPA> list = this.repo.getAllTPA();
+        model.addAttribute("tpaList", list);
+
+        List<Storage> list2 = this.repo.getAllStorage();
+        model.addAttribute("storage", list2);
+        System.out.println(list2);
+
         return "admin/TambahSetoranTPA/index";
     }
+
+    @PostMapping("/TambahSetoranTPA")
+        public String tambahSetoranTPA2(
+        @ModelAttribute Storage storage,
+        Model model) {
+        System.out.println("Debug");
+        // int res = (int) model.getAttribute("id_sampah");
+        // System.out.println(res);
+
+        // for (int i = 0; i < idSampah.size(); i++) {
+        //     System.out.println("Baris " + (i + 1));
+        //     System.out.println("ID Sampah: " + idSampah.get(i));
+        //     System.out.println("Setoran: " + valueSetoran.get(i));
+        // }
+        return "redirect:/admin/SetoranTPA";
+    }
+
+    @PostMapping("/TambahSetoranTPA3")
+    public String tambahSetoranTPA3(@RequestParam Map<String, String> valueSetoran, Model model) {
+        String tpaValue = valueSetoran.get("tpaList");
+        int id_tpa = Integer.parseInt(tpaValue);
+        System.out.println(id_tpa);
+
+        valueSetoran.forEach((key, value) -> {
+            if(!key.equals("tpaList")){
+                int idSampah = key.charAt(13) - '0';
+                int setoran = Integer.parseInt(value);
+                if(setoran > 0){
+                    this.repo.addSetoranTPA(id_tpa, idSampah, setoran);
+                    System.out.println(idSampah + " " + setoran);
+                }
+            }
+        });
+
+        // Lakukan logika lain seperti penyimpanan ke database
+        return "redirect:/admin/SetoranTPA";
+    }
+
 }
