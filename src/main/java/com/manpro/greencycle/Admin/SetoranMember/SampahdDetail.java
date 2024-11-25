@@ -1,6 +1,6 @@
 package com.manpro.greencycle.Admin.SetoranMember;
 
-import java.time.LocalDateTime;
+import java.math.BigDecimal;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,9 +10,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SetoranMember {
-    private Long id;
-    private String nama;
-    private String subtotal;
-    private LocalDateTime tanggal;
+public class SampahdDetail {
+    private String namaSampah;
+    private int kuantitas;
+    private BigDecimal harga;
+    private BigDecimal totalHarga;
 }

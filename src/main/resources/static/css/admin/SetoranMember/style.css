@@ -130,8 +130,9 @@
   flex-shrink: 0;
   width: 305px;
   height: 104px;
-  position: relative;
+  position: fixed;
   overflow: hidden;
+  left: 80%;
 }
 
 .akhir {
@@ -314,7 +315,7 @@ input#searchSampah {
   border-style: solid;
   border-color: #000000;
   border-width: 0px 0px 1px 0px;
-  padding: 10px 25px 10px 25px;
+  padding: 10px 25px 10px 25px; 
   display: flex;
   flex-direction: row;
   gap: 1px;
@@ -388,4 +389,13 @@ button.edit-button {
 
 .rekapan .nominal {
   font-weight: bold;
+}
+.details-row td {
+  background-color: #f9f9f9;
+  border-top: 1px solid #ccc;
+  padding: 10px;
+}
+.detail-content {
+  font-size: 14px;
+  color: #333;
 }

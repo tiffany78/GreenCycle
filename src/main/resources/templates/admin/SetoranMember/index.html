@@ -47,7 +47,7 @@
     <div class="body">
       <div class="judul-page">
         <div class="setoran-sampah-member">Setoran Sampah Member</div>
-        <a href="/admin/SetoranMember/tambah" class="button">
+        <a href="/admin/SetoranMember/TambahSetoranMember" class="button">
           <img class="div" src="/images/admin/div0.svg" />
           <div class="tambah-setoran">Tambah Setoran</div>
         </a>
@@ -105,13 +105,18 @@
         </tbody>
       </table>
 
+      <table class="details-table" style="display:none">
+        <tbody id="details-body">
+        </tbody>
+      </table>
+
       <div class="rekapan">
         <div class="total">Total Pendapatan :</div>
         <div class="nominal" th:text="${totalPendapatan}"></div>
       </div>
-
     </div>
   </div>
+
   <div class="header2">
     <div class="home">Home</div>
     <div class="data-sampah">Data Sampah</div>
