@@ -62,18 +62,18 @@
         </div>
 
         <div class="filter-tgl">
-          <!-- TANGGAL AWAL -->
+          <!-- Tanggal awal -->
           <div class="awal">
             <div class="tanggal-awal">
               Tanggal Awal
-              <input type="date" name="tgl_awal" />
+              <input type="date" name="tgl_awal" th:value="${tgl_awal}" onchange="this.form.submit()" />
             </div>
           </div>
-          <!-- TANGGAL AKHIR -->
+          <!-- Tanggal Akhir -->
           <div class="akhir">
             <div class="tanggal-akhir">
               Tanggal Akhir
-              <input type="date" name="tgl_akhir" />
+              <input type="date" name="tgl_akhir" th:value="${tgl_akhir}" onchange="this.form.submit()" />
             </div>
           </div>
           <div class="filter-tanggal">Filter Tanggal</div>
