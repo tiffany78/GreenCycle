@@ -9,6 +9,7 @@ import com.manpro.greencycle.Admin.Sampah.Sampah;
 import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -26,7 +27,7 @@ public class SetoranMemberRepository {
                         p.nama AS member_name,
                         sm.id_member,
                         SUM(sm.kuantitas_sampah * s.harga) AS subtotal,  -- Menghitung subtotal berdasarkan harga sampah dan kuantitas
-                        sm.tgl_transaksi
+                        sm.tgl_transaksi AS tgl_transaksi
                     FROM SetoranMember sm
                     JOIN Pengguna p ON sm.id_member = p.id
                     JOIN Sampah s ON sm.id_sampah = s.id_sampah
@@ -42,7 +43,8 @@ public class SetoranMemberRepository {
             BigDecimal subtotal = rs.getBigDecimal("subtotal");
             setoranMember.setSubtotal(subtotal != null ? subtotal.toString() : "0.00");
 
-            setoranMember.setTanggal(rs.getTimestamp("tgl_transaksi").toLocalDateTime());
+            Date date = rs.getDate("tgl_transaksi");
+            setoranMember.setTanggal(date);
             return setoranMember;
         });
     }
@@ -82,7 +84,8 @@ public class SetoranMemberRepository {
             BigDecimal subtotal = rs.getBigDecimal("subtotal");
             setoranMember.setSubtotal(subtotal != null ? subtotal.toString() : "0.00");
     
-            setoranMember.setTanggal(rs.getTimestamp("tgl_transaksi").toLocalDateTime());
+            Date date = rs.getDate("tgl_transaksi");
+            setoranMember.setTanggal(date);
             return setoranMember;
         }, "%" + filter + "%");
     }

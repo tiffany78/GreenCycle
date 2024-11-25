@@ -130,9 +130,8 @@
   flex-shrink: 0;
   width: 305px;
   height: 104px;
-  position: fixed;
+  position: relative;
   overflow: hidden;
-  left: 80%;
 }
 
 .akhir {
@@ -152,13 +151,14 @@
 .tanggal-akhir {
   color: rgba(40, 40, 40, 0.5);
   text-align: left;
-  font-family: var(--tablet-body-body-2-font-family,
-      "Inter-Regular",
-      sans-serif);
+  font-family: var(
+    --tablet-body-body-2-font-family,
+    "Inter-Regular",
+    sans-serif
+  );
   font-size: var(--tablet-body-body-2-font-size, 14px);
   font-weight: var(--tablet-body-body-2-font-weight, 400);
   position: absolute;
-  left: 25px;
   top: 7px;
 }
 
@@ -187,7 +187,6 @@
   font-size: var(--tablet-body-body-2-font-size, 14px);
   font-weight: var(--tablet-body-body-2-font-weight, 400);
   position: absolute;
-  left: 25px;
   top: 7px;
 }
 
@@ -355,7 +354,6 @@ input#searchSampah {
 }
 
 /* INI CSS TABLE (sampai bawah) */
-
 .member-table {
   width: 100%;
   margin-top: 20px;
@@ -367,6 +365,15 @@ input#searchSampah {
   padding: 12px;
   text-align: center;
   border: 1px solid #ddd;
+}
+
+.member-table th {
+  background-color: #f4f4f4;
+  font-size: 18px;
+}
+
+.member-table tbody tr:hover {
+  background-color: #f1f1f1;
 }
 
 button.edit-button {

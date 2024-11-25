@@ -74,6 +74,6 @@ public class SetoranMemberController {
 
     @PostMapping("/TambahSetoranMember")
     public String tambahSetoranMember() {
-        return "redirect:/admin/SetoranMember/index";
+        return "redirect:/admin/SetoranMember";
     }
 }

@@ -43,8 +43,8 @@
       <div class="judul-page">
         <div class="tambah-setoran-member">Tambah Setoran Member</div>
       </div>
-      <div class="input-tambah-setoran">
-        <form class="input-member-dan-jenis-sampah" method="POST" th:action="@{/admin/SetoranMember/TambahSetoranMember}">
+      <form class="input-tambah-setoran" method="POST" th:action="@{/admin/SetoranMember/TambahSetoranMember}">
+        <div class="input-member-dan-jenis-sampah">
           <div class="sampah">
             <div class="sampah2">Member</div>
             <select class="frame" id="memberList" name="memberList" required>
@@ -64,7 +64,7 @@
           <!-- <button class="button">
             <div class="tambah-sampah">Tambah Sampah</div>
           </button> -->
-        </form>
+        </div>
         <div class="setoran-member">List Setoran Member</div>
         <!-- BAGIAN TABLE SETORAN SAMPAH -->
         <table class="data-table">
@@ -92,18 +92,14 @@
             </tbody>
           </table>
         <div class="button2">
-          <div href class="kembali">
-            <a href="STMember">
+          <a href class="kembali" th:href="@{/admin/SetoranMember}">
             <div class="kembali2">Kembali</div>
-            </a>
-          </div>
-          <div class="simpan">
-            <a href="STMember">
+          </a>
+          <button class="simpan" type="submit">
             <div class="simpan2">Simpan</div>
-            </a>
-          </div>
+          </button>
         </div>
-      </div>
+      </form>
     </div>
     <div class="header">
       <div class="home">Home</div>
