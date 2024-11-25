@@ -43,7 +43,16 @@ public class SetoranTPAController {
     }
 
     @GetMapping("/RekapanSetoran")
-    public String rekapanSetoran() {
+    public String rekapanSetoran(@RequestParam(value = "filter", required = false) String filter,
+            @RequestParam(value = "tgl_awal", required = false) LocalDate tgl_awal,
+            @RequestParam(value = "tgl_akhir", required = false) LocalDate tgl_akhir,
+            Model model) {
+
+        model.addAttribute("filter", filter);
+        model.addAttribute("tgl_awal", tgl_awal);
+        model.addAttribute("tgl_akhir", tgl_akhir);
+        model.addAttribute("rekapanSetoranList", repo.getAllRekapanSetoran(filter, tgl_awal, tgl_akhir));
+        
         return "admin/RekapanSetoran/index";
     }
 

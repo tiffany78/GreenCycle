@@ -42,6 +42,38 @@ public class JdbcSetoranTPARepository implements SetoranTPARepository {
         return jdbcTemplate.query(sql, this::mapRowToSampahDetail, setoranId);
     }
 
+    @Override
+    public List<SampahDetail> getAllRekapanSetoran(String filter, LocalDate tgl_awal, LocalDate tgl_akhir) {
+        String sql = "SELECT sampah, unit, SUM(kuantitas) AS sum_kuantitas FROM setoran_pusat_view WHERE 1=1";
+        List<Object> params = new ArrayList<>();
+    
+        if (filter != null && !filter.isEmpty()) {
+            sql += " AND sampah ILIKE ?";
+            params.add("%" + filter + "%");
+        }
+        if (tgl_awal != null) {
+            sql += " AND tanggal >= ?";
+            params.add(tgl_awal);
+        }
+        if (tgl_akhir != null) {
+            sql += " AND tanggal <= ?";
+            params.add(tgl_akhir);
+        }
+        
+        // Fix GROUP BY
+        sql += " GROUP BY sampah, unit";
+    
+        return jdbcTemplate.query(sql, this::mapRowToRekapanSetoran, params.toArray());
+    }
+    
+    private SampahDetail mapRowToRekapanSetoran(ResultSet resultSet, int rowNum)throws SQLException {
+        return new SampahDetail(
+            resultSet.getString("sampah"),
+            resultSet.getInt("sum_kuantitas"),
+            resultSet.getString("unit")
+        );
+    }
+
     private SetoranTPA mapRowToSetoranTPA(ResultSet resultSet, int rowNum)throws SQLException {
         return new SetoranTPA(
             resultSet.getInt("id"),

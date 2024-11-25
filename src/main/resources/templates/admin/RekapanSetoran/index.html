@@ -7,7 +7,9 @@
   <link rel="stylesheet" href="/css/admin/RekapanSetoran/style.css">
   <link rel="stylesheet" href="/css/admin/RekapanSetoran/vars.css">
   
-  
+  <!--JS utk search -->
+  <script src="/js/admin/RekapanSetoran/scripts.js" defer></script>
+
   <style>
    a,
    button,
@@ -40,39 +42,62 @@
 <body>
   <div class="html-a-rekapan-setoran">
     <div class="body">
+
       <div class="judul-page">
         <div class="rekapan-setoran">Rekapan Setoran</div>
+        <button class="button">
+          <div class="kembali" th:onclick="'window.location.href=\'/admin/SetoranTPA\''">
+            <div class="kembali2">Kembali</div>
+          </div>
+        </button>
       </div>
-      <div class="fitur">
+
+      <!-- FILTER-FILTER -->
+      <form method="GET" action="/admin/RekapanSetoran" id="filterForm" class="fitur">
         <div class="search-bar">
-          <img class="search" src="search0.svg" />
+            <img class="search" src="/images/admin/search0.svg" />
+            <!-- Search nama TPA -->
+            <input id= "filterInput" type="text" name="filter" class="frame" th:value="${filter}" placeholder="Cari Jenis Sampah"/>
         </div>
-        <div class="filter-tgl">
-          <div class="akhir">
-            <div class="tanggal-akhir">Tanggal Akhir</div>
-          </div>
-          <div class="awal">
-            <div class="tanggal-awal">Tanggal Awal</div>
-          </div>
-          <div class="filter-tanggal">Filter Tanggal</div>
-        </div>
+      
+      <div class="filter-tgl">
+            <!-- Tanggal awal -->
+            <div class="awal">
+                <div class="tanggal-awal">
+                    Tanggal Awal
+                    <input type="date" name="tgl_awal" th:value="${tgl_awal}" onchange="this.form.submit()" />
+                </div>
+            </div>
+            <!-- Tanggal Akhir -->
+            <div class="akhir">
+                <div class="tanggal-akhir">
+                    Tanggal Akhir
+                    <input type="date" name="tgl_akhir" th:value="${tgl_akhir}" onchange="this.form.submit()" />
+                </div>
+            </div>
+        <div class="filter-tanggal">Filter Tanggal</div>
       </div>
-      <div class="header">
-        <div class="jenis-sampah">Jenis Sampah</div>
-        <div class="kuantitas">Kuantitas</div>
-        <div class="satuan">Satuan</div>
-      </div>
-      <div class="isi-setoran-sampah">
-        <div class="kaleng">Kaleng</div>
-        <div class="_3">3</div>
-        <div class="kg">kg</div>
-      </div>
-      <div class="isi-setoran-sampah">
-        <div class="kaca">Kaca</div>
-        <div class="_3">3</div>
-        <div class="kg">kg</div>
-      </div>
-    </div>
+    </form>
+
+    <table class="rekap-table">
+      <thead>
+        <tr>
+          <th>Jenis Sampah</th>
+          <th>Kuantitas</th>
+          <th>Satuan</th>
+        </tr>
+      </thead>
+
+      <!-- INI BAGIAN ISI TABLE -->
+      <tbody>
+        <tr th:each="setoran : ${rekapanSetoranList}">
+          <td th:text="${setoran.jenis_sampah}"></td>
+          <td th:text="${setoran.jumlah}"></td>
+          <td th:text="${setoran.satuan}"></td>
+        </tr>
+      </tbody>
+    </table>
+
     <div class="header2">
       <div class="home">Home</div>
       <div class="data-sampah">Data Sampah</div>
@@ -80,7 +105,7 @@
       <div class="setoran-member">Setoran Member</div>
       <div class="setoran-tpa">Setoran TPA</div>
       <div class="storage">Storage</div>
-      <img class="logout" src="logout0.svg" />
+      <img class="logout" src="/images/admin/logout0.svg" />
     </div>
   </div>
   
