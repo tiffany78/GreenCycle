@@ -57,8 +57,8 @@
       <form method="GET" action="/admin/SetoranMember" id="filterForm" class="fitur">
         <div class="search-bar">
           <img class="search" src="/images/admin/search0.svg" />
-          <!-- Search nama member -->
-          <input id="filterInput" type="text" name="filter" class="frame" th:value="${filter}" placeholder="Cari Nama Member" />
+          <!-- Search nama Member -->
+          <input id="filterInput" type="text" name="filter" class="frame" th:value="${filter}" placeholder="Cari Nama Member" input="this.form.submit()"/>
         </div>
         <div class="filter-tgl">
           <!-- Tanggal awal -->
@@ -96,7 +96,7 @@
             <td th:text="'Rp' + ${setoran.subtotal}"></td>
             <td th:text="${#dates.format(setoran.tanggal, 'dd/MM/yyyy')}"></td>
             <td>
-              <button class="edit-button" th:data-id="${setoran.id}">
+              <button class="edit-button" th:data-id="${setoran.id} + '|' + ${setoran.tanggal}">
                 <img class="edit-icon" src="/images/admin/detail1.svg" alt="Edit">
               </button>
             </td>
@@ -109,7 +109,7 @@
         </tbody>
       </table>
 
-      <div class="rekapan">
+      <div class="rekapan" style="display: none;">
         <div class="total">Total Pendapatan :</div>
         <div class="nominal" th:text="${totalPendapatan}"></div>
       </div>
@@ -117,13 +117,15 @@
   </div>
 
   <div class="header2">
-    <div class="home">Home</div>
-    <div class="data-sampah">Data Sampah</div>
-    <div class="informasi-member">Informasi Member</div>
-    <div class="setoran-member">Setoran Member</div>
-    <div class="setoran-tpa">Setoran TPA</div>
-    <div class="storage">Storage</div>
-    <img class="logout" src="/images/admin/logout0.svg" />
+    <button class="home" th:onclick="'window.location.href=\'/admin/LandingPage\''">Home</button>
+    <button class="data-sampah2" th:onclick="'window.location.href=\'/admin/DataSampah\''">Data Sampah</button>
+    <button class="informasi-member" th:onclick="'window.location.href=\'/admin/InformasiMember\''">Informasi Member</button>
+    <button class="setoran-member">Setoran Member</button>
+    <button class="setoran-tpa" th:onclick="'window.location.href=\'/admin/SetoranTPA\''">Setoran TPA</button>
+    <button class="storage" th:onclick="'window.location.href=\'/admin/Storage\''">Storage</button>
+    <button th:onclick="'window.location.href=\'/login\''">
+      <img class="logout" src="/images/admin/logout0.svg" />
+    </button>
   </div>
   </div>
 </body>
