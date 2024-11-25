@@ -41,6 +41,11 @@ public class SampahImplementation implements SampahRepository{
 
         String sql = "INSERT INTO sampah (nama, unit, harga, tanggal_perubahan) VALUES (?, ?, ?, ?)";
         jdbcTemplate.update(sql, nama, unit, harga, currDate);
+
+        List<Sampah> list = filterSampah(nama);
+        int id_sampah = list.get(0).getId_sampah();
+        sql = "INSERT INTO storage VALUES (?, ?)";
+        jdbcTemplate.update(sql, id_sampah, 0);
     }
 
     @Override

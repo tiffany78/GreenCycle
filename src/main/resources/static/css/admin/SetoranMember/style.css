@@ -18,10 +18,11 @@
   gap: 10px;
   align-items: center;
   justify-content: flex-start;
-  width: 100%;
   height: 891px;
   position: absolute;
   top: 98px;
+  left: 20px;
+  right: 20px;
 }
 
 .judul-page {
