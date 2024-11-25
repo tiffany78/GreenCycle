@@ -45,18 +45,21 @@
         background: url(/images/admin/section0.png) center;
         background-size: cover;
         background-repeat: no-repeat;
-      "
-    >
-      <div class="hello-ferdinand">Hello, Ferdinand!</div>
+      ">
+      <div class="hello-ferdinand">
+        <span>Hello, </span><span th:text="${session.username}">Admin</span>!
+      </div>
     </div>
     <div class="header">
       <button class="home" th:onclick="'window.location.href=\'/admin/LandingPage\''">Home</button>
       <button class="data-sampah" th:onclick="'window.location.href=\'/admin/DataSampah\''">Data Sampah</button>
       <button class="informasi-member">Informasi Member</button>
       <button class="setoran-member">Setoran Member</button>
-      <button class="setoran-tpa">Setoran TPA</button>
+      <button class="setoran-tpa" th:onclick="'window.location.href=\'/admin/SetoranTPA\''">Setoran TPA</button>
       <button class="storage">Storage</button>
-      <img class="logout" src="/images/admin/logout0.svg" />
+      <button th:onclick="'window.location.href=\'/login\''">
+        <img class="logout" src="/images/admin/logout0.svg"/>
+      </button>
     </div>
   </div>
   

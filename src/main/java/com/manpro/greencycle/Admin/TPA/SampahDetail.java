@@ -7,6 +7,6 @@ import lombok.Data;
 @Data
 public class SampahDetail {
     private String jenis_sampah;  
-    private double jumlah; 
+    private int jumlah; 
     private String satuan;
 }
