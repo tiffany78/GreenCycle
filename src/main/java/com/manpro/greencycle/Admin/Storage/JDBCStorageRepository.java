@@ -9,11 +9,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class JDBCStorageRepository implements StorageRepository{
+public class JDBCStorageRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    @Override
     public List<Storage> findAll(){
         String sql = "SELECT * FROM storage_view";
         return jdbcTemplate.query(sql, this::mapRowToStorage);
@@ -27,14 +26,12 @@ public class JDBCStorageRepository implements StorageRepository{
         );
     }
 
-    @Override
     public List<Storage> findWithFilter(String filter){
         String sql = "SELECT * FROM storage_view WHERE sampah ILIKE ?";
         return jdbcTemplate.query(sql, this::mapRowToStorage, "%"+filter+"%");
     }
 
-    @Override
-    public List<RekapSampah> rekapSampah(){
+    public List<RekapSampah> rekapSampah(String filter){
         String sql = "SELECT unit, SUM(kapasitas)\n" +
                     "FROM storage_view\n" +
                     "GROUP BY unit;";
@@ -45,6 +42,6 @@ public class JDBCStorageRepository implements StorageRepository{
         return new RekapSampah(
             resultSet.getString("unit"), 
             resultSet.getInt("sum")
-        );
+            );
     }
 }
