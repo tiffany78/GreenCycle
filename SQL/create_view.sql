@@ -38,3 +38,13 @@ SELECT
 FROM
 	storage
 	JOIN sampah ON sampah.id_sampah = storage.id_sampah;
+
+-- CREATE LOGIN
+CREATE VIEW login_view AS 
+SELECT 
+    pengguna.email AS email,
+    pengguna.password AS password,
+    pengguna.peran AS peran,
+    pengguna.nama AS nama
+FROM 
+    pengguna
