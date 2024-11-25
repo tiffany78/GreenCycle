@@ -4,10 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
   
     editButtons.forEach(button => {
       button.addEventListener('click', (event) => {
-        const setoranId = event.target.closest('button').getAttribute('data-id');  // Get setoran ID from button
+        const setoranId = button.getAttribute('data-id');  // Get setoran ID from button
         toggleSetoranDetails(event.target.closest('tr'), setoranId);  // Call the function to toggle details
       });
     });
+    document.getElementById('filterInput').addEventListener('keydown', function (event) {
+      if (event.key === 'Enter') {
+          event.preventDefault();
+          document.getElementById('filterForm').submit();
+      }
+  });
   });
   
   // Function to toggle setoran details
@@ -19,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
       existingDetailsRow.remove();
       return;
     }
-  
+    console.log(setoranId)
     // Fetch the setoran details from the server
     fetch(`/admin/SetoranMember/SetoranMember/details/${setoranId}`)
       .then(response => response.json())
