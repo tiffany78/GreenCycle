@@ -55,3 +55,12 @@ FROM
     JOIN kelurahan ON kelurahan.id_kelurahan = pengguna.id_kelurahan
     JOIN kecamatan ON kecamatan.id_kecamatan = kelurahan.id_kecamatan
 	LEFT JOIN setoranmember ON setoranmember.id_member = pengguna.id
+-- CREATE LOGIN
+CREATE VIEW login_view AS 
+SELECT 
+    pengguna.email AS email,
+    pengguna.password AS password,
+    pengguna.peran AS peran,
+    pengguna.nama AS nama
+FROM 
+    pengguna

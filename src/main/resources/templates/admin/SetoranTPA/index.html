@@ -1,52 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/admin/SetoranTPA/style.css">
   <link rel="stylesheet" href="/css/admin/SetoranTPA/vars.css">
-  
+
   <!--JS utk search & tombol detail-->
   <script src="/js/admin/SetoranTPA/scripts.js" defer></script>
 
   <style>
-   a,
-   button,
-   input,
-   select,
-   h1,
-   h2,
-   h3,
-   h4,
-   h5,
-   * {
-       box-sizing: border-box;
-       margin: 0;
-       padding: 0;
-       border: none;
-       text-decoration: none;
-       background: none;
-   
-       -webkit-font-smoothing: antialiased;
-   }
-   
-   menu, ol, ul {
-       list-style-type: none;
-       margin: 0;
-       padding: 0;
-   }
-   </style>
-   
+    a,
+    button,
+    input,
+    select,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      border: none;
+      text-decoration: none;
+      background: none;
+
+      -webkit-font-smoothing: antialiased;
+    }
+
+    menu,
+    ol,
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+
   <title>Setoran TPA</title>
 </head>
+
 <body>
   <div class="html-a-setoran-tpa-1">
     <div class="body">
       <div class="judul-page">
         <div class="setoran-sampah-tpa">Setoran Sampah TPA</div>
         <button class="button">
-          <div class="rekapan"  th:onclick="'window.location.href=\'/admin/RekapanSetoran\''">
+          <div class="rekapan" th:onclick="'window.location.href=\'/admin/RekapanSetoran\''">
             <img class="div" src="/images/admin/file0.svg" />
             <div class="rekapan-setoran">Rekapan Setoran</div>
           </div>
@@ -57,32 +61,33 @@
         </button>
       </div>
 
-   <!-- FILTER-FILTER -->
-    <form method="GET" action="/admin/SetoranTPA" id="filterForm" class="fitur">
-      <div class="search-bar">
+      <!-- FILTER-FILTER -->
+      <form method="GET" action="/admin/SetoranTPA" id="filterForm" class="fitur">
+        <div class="search-bar">
           <img class="search" src="/images/admin/search0.svg" />
           <!-- Search nama TPA -->
-          <input id= "filterInput" type="text" name="filter" class="frame" th:value="${filter}" placeholder="Cari Nama TPA"/>
-      </div>
-    
-    <div class="filter-tgl">
+          <input id="filterInput" type="text" name="filter" class="frame" th:value="${filter}"
+            placeholder="Cari Nama TPA" />
+        </div>
+
+        <div class="filter-tgl">
           <!-- Tanggal awal -->
           <div class="awal">
-              <div class="tanggal-awal">
-                  Tanggal Awal
-                  <input type="date" name="tgl_awal" th:value="${tgl_awal}" onchange="this.form.submit()" />
-              </div>
+            <div class="tanggal-awal">
+              Tanggal Awal
+              <input type="date" name="tgl_awal" th:value="${tgl_awal}" onchange="this.form.submit()" />
+            </div>
           </div>
           <!-- Tanggal Akhir -->
           <div class="akhir">
-              <div class="tanggal-akhir">
-                  Tanggal Akhir
-                  <input type="date" name="tgl_akhir" th:value="${tgl_akhir}" onchange="this.form.submit()" />
-              </div>
+            <div class="tanggal-akhir">
+              Tanggal Akhir
+              <input type="date" name="tgl_akhir" th:value="${tgl_akhir}" onchange="this.form.submit()" />
+            </div>
           </div>
-      <div class="filter-tanggal">Filter Tanggal</div>
-    </div>
-  </form>
+          <div class="filter-tanggal">Filter Tanggal</div>
+        </div>
+      </form>
 
       <table class="tpa-table">
         <thead>
@@ -102,7 +107,7 @@
             <td th:text="${#dates.format(setoran.tanggal, 'dd/MM/yyyy')}"></td>
             <td>
               <button class="detail-button" th:data-id="${setoran.id}">
-                <img class="detail" src="/images/admin/detail0.svg"/>
+                <img class="detail" src="/images/admin/detail0.svg" />
               </button>
             </td>
           </tr>
@@ -118,17 +123,16 @@
 
     </div>
     <div class="header2">
-      <div class="home" th:onclick="'window.location.href=\'/admin/LandingPage\''">Home</div>
-      <div class="data-sampah" th:onclick="'window.location.href=\'/admin/DataSampah\''">Data Sampah</div>
-      <div class="informasi-member">Informasi Member</div>
-      <div class="setoran-member">Setoran Member</div>
-      <div class="setoran-tpa">Setoran TPA</div>
-      <div class="storage">Storage</div>
-      <img class="logout" src="/images/admin/logout0.svg" />
+      <button class="home" th:onclick="'window.location.href=\'/admin/LandingPage\''">Home</button>
+      <button class="data-sampah" th:onclick="'window.location.href=\'/admin/DataSampah\''">Data Sampah</button>
+      <button class="informasi-member">Informasi Member</button>
+      <button class="setoran-member">Setoran Member</button>
+      <button class="setoran-tpa" th:onclick="'window.location.href=\'/admin/SetoranTPA\''">Setoran TPA</button>
+      <button class="storage">Storage</button>
+      <button th:onclick="'window.location.href=\'/login\''">
+        <img class="logout" src="/images/admin/logout0.svg"/>
+      </button>
     </div>
   </div>
-  
-
-  
 </body>
 </html>

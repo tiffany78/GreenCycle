@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/css/admin/SetoranMember/style.css">
   <link rel="stylesheet" href="/css/admin/SetoranMember/vars.css">
 
+  <script src="/js/admin/SetoranMember/scripts.js" defer></script>
 
   <style>
     a,
@@ -26,7 +27,6 @@
       border: none;
       text-decoration: none;
       background: none;
-
       -webkit-font-smoothing: antialiased;
     }
 
@@ -38,6 +38,7 @@
       padding: 0;
     }
   </style>
+
   <title>Setoran Sampah Member</title>
 </head>
 
@@ -46,31 +47,40 @@
     <div class="body">
       <div class="judul-page">
         <div class="setoran-sampah-member">Setoran Sampah Member</div>
-        <a href="TSMember" class="button">
+        <a href="/admin/SetoranMember/TambahSetoranMember" class="button">
           <img class="div" src="/images/admin/div0.svg" />
           <div class="tambah-setoran">Tambah Setoran</div>
         </a>
       </div>
-      <div class="fitur">
+
+      <!-- FILTER -->
+      <form method="GET" action="/admin/SetoranMember" id="filterForm" class="fitur">
         <div class="search-bar">
           <img class="search" src="/images/admin/search0.svg" />
-          <input type="text" id="searchSampah" name="CariMember" placeholder="">
+          <!-- Search nama member -->
+          <input id="filterInput" type="text" name="filter" class="frame" placeholder="Cari Nama Member" />
         </div>
-        <div class="filter-tanggal">
-          <div>
-            <label for="tanggalAwal">Tanggal Awal</label>
-            <input type="date" id="tanggalAwal" placeholder="Tanggal Awal">
-          </div>
-          <div>
-            <label for="tanggalAkhir">Tanggal Akhir</label>
-            <input type="date" id="tanggalAkhir" placeholder="Tanggal Akhir">
-          </div>
-        </div>
-      </div>
 
-      <!-- INI BAGIAN HEADER TABLE -->
-      <!-- css nya ada di paling bawah yaa -->
-      <table class="data-table">
+        <div class="filter-tgl">
+          <!-- TANGGAL AWAL -->
+          <div class="awal">
+            <div class="tanggal-awal">
+              Tanggal Awal
+              <input type="date" name="tgl_awal" />
+            </div>
+          </div>
+          <!-- TANGGAL AKHIR -->
+          <div class="akhir">
+            <div class="tanggal-akhir">
+              Tanggal Akhir
+              <input type="date" name="tgl_akhir" />
+            </div>
+          </div>
+          <div class="filter-tanggal">Filter Tanggal</div>
+        </div>
+      </form>
+
+      <table class="member-table">
         <thead>
           <tr>
             <th>ID</th>
@@ -80,64 +90,43 @@
             <th>Detail</th>
           </tr>
         </thead>
-        <!-- INI BAGIAN ISI TABLE -->
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Contoh Nama</td>
-            <td>Rp1.000</td>
-            <td>2024-11-21</td>
+          <tr th:each="setoran : ${setoranList}">
+            <td th:text="${setoran.id}"></td>
+            <td th:text="${setoran.nama}"></td>
+            <td th:text="${setoran.subtotal}"></td>
+            <td th:text="${setoran.tanggal}"></td>
             <td>
-              <button class="edit-button">
-                <img class="edit-icon" src="/images/admin/detail1.svg" alt="Edit" />
+              <button class="edit-button" th:data-id="${setoran.id}">
+                <img class="edit-icon" src="/images/admin/detail1.svg" alt="Edit">
               </button>
-            </td>
-          </tr>
-          <tr class="detail-row" id="detail-row-1">
-            <td colspan="5">
-              <ul id="detail-list-1"></ul>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Contoh Nama</td>
-            <td>Rp1.000</td>
-            <td>2024-11-21</td>
-            <td>
-              <button class="edit-button">
-                <img class="edit-icon" src="/images/admin/detail1.svg" alt="Edit" />
-              </button>
-            </td>
-          </tr>
-          <tr class="detail-row" id="detail-row-2">
-            <td colspan="5">
-              <ul id="detail-list-2"></ul>
             </td>
           </tr>
         </tbody>
       </table>
 
-      <!-- Total Pendapatan -->
+      <table class="details-table" style="display:none">
+        <tbody id="details-body">
+        </tbody>
+      </table>
+
       <div class="rekapan">
         <div class="total">Total Pendapatan :</div>
-        <div class="nominal">Rp44.000</div>
+        <div class="nominal" th:text="${totalPendapatan}"></div>
       </div>
-
     </div>
   </div>
+
   <div class="header2">
     <div class="home">Home</div>
-    <div class="data-sampah2">Data Sampah</div>
+    <div class="data-sampah">Data Sampah</div>
     <div class="informasi-member">Informasi Member</div>
     <div class="setoran-member">Setoran Member</div>
     <div class="setoran-tpa">Setoran TPA</div>
     <div class="storage">Storage</div>
     <img class="logout" src="/images/admin/logout0.svg" />
   </div>
-  <div class="total-pendapatan">
-    Total Pendapatan: <span>Rp0</span>
   </div>
-  <script src="/js/SetoranMember/scripts.js"></script>
 </body>
 
 </html>
