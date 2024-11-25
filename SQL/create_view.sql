@@ -39,6 +39,22 @@ FROM
 	storage
 	JOIN sampah ON sampah.id_sampah = storage.id_sampah;
 
+-- CREATE VIEW PENGGUNA
+CREATE VIEW pengguna_view AS
+SELECT
+    pengguna.id AS id,
+    pengguna.nama AS nama,
+    pengguna.no_telp AS no_telp,
+    pengguna.alamat AS alamat,
+    kelurahan.nama AS kelurahan,
+    kecamatan.nama AS kecamatan,
+	setoranmember.id_sampah,
+	setoranmember.kuantitas_sampah
+FROM
+    pengguna
+    JOIN kelurahan ON kelurahan.id_kelurahan = pengguna.id_kelurahan
+    JOIN kecamatan ON kecamatan.id_kecamatan = kelurahan.id_kecamatan
+	LEFT JOIN setoranmember ON setoranmember.id_member = pengguna.id
 -- CREATE LOGIN
 CREATE VIEW login_view AS 
 SELECT 
