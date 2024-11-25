@@ -120,11 +120,11 @@ VALUES
 
 INSERT INTO Storage (id_sampah, kapasitas)
 VALUES
-	(1, 0),
-	(2, 0),
-	(3, 0),
+	(1, 5),
+	(2, 7),
+	(3, 5),
 	(4, 1),
-	(5, 0);
+	(5, 2);
 
 INSERT INTO Pengguna (nama, email, username, password, peran, no_telp, alamat, id_kelurahan)
 VALUES
