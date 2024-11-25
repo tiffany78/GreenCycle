@@ -184,7 +184,7 @@
   font-size: var(--tablet-body-body-2-font-size, 14px);
   font-weight: var(--tablet-body-body-2-font-weight, 400);
   position: absolute;
-  left: 25px;
+  left: 15px;
   top: 7px;
 }
 .awal {
@@ -211,7 +211,7 @@
   font-size: var(--tablet-body-body-2-font-size, 14px);
   font-weight: var(--tablet-body-body-2-font-weight, 400);
   position: absolute;
-  left: 25px;
+  left: 15px;
   top: 7px;
 }
 .filter-tanggal {
@@ -343,6 +343,7 @@
   height: 50px;
   position: relative;
   padding-left: 10px;
+  padding-right: 20px;
 }
 .setoran-tpa {
   color: #101540;
