@@ -76,6 +76,13 @@
           </tr>
         </tbody>
       </table>
+
+      <table class="rekap-member"  th:if="${filter == ''}">
+        <tbody>
+          <td>Total member:</td>
+          <td th:text="${jmlMember} + ' orang'"></td>
+        </tbody>
+      </table>
     </div>
 
     <!-- HEADER HTML -->
@@ -83,10 +90,10 @@
       <button class="home" th:onclick="'window.location.href=\'/admin/LandingPage\''">Home</button>
       <button class="data-sampah" th:onclick="'window.location.href=\'/admin/DataSampah\''">Data Sampah</button>
       <button class="informasi-member">Informasi Member</button>
-      <button class="setoran-member" th:onclick="'window.location.href=\'/admin/STMember\''">Setoran Member</button>
+      <button class="setoran-member" th:onclick="'window.location.href=\'/admin/SetoranMember\''">Setoran Member</button>
       <button class="setoran-tpa" th:onclick="'window.location.href=\'/admin/SetoranTPA\''">Setoran TPA</button>
       <button class="storage" th:onclick="'window.location.href=\'/admin/Storage\''">Storage</button>
-      <button><img class="logout" src="/images/admin/logout0.svg"/></button>
+      <button th:onclick="'window.location.href=\'/login\''"><img class="logout" src="/images/admin/logout0.svg"/></button>
     </div>
   </div>
   

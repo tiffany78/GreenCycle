@@ -88,6 +88,11 @@
   position: relative;
   overflow: visible;
 }
+.search-member{
+  width: 420px;
+  height: 30px;
+  padding-left: 5px;
+}
 
 /* Table Data Member CSS */
 .member-table {
@@ -112,6 +117,22 @@
 
 .member-table tbody tr:hover {
   background-color: #f1f1f1;
+}
+
+/* TABLE REKAP CSS */
+.rekap-member{
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+.rekap-member td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: #62804B;
+  color : white;
+  font-weight: bold;
 }
 
 /* CSS UNTUK HEADER */

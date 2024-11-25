@@ -40,4 +40,21 @@ public class JDBCMemberRepository {
             resultSet.getInt("jml_setoran")
         );
     }
+
+    public List<Member> findWithFilter(String filter){
+        String sql = "SELECT \n" + 
+                        "\tid,\n" + 
+                        "\tnama,\n" + 
+                        "\tno_telp,\n" + 
+                        "\talamat,\n" + 
+                        "\tkelurahan,\n" + 
+                        "\tkecamatan, \n" + 
+                        "\tCOALESCE(COUNT(id_sampah), 0) AS jml_setoran\n" + 
+                        "FROM\n" + 
+                        "\tpengguna_view\n" +
+                        "WHERE nama ILIKE ?\n" + 
+                        "GROUP BY id,nama,no_telp,alamat,kelurahan,kecamatan\n" + 
+                        "ORDER BY id ASC";
+        return jdbcTemplate.query(sql, this::mapRowToMember, "%"+filter+"%");
+    }
 }

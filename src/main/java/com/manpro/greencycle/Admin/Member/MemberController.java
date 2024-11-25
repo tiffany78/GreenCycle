@@ -20,8 +20,18 @@ public class MemberController {
     public String setoranSampah(Model model,
             @RequestParam(defaultValue = "", required = false) String filter) {
         
-        List<Member> memberList = memberRepository.findAll();
+        List<Member> memberList = null;
+        
+        if(filter.length() == 0){
+            memberList = memberRepository.findAll();
+            model.addAttribute("jmlMember", memberList.size());
+        }
+        else{
+            memberList = memberRepository.findWithFilter(filter);
+        }
+
         model.addAttribute("members", memberList);
+        model.addAttribute("filter", filter);
         return "admin/InformasiMember/index";
     }
 }
