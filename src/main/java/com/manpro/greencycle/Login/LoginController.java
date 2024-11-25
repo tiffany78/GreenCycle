@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/login")
 public class LoginController {
@@ -42,18 +44,19 @@ public class LoginController {
     public String validation(
         @RequestParam("email") String email,
         @RequestParam("password") String password,
-        Model model) {
+        Model model, HttpSession session) {
+
         List<LoginPengguna> pengguna = findPengguna(email);
+
         if (pengguna.isEmpty()) {
-            model.addAttribute("error", "Email tidak ditemukan");
             return "Login/index";
         } else {
             String realPassword = pengguna.get(0).getPassword();
-            if (realPassword.equals(password)) {
-                System.out.println("Login berhasil");
-                return "redirect:/admin/DataSampah";
+            if (realPassword.equals(password) && pengguna.get(0).getPeran().equals("admin")) {
+                // Simpan nama pengguna dalam session
+                session.setAttribute("username", pengguna.get(0).getNama());
+                return "redirect:/admin/LandingPage";
             } else {
-                model.addAttribute("error", "Password salah");
                 return "Login/index";
             }
         }

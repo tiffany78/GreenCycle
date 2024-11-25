@@ -1,19 +1,19 @@
 function showPopup(message) {
     const popup = document.getElementById("popup");
     const messageElement = document.getElementById("popup-message");
-    messageElement.textContent = message; // Set error message
-    popup.style.display = "flex"; // Show pop-up
+    messageElement.textContent = message;
+    popup.style.display = "flex";
 }
 
 function closePopup() {
     const popup = document.getElementById("popup");
-    popup.style.display = "none"; // Hide pop-up
+    popup.style.display = "none";
 }
 
-// Cek apakah ada pesan error dari backend
 document.addEventListener("DOMContentLoaded", function () {
-    const error = /*[[${error != null} ? '${error}' : '']]*/ '';
-    if (error) {
-        showPopup(error); // Panggil fungsi pop-up
+    const error = /*[[${error}]]*/ ''; // Thymeleaf mengisi value ini
+    console.log("Error from backend:", error); // Debugging
+    if (error.trim() !== '') {
+        showPopup(error);
     }
 });

@@ -118,17 +118,16 @@
 
     </div>
     <div class="header2">
-      <div class="home" th:onclick="'window.location.href=\'/admin/LandingPage\''">Home</div>
-      <div class="data-sampah" th:onclick="'window.location.href=\'/admin/DataSampah\''">Data Sampah</div>
-      <div class="informasi-member">Informasi Member</div>
-      <div class="setoran-member">Setoran Member</div>
-      <div class="setoran-tpa">Setoran TPA</div>
-      <div class="storage">Storage</div>
-      <img class="logout" src="/images/admin/logout0.svg" />
+      <button class="home" th:onclick="'window.location.href=\'/admin/LandingPage\''">Home</button>
+      <button class="data-sampah" th:onclick="'window.location.href=\'/admin/DataSampah\''">Data Sampah</button>
+      <button class="informasi-member">Informasi Member</button>
+      <button class="setoran-member">Setoran Member</button>
+      <button class="setoran-tpa" th:onclick="'window.location.href=\'/admin/SetoranTPA\''">Setoran TPA</button>
+      <button class="storage">Storage</button>
+      <button th:onclick="'window.location.href=\'/login\''">
+        <img class="logout" src="/images/admin/logout0.svg"/>
+      </button>
     </div>
   </div>
-  
-
-  
 </body>
 </html>
