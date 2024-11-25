@@ -8,9 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.manpro.greencycle.Admin.Sampah.Sampah;
 
 @Controller
 @RequestMapping("/admin/SetoranMember") // Update this to match the path used in your template
@@ -53,7 +56,17 @@ public class SetoranMemberController {
     }
     
     @GetMapping("/TambahSetoranMember")
-    public String tambahSetoranMember() {
+    public String tambahSetoranMember(Model model) {
+        List<Member> list = setoranMemberRepository.findMemberAll();
+        model.addAttribute("memberList", list);
+
+        List<Sampah> list2 = setoranMemberRepository.findSampahAll();
+        model.addAttribute("sampahList", list2);
         return "admin/TambahSetoranMember/index";
+    }
+
+    @PostMapping("/TambahSetoranMember")
+    public String tambahSetoranMember() {
+        return "redirect:/admin/SetoranMember";
     }
 }

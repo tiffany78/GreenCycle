@@ -58,9 +58,8 @@
         <div class="search-bar">
           <img class="search" src="/images/admin/search0.svg" />
           <!-- Search nama member -->
-          <input id="filterInput" type="text" name="filter" class="frame" placeholder="Cari Nama Member" />
+          <input id="filterInput" type="text" name="filter" class="frame" th:value="${filter}" placeholder="Cari Nama Member" />
         </div>
-
         <div class="filter-tgl">
           <!-- Tanggal awal -->
           <div class="awal">
@@ -91,11 +90,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr th:each="setoran : ${setoranList}">
-            <td th:text="${setoran.id}"></td>
+          <tr th:each="setoran, stat : ${setoranList}">
+            <td th:text="${stat.index + 1}"></td>
             <td th:text="${setoran.nama}"></td>
-            <td th:text="${setoran.subtotal}"></td>
-            <td th:text="${setoran.tanggal}"></td>
+            <td th:text="'Rp' + ${setoran.subtotal}"></td>
+            <td th:text="${#dates.format(setoran.tanggal, 'dd/MM/yyyy')}"></td>
             <td>
               <button class="edit-button" th:data-id="${setoran.id}">
                 <img class="edit-icon" src="/images/admin/detail1.svg" alt="Edit">

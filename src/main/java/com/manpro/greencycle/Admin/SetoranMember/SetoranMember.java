@@ -1,6 +1,6 @@
 package com.manpro.greencycle.Admin.SetoranMember;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,5 +14,5 @@ public class SetoranMember {
     private Long id;
     private String nama;
     private String subtotal;
-    private LocalDateTime tanggal;
+    private Date tanggal;
 }
