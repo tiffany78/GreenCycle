@@ -49,19 +49,19 @@ public class SetoranMemberRepository {
             sql += " AND sm.tgl_transaksi <= ? ";
             params.add(tgl_akhir);
         }
-        sql += " GROUP BY p.nama, sm.id_member, sm.tgl_transaksi ";
-        sql += " ORDER BY p.nama, sm.tgl_transaksi ";
     
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
             SetoranMember setoranMember = new SetoranMember();
             setoranMember.setId(rs.getLong("id_member"));
             setoranMember.setNama(rs.getString("member_name"));
-    
+
             BigDecimal subtotal = rs.getBigDecimal("subtotal");
             setoranMember.setSubtotal(subtotal != null ? subtotal.toString() : "0.00");
-            
+
             Date date = rs.getDate("tgl_transaksi");
             setoranMember.setTanggal(date);
+            return setoranMember;
+        });
     }
     
 
