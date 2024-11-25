@@ -21,17 +21,17 @@ public class StorageController {
             @RequestParam(defaultValue = "", required =  false) String filter) {
         
         List<Storage> sampahList = null;
+        List<RekapSampah> rekapData = storageRepo.rekapSampah();
         if(filter.length() == 0){
             sampahList = storageRepo.findAll();
+            model.addAttribute("rekapdata", rekapData);
         }
         else{
             sampahList = storageRepo.findWithFilter(filter);
         }
 
-        List<RekapSampah> rekapData = storageRepo.rekapSampah(filter);
         model.addAttribute("sampah", sampahList);
         model.addAttribute("filter", filter);
-        model.addAttribute("rekapdata", rekapData);
         return "admin/Storage/index";
     }
 }
