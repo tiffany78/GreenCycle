@@ -7,6 +7,7 @@
   height: 1021px;
   position: relative;
   overflow: hidden;
+  font-family: "Poppins-Medium", sans-serif;
 }
 .body {
   background: #ffffff;
@@ -16,10 +17,11 @@
   gap: 10px;
   align-items: center;
   justify-content: flex-start;
-  width: 1400px;
+  width: auto;
   height: 891px;
   position: absolute;
   left: 20px;
+  right : 20px;
   top: 106px;
 }
 .judul-page {
@@ -86,443 +88,54 @@
   position: relative;
   overflow: visible;
 }
-.header {
-  border-style: solid;
-  border-color: #000000;
-  border-width: 0px 0px 1px 0px;
-  padding: 10px 25px 10px 25px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  align-self: stretch;
-  flex-shrink: 0;
-  position: relative;
+.search-member{
+  width: 420px;
+  height: 30px;
+  padding-left: 5px;
 }
-.id {
-  color: #000000;
+
+/* Table Data Member CSS */
+.member-table {
+  width: 100%;
+  margin: 20px auto;
+  border-collapse: collapse;
   text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  position: relative;
-  width: 124.13px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
-.nama {
-  margin: 0 0 0 -40px;
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.no-telepon {
-  margin: 0 0 0 -40px;
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.alamat {
-  margin: 0 0 0 -40px;
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.kelurahan {
-  margin: 0 0 0 -40px;
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.kecamatan {
-  margin: 0 0 0 -40px;
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.jumlah-setoran {
-  margin: 0 0 0 -40px;
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.isi-member-1 {
-  border-style: solid;
-  border-color: #000000;
-  border-width: 0px 0px 1px 0px;
-  padding: 10px 25px 10px 25px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  align-self: stretch;
-  flex-shrink: 0;
-  position: relative;
-}
-._1 {
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
+
+.member-table th,
+.member-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
   font-size: 16px;
   font-weight: 400;
-  position: relative;
-  width: 124.13px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
-.tifany {
-  margin: 0 0 0 -40px;
-  color: #000000;
+
+.member-table th {
+  background-color: #f4f4f4;
+  font-size: 18px;
+}
+
+.member-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* TABLE REKAP CSS */
+.rekap-member{
+  width: 100%;
+  border-collapse: collapse;
   text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
+}
+.rekap-member td {
+  border: 1px solid #ddd;
+  padding: 10px;
   font-size: 16px;
   font-weight: 400;
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: #62804B;
+  color : white;
+  font-weight: bold;
 }
-._0857 {
-  margin: 0 0 0 -40px;
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.jln-dahlia {
-  margin: 0 0 0 -40px;
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.cidadap {
-  margin: 0 0 0 -40px;
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.cimbeuleuit {
-  margin: 0 0 0 -40px;
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-._4 {
-  margin: 0 0 0 -40px;
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.isi-member-2 {
-  border-style: solid;
-  border-color: #000000;
-  border-width: 0px 0px 1px 0px;
-  padding: 10px 25px 10px 25px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  align-self: stretch;
-  flex-shrink: 0;
-  position: relative;
-}
-._2 {
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-  width: 124.13px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.olyn {
-  margin: 0 0 0 -40px;
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.jln-braga {
-  margin: 0 0 0 -40px;
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.margacinta {
-  margin: 0 0 0 -40px;
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.buahbatu {
-  margin: 0 0 0 -40px;
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.isi-member-3 {
-  border-style: solid;
-  border-color: #000000;
-  border-width: 0px 0px 1px 0px;
-  padding: 10px 25px 10px 25px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  align-self: stretch;
-  flex-shrink: 0;
-  position: relative;
-}
-._3 {
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-  width: 124.13px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.axel {
-  margin: 0 0 0 -40px;
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.jln-supratman {
-  margin: 0 0 0 -40px;
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.rahayu {
-  margin: 0 0 0 -40px;
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.margaasih {
-  margin: 0 0 0 -40px;
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.isi-member-4 {
-  border-style: solid;
-  border-color: #000000;
-  border-width: 0px 0px 1px 0px;
-  padding: 10px 25px 10px 25px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  align-self: stretch;
-  flex-shrink: 0;
-  position: relative;
-}
-._42 {
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-  width: 124.13px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.clarence {
-  margin: 0 0 0 -40px;
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.jln-riau {
-  margin: 0 0 0 -40px;
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.merdeka {
-  margin: 0 0 0 -40px;
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.sumur-bandung {
-  margin: 0 0 0 -40px;
-  color: #000000;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
+/* CSS UNTUK HEADER */
 .header2 {
   background: #ffffff;
   padding: 10px 25px 10px 25px;

@@ -1,5 +1,6 @@
 package com.manpro.greencycle.Admin.SetoranMember;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.manpro.greencycle.Admin.Sampah.Sampah;
@@ -24,9 +26,15 @@ public class SetoranMemberController {
     }
 
     @GetMapping
-    public String getSetoranMembers(Model model) {
+    public String getSetoranMembers(@RequestParam(value = "filter", required = false) String filter,
+            @RequestParam(value = "tgl_awal", required = false) LocalDate tgl_awal,
+            @RequestParam(value = "tgl_akhir", required = false) LocalDate tgl_akhir,
+            Model model) {
         // Retrieve list of SetoranMember
-        var setoranList = setoranMemberRepository.findAll();
+        model.addAttribute("filter", filter);
+        model.addAttribute("tgl_awal", tgl_awal);
+        model.addAttribute("tgl_akhir", tgl_akhir);
+        var setoranList = setoranMemberRepository.findAll(filter,tgl_awal,tgl_akhir);
 
         // Calculate total income (sum of all subtotal)
         double totalPendapatan = setoranList.stream()
@@ -46,22 +54,7 @@ public class SetoranMemberController {
     public List<SetoranDetail> getSetoranDetails(@PathVariable int setoranId) {
         return setoranMemberRepository.getSetoranDetails(setoranId);
     }
-    // @GetMapping("/admin/SetoranMember")
-    // public String getSetoranMember(@RequestParam(value = "filter", defaultValue =
-    // "") String filter, Model model) {
-    // List<SetoranMember> setoranList;
-
-    // if (filter.isEmpty()) {
-    // // Jika tidak ada filter, ambil semua data
-    // setoranList = setoranMemberRepository.findAll();
-    // } else {
-    // // Jika ada filter, cari berdasarkan nama member
-    // setoranList = setoranMemberRepository.findByName(filter);
-    // }
-
-    // model.addAttribute("setoranList", setoranList);
-    // return "setoran_member_view"; // Nama view yang sesuai
-    // }
+    
     @GetMapping("/TambahSetoranMember")
     public String tambahSetoranMember(Model model) {
         List<Member> list = setoranMemberRepository.findMemberAll();
