@@ -127,4 +127,6 @@ public class JdbcSetoranTPARepository implements SetoranTPARepository {
         sql = "UPDATE storage SET kapasitas = kapasitas - " + kuantitas + " WHERE id_sampah = " + id_sampah;
         jdbcTemplate.update(sql);
     }
+
+    
 }

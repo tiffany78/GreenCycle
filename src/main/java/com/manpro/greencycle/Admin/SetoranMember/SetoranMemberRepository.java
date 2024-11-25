@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.manpro.greencycle.Admin.Sampah.Sampah;
+
 import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -85,4 +87,31 @@ public class SetoranMemberRepository {
         }, "%" + filter + "%");
     }
     
+    public List<Sampah> findSampahAll(){
+        String sql = "SELECT * FROM sampah ORDER BY id_sampah";
+        return jdbcTemplate.query(sql, this::mapRowToSampahList);
+    }
+
+    private Sampah mapRowToSampahList(ResultSet resultSet, int rowNum) throws SQLException{
+        return new Sampah(
+            resultSet.getInt("id_sampah"),
+            resultSet.getString("nama"),
+            resultSet.getString("unit"),
+            resultSet.getDouble("harga"),
+            resultSet.getDate("tanggal_perubahan")
+        );
+    }
+
+    public List<Member> findMemberAll(){
+        String sql = "SELECT id, nama FROM pengguna WHERE peran = 'member'";
+        return jdbcTemplate.query(sql, this::mapRowToMember);
+    }
+
+    private Member mapRowToMember(ResultSet resultSet, int rowNum) throws SQLException{
+        return new Member(
+            resultSet.getInt("id"),
+            resultSet.getString("nama")
+        );
+    }
+
 }
