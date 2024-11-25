@@ -406,3 +406,9 @@ button.edit-button {
   font-size: 14px;
   color: #333;
 }
+
+input#filterInput.frame{
+  width: 250px;
+  height: 30px;
+  border-color: #000000 solid 1px;
+}
