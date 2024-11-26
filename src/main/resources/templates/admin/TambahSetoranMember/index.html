@@ -84,7 +84,7 @@
                 <td th:text="${sampahList.unit}"></td>
                 <td style="width: 225px;">
                   <input type="text" 
-                   th:name="'valueSetoran[' + ${sampahList.id_sampah} + ']'" 
+                   th:zname="'valueSetoran[' + ${sampahList.id_sampah} + ']'" 
                    class="valueSetoran" 
                    placeholder="Masukkan banyaknya setoran">
                 </td>
@@ -110,11 +110,7 @@
       <button class="storage" th:onclick="'window.location.href=\'/admin/Storage\''">Storage</button>
       <button th:onclick="'window.location.href=\'/login\''">
         <img class="logout" src="/images/admin/logout0.svg"/>
-<<<<<<< HEAD
-      </button>
-=======
     </button>
->>>>>>> 520fe1a0f70c625bebd4e0befbef37c9fe127628
     </div>
   </div>
   
