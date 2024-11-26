@@ -1,9 +1,14 @@
 package com.manpro.greencycle.Admin.SetoranMember;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -49,11 +54,14 @@ public class SetoranMemberController {
         return "admin/SetoranMember/index"; // Ensure this matches the template path
     }
 
-    @GetMapping("/SetoranMember/details/{setoranId}")
+    @GetMapping("/SetoranMember/details/{setoranId}/{tanggal}")
     @ResponseBody
-    public List<SetoranDetail> getSetoranDetails(@PathVariable int setoranId) {
-        return setoranMemberRepository.getSetoranDetails(setoranId);
+    public List<SetoranDetail> getSetoranDetails(
+        @PathVariable int setoranId,
+        @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate tanggal)  {
+        return setoranMemberRepository.getSetoranDetails(setoranId, tanggal);
     }
+
     
     @GetMapping("/TambahSetoranMember")
     public String tambahSetoranMember(Model model) {
@@ -66,7 +74,22 @@ public class SetoranMemberController {
     }
 
     @PostMapping("/TambahSetoranMember")
-    public String tambahSetoranMember() {
+    public String tambahSetoranMember(@RequestParam Map<String, String> valueSetoran, Model model) {
+        String tpaValue = valueSetoran.get("memberList");
+        int id_member = Integer.parseInt(tpaValue);
+        System.out.println(id_member);
+
+        valueSetoran.forEach((key, value) -> {
+            if(!key.equals("memberList")){
+                int id_sampah = Integer.parseInt(key);
+                if(!value.equals("")){
+                    int kuantitas = Integer.parseInt(value);
+                    if(kuantitas > 0){
+                        setoranMemberRepository.addSetoranMember(id_member, id_sampah, kuantitas);
+                    }
+                }
+            }
+        });
         return "redirect:/admin/SetoranMember";
     }
 }

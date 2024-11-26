@@ -84,7 +84,7 @@
                 <td th:text="${sampahList.unit}"></td>
                 <td style="width: 225px;">
                   <input type="text" 
-                   th:name="'valueSetoran[' + ${sampahList.id_sampah} + ']'" 
+                   th:name="${sampahList.id_sampah}" 
                    class="valueSetoran" 
                    placeholder="Masukkan banyaknya setoran">
                 </td>

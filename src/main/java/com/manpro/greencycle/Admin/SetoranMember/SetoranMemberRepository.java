@@ -28,13 +28,12 @@ public class SetoranMemberRepository {
                     SELECT
                         p.nama AS member_name,
                         sm.id_member,
-                        SUM(sm.kuantitas_sampah * s.harga) AS subtotal,  -- Menghitung subtotal berdasarkan harga sampah dan kuantitas
-                        sm.tgl_transaksi AS tgl_transaksi
-                    FROM SetoranMember sm
+                        SUM(sm.kuantitas_sampah * s.harga) AS subtotal,
+                        sm.tgl_transaksi
+                    FROM SetoranMember AS sm
                     JOIN Pengguna p ON sm.id_member = p.id
                     JOIN Sampah s ON sm.id_sampah = s.id_sampah
-                    GROUP BY p.nama, sm.id_member, sm.tgl_transaksi
-                    ORDER BY p.nama, sm.tgl_transaksi;
+                    WHERE 1=1
                 """;
         List<Object> params = new ArrayList<>();
         if (filter != null && !filter.isEmpty()) {
@@ -49,25 +48,27 @@ public class SetoranMemberRepository {
             sql += " AND sm.tgl_transaksi <= ? ";
             params.add(tgl_akhir);
         }
+        sql += " GROUP BY sm.tgl_transaksi, p.nama, sm.id_member ";
+        sql += " ORDER BY sm.tgl_transaksi, p.nama ";
     
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
             SetoranMember setoranMember = new SetoranMember();
             setoranMember.setId(rs.getLong("id_member"));
             setoranMember.setNama(rs.getString("member_name"));
-
+    
             BigDecimal subtotal = rs.getBigDecimal("subtotal");
             setoranMember.setSubtotal(subtotal != null ? subtotal.toString() : "0.00");
-
-            Date date = rs.getDate("tgl_transaksi");
-            setoranMember.setTanggal(date);
+    
+            setoranMember.setTanggal(rs.getDate("tgl_transaksi") != null ? 
+                rs.getDate("tgl_transaksi") : null);
             return setoranMember;
-        });
+        }, params.isEmpty() ? new Object[]{} : params.toArray());
     }
     
 
-    public List<SetoranDetail> getSetoranDetails(int setoranId) {
-        String sql = "SELECT sampah, kuantitas, unit FROM setoran_member_view WHERE id_member = ?";
-        return jdbcTemplate.query(sql, this::mapRowToSampahDetail, setoranId);
+    public List<SetoranDetail> getSetoranDetails(int setoranId, LocalDate tanggal) {
+        String sql = "SELECT sampah, kuantitas, unit FROM setoran_member_view WHERE id_member = ? AND tanggal = ?";
+        return jdbcTemplate.query(sql, this::mapRowToSampahDetail, setoranId, tanggal);
     }
 
     private SetoranDetail mapRowToSampahDetail(ResultSet resultSet, int rowNum) throws SQLException {
@@ -131,5 +132,14 @@ public class SetoranMemberRepository {
             resultSet.getInt("id"),
             resultSet.getString("nama")
         );
+    }
+
+    public void addSetoranMember(int id_member, int id_sampah, int kuantitas){
+        LocalDate currDate = LocalDate.now();
+        String sql = "INSERT into setoranmember (id_member, id_sampah, kuantitas_sampah, tgl_transaksi) VALUES (?, ?, ?, ?)";
+        jdbcTemplate.update(sql, id_member, id_sampah, kuantitas, currDate);
+
+        sql = "UPDATE storage SET kapasitas = kapasitas + " + kuantitas + " WHERE id_sampah = " + id_sampah;
+        jdbcTemplate.update(sql);
     }
 }

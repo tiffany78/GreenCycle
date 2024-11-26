@@ -9,7 +9,7 @@ document.querySelectorAll('.valueSetoran').forEach(input => {
 
         if (isNaN(inputValue)) {
             errorMessage.classList.add("hidden"); // Sembunyikan error jika input kosong atau bukan angka
-        } else if (inputValue > kapasitasValue) {
+        } else if (inputValue > kapasitasValue || inputValue < 0) {
             errorMessage.classList.remove("hidden"); // Tampilkan error jika input melebihi kapasitas
         } else {
             errorMessage.classList.add("hidden"); // Sembunyikan error jika input valid
