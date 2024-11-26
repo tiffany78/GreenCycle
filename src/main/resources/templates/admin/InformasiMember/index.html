@@ -45,63 +45,57 @@
       </div>
       <div class="fitur">
         <div class="search-bar">
-          <img class="search" src="search0.svg" />
+          <img class="search" src="/images/admin/search0.svg" />
+          <!-- SEARCH BAR MEMBER -->
+          <form method="GET" th:action="@{/admin/InformasiMember}">
+            <input type="text" name="filter" th:value="${filter}" placeholder="Cari nama member" class="search-member" input=this.form.submit()/>
+          </form>
         </div>
       </div>
-      <div class="header">
-        <div class="id">ID</div>
-        <div class="nama">Nama</div>
-        <div class="no-telepon">No Telepon</div>
-        <div class="alamat">Alamat</div>
-        <div class="kelurahan">Kelurahan</div>
-        <div class="kecamatan">Kecamatan</div>
-        <div class="jumlah-setoran">Jumlah Setoran</div>
-      </div>
-      <div class="isi-member-1">
-        <div class="_1">1</div>
-        <div class="tifany">Tiffany</div>
-        <div class="_0857">0857</div>
-        <div class="jln-dahlia">Jln. Dahlia</div>
-        <div class="cidadap">Cidadap</div>
-        <div class="cimbeuleuit">Cimbeuleuit</div>
-        <div class="_4">4</div>
-      </div>
-      <div class="isi-member-2">
-        <div class="_2">2</div>
-        <div class="olyn">Olyn</div>
-        <div class="_0857">0857</div>
-        <div class="jln-braga">Jln. Braga</div>
-        <div class="margacinta">Margacinta</div>
-        <div class="buahbatu">Buahbatu</div>
-        <div class="_4">4</div>
-      </div>
-      <div class="isi-member-3">
-        <div class="_3">3</div>
-        <div class="axel">Axel</div>
-        <div class="_0857">0857</div>
-        <div class="jln-supratman">Jln. Supratman</div>
-        <div class="rahayu">Rahayu</div>
-        <div class="margaasih">Margaasih</div>
-        <div class="_4">4</div>
-      </div>
-      <div class="isi-member-4">
-        <div class="_42">4</div>
-        <div class="clarence">Clarence</div>
-        <div class="_0857">0857</div>
-        <div class="jln-riau">Jln. Riau</div>
-        <div class="merdeka">Merdeka</div>
-        <div class="sumur-bandung">Sumur Bandung</div>
-        <div class="_4">4</div>
-      </div>
+
+      <!-- TABLE INFORMASI MEMBER -->
+      <table class="member-table">
+        <thead>
+          <th>ID</th>
+          <th>Nama</th>
+          <th>No. Telepon</th>
+          <th>Alamat</th>
+          <th>Kelurahan</th>
+          <th>Kecamatan</th>
+          <th>Jumlah Setoran</th>
+        </thead>
+        <tbody>
+          <tr th:each="member, stat : ${members}">
+            <td th:text="${member.id}"></td>
+            <td th:text="${member.nama}"></td>
+            <td th:text="${member.noTelp}"></td>
+            <td th:text="${member.alamat}"></td>
+            <td th:text="${member.kelurahan}"></td>
+            <td th:text="${member.kecamatan}"></td>
+            <td th:text="${member.jml_setoran}"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="rekap-member"  th:if="${filter == ''}">
+        <tbody>
+          <td>Total member:</td>
+          <td th:text="${jmlMember} + ' orang'"></td>
+        </tbody>
+      </table>
     </div>
+
+    <!-- HEADER HTML -->
     <div class="header2">
-      <div class="home">Home</div>
-      <div class="data-sampah">Data Sampah</div>
-      <div class="informasi-member">Informasi Member</div>
-      <div class="setoran-member">Setoran Member</div>
-      <div class="setoran-tpa">Setoran TPA</div>
-      <div class="storage">Storage</div>
-      <img class="logout" src="logout0.svg" />
+      <button class="home" th:onclick="'window.location.href=\'/admin/LandingPage\''">Home</button>
+      <button class="data-sampah" th:onclick="'window.location.href=\'/admin/DataSampah\''">Data Sampah</button>
+      <button class="informasi-member">Informasi Member</button>
+      <button class="setoran-member" th:onclick="'window.location.href=\'/admin/SetoranMember\''">Setoran Member</button>
+      <button class="setoran-tpa" th:onclick="'window.location.href=\'/admin/SetoranTPA\''">Setoran TPA</button>
+      <button class="storage" th:onclick="'window.location.href=\'/admin/Storage\''">Storage</button>
+      <button th:onclick="'window.location.href=\'/login\''">
+        <img class="logout" src="/images/admin/logout0.svg"/>
+      </button>
     </div>
   </div>
   

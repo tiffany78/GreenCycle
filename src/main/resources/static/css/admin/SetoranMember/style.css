@@ -1,9 +1,10 @@
-.html-a-setoran-member,
-.html-a-setoran-member * {
+.html-a-setoran-member-1,
+.html-a-setoran-member-1 * {
   box-sizing: border-box;
+  font-family: "Poppins-Regular", sans-serif;
 }
 
-.html-a-setoran-member {
+.html-a-setoran-member-1 {
   background: #edf0f2;
   height: 1021px;
   position: relative;
@@ -18,10 +19,11 @@
   gap: 10px;
   align-items: center;
   justify-content: flex-start;
-  width: 100%;
   height: 891px;
   position: absolute;
   top: 98px;
+  left: 20px;
+  right: 20px;
 }
 
 .judul-page {
@@ -65,8 +67,8 @@
 }
 
 .edit-icon {
-  width: 150px;  /* Set your desired width */
-  height: 30px; /* Set your desired height */
+  width: 150px;
+  height: 30px;
 }
 
 .div {
@@ -94,61 +96,128 @@
   border-color: #dee1ff;
   border-width: 0px 0px 1px 0px;
   padding: 10px 25px 10px 25px;
+  display: flex;
+  flex-direction: row;
+  gap: 560px;
+  align-items: center;
+  justify-content: flex-start;
   align-self: stretch;
   flex-shrink: 0;
-  height: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-}
-
-.search-bar {
-  border-radius: 5px;
-  border-style: solid;
-  border-color: #d9d9d9;
-  border-width: 1px;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  height: 104px;
   position: relative;
 }
 
+.search-bar {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 479px;
+  position: relative;
+  overflow: hidden;
+}
+
+.search {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  overflow: visible;
+}
+
+.filter-tgl {
+  flex-shrink: 0;
+  width: 305px;
+  height: 104px;
+  position: relative;
+  overflow: hidden;
+}
+
+.akhir {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 16px;
+  border-style: solid;
+  border-color: var(--neutral-700, #8b8b8b);
+  border-width: 1px;
+  padding: 0px 10px 0px 10px;
+  width: 140px;
+  height: 50px;
+  position: absolute;
+  left: 156px;
+  top: 26px;
+}
+
+.tanggal-akhir {
+  color: rgba(40, 40, 40, 0.5);
+  text-align: left;
+  font-family: var(
+    --tablet-body-body-2-font-family,
+    "Inter-Regular",
+    sans-serif
+  );
+  font-size: var(--tablet-body-body-2-font-size, 14px);
+  font-weight: var(--tablet-body-body-2-font-weight, 400);
+  position: absolute;
+  top: 7px;
+}
+
+.awal {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 16px;
+  border-style: solid;
+  border-color: var(--neutral-700, #8b8b8b);
+  border-width: 1px;
+  padding: 0px 10px 0px 10px;
+  width: 140px;
+  height: 50px;
+  position: absolute;
+  left: 6px;
+  top: 26px;
+}
+
+.tanggal-awal {
+  color: rgba(40, 40, 40, 0.5);
+  text-align: left;
+  font-family: var(
+    --tablet-body-body-2-font-family,
+    "Inter-Regular",
+    sans-serif
+  );
+  font-size: var(--tablet-body-body-2-font-size, 14px);
+  font-weight: var(--tablet-body-body-2-font-weight, 400);
+  position: absolute;
+  top: 7px;
+}
+
 .filter-tanggal {
-  display: flex;
-  gap: 20px;
-  margin-top: 15px;
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  position: absolute;
+  left: 6px;
+  top: 0px;
+  width: 100px;
+  height: 15px;
 }
 
-.filter-tanggal div {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.filter-tanggal label {
-  font-weight: bold;
-}
-
-input[type="date"] {
-  padding: 8px;
-  font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
 .header2 {
-    background: #ffffff;
-    padding: 10px 25px 10px 25px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    height: 76px;
-    position: fixed;
-    top: 0px;
+  background: #ffffff;
+  padding: 10px 25px 10px 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 76px;
+  position: fixed;
+  top: 0px;
 }
+
 .home {
   color: #101540;
   text-align: center;
@@ -161,6 +230,7 @@ input[type="date"] {
   align-items: center;
   justify-content: center;
 }
+
 .data-sampah2 {
   color: #101540;
   text-align: center;
@@ -173,6 +243,7 @@ input[type="date"] {
   align-items: center;
   justify-content: center;
 }
+
 .informasi-member {
   color: #101540;
   text-align: center;
@@ -185,6 +256,7 @@ input[type="date"] {
   align-items: center;
   justify-content: center;
 }
+
 .setoran-member {
   color: #101540;
   text-align: center;
@@ -211,6 +283,7 @@ input[type="date"] {
   align-items: center;
   justify-content: center;
 }
+
 .storage {
   color: #101540;
   text-align: center;
@@ -223,6 +296,7 @@ input[type="date"] {
   align-items: center;
   justify-content: center;
 }
+
 .logout {
   flex-shrink: 0;
   width: 24px;
@@ -230,7 +304,8 @@ input[type="date"] {
   position: relative;
   overflow: visible;
 }
-input#searchSampah{
+
+input#searchSampah {
   width: 450px;
   height: 30px;
   padding-left: 5px;
@@ -241,7 +316,7 @@ input#searchSampah{
   border-style: solid;
   border-color: #000000;
   border-width: 0px 0px 1px 0px;
-  padding: 10px 25px 10px 25px;
+  padding: 10px 25px 10px 25px; 
   display: flex;
   flex-direction: row;
   gap: 1px;
@@ -251,6 +326,7 @@ input#searchSampah{
   flex-shrink: 0;
   position: relative;
 }
+
 .total {
   color: #ffffff;
   text-align: center;
@@ -264,6 +340,7 @@ input#searchSampah{
   align-items: center;
   justify-content: center;
 }
+
 .nominal {
   color: #ffffff;
   text-align: center;
@@ -277,34 +354,28 @@ input#searchSampah{
   align-items: center;
   justify-content: center;
 }
+
 /* INI CSS TABLE (sampai bawah) */
-.data-table {
+.member-table {
   width: 100%;
-  margin: 20px auto;
+  margin-top: 20px;
   border-collapse: collapse;
+}
+
+.member-table th,
+.member-table td {
+  padding: 12px;
   text-align: center;
-}
-
-.data-table th,
-.data-table td {
   border: 1px solid #ddd;
-  padding: 10px;
-  font-size: 16px;
-  font-weight: 400;
 }
 
-.data-table th {
+.member-table th {
   background-color: #f4f4f4;
   font-size: 18px;
 }
 
-.data-table tbody tr:hover {
+.member-table tbody tr:hover {
   background-color: #f1f1f1;
-}
-
-.data-table th:nth-child(5),
-.data-table td:nth-child(5) { 
-  width: 150px;
 }
 
 button.edit-button {
@@ -314,13 +385,26 @@ button.edit-button {
   cursor: pointer;
 }
 
-.detail-row {
-  display: none;
+.rekapan {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+}
+
+.rekapan .nominal {
+  font-weight: bold;
+}
+.details-row td {
   background-color: #f9f9f9;
+  border-top: 1px solid #ccc;
+  padding: 10px;
 }
-.detail-row ul {
-  padding-left: 20px;
-}
-.detail-row li {
-  margin-bottom: 5px;
+.detail-content {
+  font-size: 14px;
+  color: #333;
 }

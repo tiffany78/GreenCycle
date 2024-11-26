@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/css/admin/SetoranMember/style.css">
   <link rel="stylesheet" href="/css/admin/SetoranMember/vars.css">
 
+  <script src="/js/admin/SetoranMember/scripts.js" defer></script>
 
   <style>
     a,
@@ -26,7 +27,6 @@
       border: none;
       text-decoration: none;
       background: none;
-
       -webkit-font-smoothing: antialiased;
     }
 
@@ -38,6 +38,7 @@
       padding: 0;
     }
   </style>
+
   <title>Setoran Sampah Member</title>
 </head>
 
@@ -46,31 +47,39 @@
     <div class="body">
       <div class="judul-page">
         <div class="setoran-sampah-member">Setoran Sampah Member</div>
-        <a href="TSMember" class="button">
+        <a href="/admin/SetoranMember/TambahSetoranMember" class="button">
           <img class="div" src="/images/admin/div0.svg" />
           <div class="tambah-setoran">Tambah Setoran</div>
         </a>
       </div>
-      <div class="fitur">
+
+      <!-- FILTER -->
+      <form method="GET" action="/admin/SetoranMember" id="filterForm" class="fitur">
         <div class="search-bar">
           <img class="search" src="/images/admin/search0.svg" />
-          <input type="text" id="searchSampah" name="CariMember" placeholder="">
+          <!-- Search nama member -->
+          <input id="filterInput" type="text" name="filter" class="frame" th:value="${filter}" placeholder="Cari Nama Member" />
         </div>
-        <div class="filter-tanggal">
-          <div>
-            <label for="tanggalAwal">Tanggal Awal</label>
-            <input type="date" id="tanggalAwal" placeholder="Tanggal Awal">
+        <div class="filter-tgl">
+          <!-- Tanggal awal -->
+          <div class="awal">
+            <div class="tanggal-awal">
+              Tanggal Awal
+              <input type="date" name="tgl_awal" th:value="${tgl_awal}" onchange="this.form.submit()" />
+            </div>
           </div>
-          <div>
-            <label for="tanggalAkhir">Tanggal Akhir</label>
-            <input type="date" id="tanggalAkhir" placeholder="Tanggal Akhir">
+          <!-- Tanggal Akhir -->
+          <div class="akhir">
+            <div class="tanggal-akhir">
+              Tanggal Akhir
+              <input type="date" name="tgl_akhir" th:value="${tgl_akhir}" onchange="this.form.submit()" />
+            </div>
           </div>
+          <div class="filter-tanggal">Filter Tanggal</div>
         </div>
-      </div>
+      </form>
 
-      <!-- INI BAGIAN HEADER TABLE -->
-      <!-- css nya ada di paling bawah yaa -->
-      <table class="data-table">
+      <table class="member-table">
         <thead>
           <tr>
             <th>ID</th>
@@ -80,66 +89,43 @@
             <th>Detail</th>
           </tr>
         </thead>
-        <!-- INI BAGIAN ISI TABLE -->
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Contoh Nama</td>
-            <td>Rp1.000</td>
-            <td>2024-11-21</td>
+          <tr th:each="setoran, stat : ${setoranList}">
+            <td th:text="${stat.index + 1}"></td>
+            <td th:text="${setoran.nama}"></td>
+            <td th:text="'Rp' + ${setoran.subtotal}"></td>
+            <td th:text="${#dates.format(setoran.tanggal, 'dd/MM/yyyy')}"></td>
             <td>
-              <button class="edit-button">
-                <img class="edit-icon" src="/images/admin/detail1.svg" alt="Edit" />
+              <button class="edit-button" th:data-id="${setoran.id}">
+                <img class="edit-icon" src="/images/admin/detail1.svg" alt="Edit">
               </button>
-            </td>
-          </tr>
-          <tr class="detail-row" id="detail-row-1">
-            <td colspan="5">
-              <ul id="detail-list-1"></ul>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Contoh Nama</td>
-            <td>Rp1.000</td>
-            <td>2024-11-21</td>
-            <td>
-              <button class="edit-button">
-                <img class="edit-icon" src="/images/admin/detail1.svg" alt="Edit" />
-              </button>
-            </td>
-          </tr>
-          <tr class="detail-row" id="detail-row-2">
-            <td colspan="5">
-              <ul id="detail-list-2"></ul>
             </td>
           </tr>
         </tbody>
       </table>
 
-      <!-- Total Pendapatan -->
+      <table class="details-table" style="display:none">
+        <tbody id="details-body">
+        </tbody>
+      </table>
+
       <div class="rekapan">
         <div class="total">Total Pendapatan :</div>
-        <div class="nominal">Rp44.000</div>
+        <div class="nominal" th:text="${totalPendapatan}"></div>
       </div>
-
     </div>
   </div>
+
   <div class="header2">
     <button class="home" th:onclick="'window.location.href=\'/admin/LandingPage\''">Home</button>
     <button class="data-sampah2" th:onclick="'window.location.href=\'/admin/DataSampah\''">Data Sampah</button>
-    <button class="informasi-member"  th:onclick="'window.location.href=\'/admin/InformasiMember\''">Informasi Member</button>
-    <button class="setoran-member"  th:onclick="'window.location.href=\'/admin/SetoranMember/STMember\''">Setoran Member</button>
+    <button class="informasi-member" th:onclick="'window.location.href=\'/admin/InformasiMember\''">Informasi Member</button>
+    <button class="setoran-member" th:onclick="'window.location.href=\'/admin/SetoranMember\''">Setoran Member</button>
     <button class="setoran-tpa" th:onclick="'window.location.href=\'/admin/SetoranTPA\''">Setoran TPA</button>
     <button class="storage" th:onclick="'window.location.href=\'/admin/Storage\''">Storage</button>
     <button th:onclick="'window.location.href=\'/login\''">
       <img class="logout" src="/images/admin/logout0.svg"/>
     </button>
   </div>
-  <div class="total-pendapatan">
-    Total Pendapatan: <span>Rp0</span>
-  </div>
-  <script src="/js/SetoranMember/scripts.js"></script>
 </body>
-
 </html>

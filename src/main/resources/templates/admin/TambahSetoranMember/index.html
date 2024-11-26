@@ -43,57 +43,78 @@
       <div class="judul-page">
         <div class="tambah-setoran-member">Tambah Setoran Member</div>
       </div>
-      <div class="input-tambah-setoran">
+      <form class="input-tambah-setoran" method="POST" th:action="@{/admin/SetoranMember/TambahSetoranMember}">
         <div class="input-member-dan-jenis-sampah">
           <div class="sampah">
-            <div class="sampah2">Sampah</div>
-            <div class="frame"></div>
+            <div class="sampah2">Member</div>
+            <select class="frame" id="memberList" name="memberList" required>
+              <!-- Opsi Default -->
+              <option value="" disabled selected>Pilih Member</option>
+              <option th:each="memberList : ${memberList}" 
+              th:value="${memberList.id}" 
+              th:text="${memberList.nama}"
+              th:selected="${memberList.id == memberList}">
+              </option>
+            </select>
           </div>
-          <div class="kuantitas">
+          <!-- <div class="kuantitas">
             <div class="kuantitas2">Kuantitas</div>
-            <div class="frame"></div>
-          </div>
-          <div class="button">
+            <input type="text" id="kuantitas" name="kuantitas" class="frame" placeholder="Masukkan Kuantitas Setoran Sampah">
+          </div> -->
+          <!-- <button class="button">
             <div class="tambah-sampah">Tambah Sampah</div>
-          </div>
+          </button> -->
         </div>
-        <div class="setoran-member">Setoran Member</div>
-        <div class="input-field">
-          <div class="nama-member">Nama Member</div>
-          <div class="rectangle-3"></div>
-        </div>
-        <div class="header-sampah">
-          <div class="jenis-sampah">Jenis Sampah</div>
-          <div class="kuantatitas">Kuantatitas</div>
-        </div>
-        <div class="isi-sampah">
-          <div class="kaleng">Kaleng</div>
-          <div class="_2">2</div>
-        </div>
+        <div class="setoran-member">List Setoran Member</div>
+        <!-- BAGIAN TABLE SETORAN SAMPAH -->
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Jenis Sampah</th>
+              <th>Unit</th>
+              <th>Banyaknya Setoran</th>
+            </tr>
+          </thead>
+          <!-- BAGIAN ISI TABLE -->
+            <tbody>
+              <tr th:each="sampahList, stat : ${sampahList}">
+                <td th:text="${sampahList.id_sampah}"></td>
+                <td th:text="${sampahList.nama}"></td>
+                <td th:text="${sampahList.unit}"></td>
+                <td style="width: 225px;">
+                  <input type="text" 
+                   th:name="'valueSetoran[' + ${sampahList.id_sampah} + ']'" 
+                   class="valueSetoran" 
+                   placeholder="Masukkan banyaknya setoran">
+                </td>
+              </tr>
+            </tbody>
+          </table>
         <div class="button2">
-          <div href class="kembali">
-            <a href="STMember">
+          <a href class="kembali" th:href="@{/admin/SetoranMember}">
             <div class="kembali2">Kembali</div>
-            </a>
-          </div>
-          <div class="simpan">
-            <a href="STMember">
+          </a>
+          <button class="simpan" type="submit">
             <div class="simpan2">Simpan</div>
-            </a>
-          </div>
+          </button>
         </div>
-      </div>
+      </form>
     </div>
     <div class="header">
       <button class="home" th:onclick="'window.location.href=\'/admin/LandingPage\''">Home</button>
-      <button class="data-sampah2" th:onclick="'window.location.href=\'/admin/DataSampah\''">Data Sampah</button>
-      <button class="informasi-member"  th:onclick="'window.location.href=\'/admin/InformasiMember\''">Informasi Member</button>
-      <button class="setoran-member"  th:onclick="'window.location.href=\'/admin/SetoranMember/STMember\''">Setoran Member</button>
+      <button class="data-sampah" th:onclick="'window.location.href=\'/admin/DataSampah\''">Data Sampah</button>
+      <button class="informasi-member" th:onclick="'window.location.href=\'/admin/InformasiMember\''">Informasi Member</button>
+      <button class="setoran-member" th:onclick="'window.location.href=\'/admin/SetoranMember\''">Setoran Member</button>
       <button class="setoran-tpa" th:onclick="'window.location.href=\'/admin/SetoranTPA\''">Setoran TPA</button>
       <button class="storage" th:onclick="'window.location.href=\'/admin/Storage\''">Storage</button>
       <button th:onclick="'window.location.href=\'/login\''">
         <img class="logout" src="/images/admin/logout0.svg"/>
+<<<<<<< HEAD
       </button>
+=======
+    </button>
+>>>>>>> 520fe1a0f70c625bebd4e0befbef37c9fe127628
     </div>
   </div>
   
