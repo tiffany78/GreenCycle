@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.manpro.greencycle.Admin.Sampah.Sampah;
+import com.manpro.greencycle.Admin.TPA.SampahDetail;
 
 import java.math.BigDecimal;
 import java.sql.ResultSet;
@@ -25,17 +26,15 @@ public class SetoranMemberRepository {
 
     public List<SetoranMember> findAll(String filter, LocalDate tgl_awal, LocalDate tgl_akhir) {
         String sql = """
-                    SELECT
-                        p.nama AS member_name,
-                        sm.id_member,
-                        SUM(sm.kuantitas_sampah * s.harga) AS subtotal,
-                        sm.tgl_transaksi
-                    FROM SetoranMember AS sm
-                    JOIN Pengguna p ON sm.id_member = p.id
-                    JOIN Sampah s ON sm.id_sampah = s.id_sampah
-                    GROUP BY sm.tgl_transaksi, p.nama, sm.id_member
-                    ORDER BY sm.tgl_transaksi, p.nama;
-                """;
+            SELECT p.nama AS member_name, 
+                   sm.id_member AS id_member, 
+                   SUM(sm.kuantitas_sampah * s.harga) AS subtotal, 
+                   sm.tgl_transaksi AS tgl_transaksi 
+            FROM SetoranMember AS sm 
+            JOIN Pengguna p ON sm.id_member = p.id 
+            JOIN Sampah s ON sm.id_sampah = s.id_sampah 
+            WHERE 1=1
+        """;
         List<Object> params = new ArrayList<>();
         if (filter != null && !filter.isEmpty()) {
             sql += " AND p.nama ILIKE ? ";
@@ -49,19 +48,18 @@ public class SetoranMemberRepository {
             sql += " AND sm.tgl_transaksi <= ? ";
             params.add(tgl_akhir);
         }
+        sql += " GROUP BY sm.tgl_transaksi, p.nama, sm.id_member ORDER BY sm.tgl_transaksi, p.nama";
     
-        return jdbcTemplate.query(sql, (rs, rowNum) -> {
-            SetoranMember setoranMember = new SetoranMember();
-            setoranMember.setId(rs.getLong("id_member"));
-            setoranMember.setNama(rs.getString("member_name"));
-
-            BigDecimal subtotal = rs.getBigDecimal("subtotal");
-            setoranMember.setSubtotal(subtotal != null ? subtotal.toString() : "0.00");
-
-            Date date = rs.getDate("tgl_transaksi");
-            setoranMember.setTanggal(date);
-            return setoranMember;
-        });
+        return jdbcTemplate.query(sql, this::mapRowToSetoranMember, params.toArray());
+    }
+    
+    private SetoranMember mapRowToSetoranMember(ResultSet resultSet, int rowNum) throws SQLException {
+        return new SetoranMember(
+            resultSet.getLong("id_member"),
+            resultSet.getString("member_name"),
+            resultSet.getString("subtotal"),
+            resultSet.getDate("tgl_transaksi")
+        );
     }
     
     public List<SetoranDetail> getSetoranDetails(int setoranId) {
