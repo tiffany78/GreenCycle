@@ -11,16 +11,17 @@
 }
 .body {
   background: #ffffff;
-  padding: 10px;
+  padding: 15px 10px 15px 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   align-items: center;
   justify-content: flex-start;
-  width: 1400px;
+  width: auto;
   height: 891px;
   position: absolute;
   left: 20px;
+  right : 20px;
   top: 110px;
 }
 .judul-page {
@@ -33,7 +34,7 @@
   align-items: center;
   justify-content: space-between;
   flex-shrink: 0;
-  width: 1400px;
+  width: 1326px;
   height: 104px;
   position: relative;
 }
@@ -248,7 +249,7 @@
   align-items: center;
   justify-content: center;
 }
-.storage {
+.storage2 {
   color: #101540;
   text-align: center;
   font-family: "Poppins-Regular", sans-serif;

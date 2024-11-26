@@ -17,9 +17,11 @@
     gap: 10px;
     align-items: center;
     justify-content: flex-start;
-    width: 100%;
+    width: auto;
     height: 891px;
     position: absolute;
+    left : 20px;
+    right : 20px;
     top: 98px;
 }
 .judul-page {
@@ -142,8 +144,9 @@
   color: #101540;
   text-align: center;
   font-family: "Poppins-Medium", sans-serif;
-  font-size: 30px;
-  font-weight: 500;
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: underline;
   position: relative;
   display: flex;
   align-items: center;
@@ -350,10 +353,10 @@
   text-align: center;
   font-family: "Poppins-Bold", sans-serif;
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 400;
   text-decoration: underline;
   position: relative;
-  width: 213px;
+  width: 167px;
   display: flex;
   align-items: center;
   justify-content: center;
