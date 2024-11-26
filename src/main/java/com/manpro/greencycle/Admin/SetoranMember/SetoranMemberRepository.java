@@ -33,7 +33,8 @@ public class SetoranMemberRepository {
                     FROM SetoranMember AS sm
                     JOIN Pengguna p ON sm.id_member = p.id
                     JOIN Sampah s ON sm.id_sampah = s.id_sampah
-                    WHERE 1=1
+                    GROUP BY sm.tgl_transaksi, p.nama, sm.id_member
+                    ORDER BY sm.tgl_transaksi, p.nama;
                 """;
         List<Object> params = new ArrayList<>();
         if (filter != null && !filter.isEmpty()) {
@@ -48,27 +49,24 @@ public class SetoranMemberRepository {
             sql += " AND sm.tgl_transaksi <= ? ";
             params.add(tgl_akhir);
         }
-        sql += " GROUP BY sm.tgl_transaksi, p.nama, sm.id_member ";
-        sql += " ORDER BY sm.tgl_transaksi, p.nama ";
     
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
             SetoranMember setoranMember = new SetoranMember();
             setoranMember.setId(rs.getLong("id_member"));
             setoranMember.setNama(rs.getString("member_name"));
-    
+
             BigDecimal subtotal = rs.getBigDecimal("subtotal");
             setoranMember.setSubtotal(subtotal != null ? subtotal.toString() : "0.00");
-    
-            setoranMember.setTanggal(rs.getDate("tgl_transaksi") != null ? 
-                rs.getDate("tgl_transaksi") : null);
+
+            Date date = rs.getDate("tgl_transaksi");
+            setoranMember.setTanggal(date);
             return setoranMember;
-        }, params.isEmpty() ? new Object[]{} : params.toArray());
+        });
     }
     
-
-    public List<SetoranDetail> getSetoranDetails(int setoranId, LocalDate tanggal) {
-        String sql = "SELECT sampah, kuantitas, unit FROM setoran_member_view WHERE id_member = ? AND tanggal = ?";
-        return jdbcTemplate.query(sql, this::mapRowToSampahDetail, setoranId, tanggal);
+    public List<SetoranDetail> getSetoranDetails(int setoranId) {
+        String sql = "SELECT sampah, kuantitas, unit FROM setoran_member_view WHERE id_member = ?";
+        return jdbcTemplate.query(sql, this::mapRowToSampahDetail, setoranId);
     }
 
     private SetoranDetail mapRowToSampahDetail(ResultSet resultSet, int rowNum) throws SQLException {

@@ -54,12 +54,11 @@ public class SetoranMemberController {
         return "admin/SetoranMember/index"; // Ensure this matches the template path
     }
 
-    @GetMapping("/SetoranMember/details/{setoranId}/{tanggal}")
+    @GetMapping("/SetoranMember/details/{setoranId}")
     @ResponseBody
     public List<SetoranDetail> getSetoranDetails(
-        @PathVariable int setoranId,
-        @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate tanggal)  {
-        return setoranMemberRepository.getSetoranDetails(setoranId, tanggal);
+        @PathVariable int setoranId)  {
+        return setoranMemberRepository.getSetoranDetails(setoranId);
     }
 
     

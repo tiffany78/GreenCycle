@@ -353,6 +353,7 @@ input#searchSampah {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-right: 850px;
 }
 
 /* INI CSS TABLE (sampai bawah) */
