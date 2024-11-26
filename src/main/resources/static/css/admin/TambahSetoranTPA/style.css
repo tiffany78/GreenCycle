@@ -11,17 +11,18 @@
 }
 .body {
   background: #ffffff;
-  padding: 10px;
+  padding: 15px 10px 15px 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   align-items: center;
   justify-content: flex-start;
-  width: 1400px;
+  width: auto;
   height: 891px;
   position: absolute;
   left: 20px;
-  top: 110px;
+  right : 20px;
+  top: 98px;
 }
 .judul-page {
   border-style: solid;
