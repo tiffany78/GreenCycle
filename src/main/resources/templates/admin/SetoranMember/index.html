@@ -96,9 +96,9 @@
             <td th:text="'Rp' + ${setoran.subtotal}"></td>
             <td th:text="${#dates.format(setoran.tanggal, 'dd/MM/yyyy')}"></td>
             <td>
-              <button class="edit-button" th:data-id="${setoran.id} + '|' + ${setoran.tanggal}">
+              <a class="edit-button" th:data-id="${setoran.id} + '|' + ${setoran.tanggal}">
                 <img class="edit-icon" src="/images/admin/detail1.svg" alt="Edit">
-              </button>
+              </a>
             </td>
           </tr>
         </tbody>
@@ -120,14 +120,13 @@
     <button class="home" th:onclick="'window.location.href=\'/admin/LandingPage\''">Home</button>
     <button class="data-sampah2" th:onclick="'window.location.href=\'/admin/DataSampah\''">Data Sampah</button>
     <button class="informasi-member" th:onclick="'window.location.href=\'/admin/InformasiMember\''">Informasi Member</button>
-    <button class="setoran-member">Setoran Member</button>
+    <button class="setoran-member" th:onclick="'window.location.href=\'/admin/SetoranMember\''">Setoran Member</button>
     <button class="setoran-tpa" th:onclick="'window.location.href=\'/admin/SetoranTPA\''">Setoran TPA</button>
     <button class="storage" th:onclick="'window.location.href=\'/admin/Storage\''">Storage</button>
     <button th:onclick="'window.location.href=\'/login\''">
-      <img class="logout" src="/images/admin/logout0.svg" />
+      <img class="logout" src="/images/admin/logout0.svg"/>
     </button>
   </div>
   </div>
 </body>
-
 </html>

@@ -48,8 +48,8 @@ public class SetoranMemberRepository {
             sql += " AND sm.tgl_transaksi <= ? ";
             params.add(tgl_akhir);
         }
-        sql += " GROUP BY p.nama, sm.id_member, sm.tgl_transaksi ";
-        sql += " ORDER BY p.nama, sm.tgl_transaksi ";
+        sql += " GROUP BY sm.tgl_transaksi, p.nama, sm.id_member ";
+        sql += " ORDER BY sm.tgl_transaksi, p.nama ";
     
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
             SetoranMember setoranMember = new SetoranMember();

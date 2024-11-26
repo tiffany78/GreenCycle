@@ -1,6 +1,7 @@
 .html-a-informasi-member,
 .html-a-informasi-member * {
   box-sizing: border-box;
+  font-family: "Poppins-Regular", sans-serif;
 }
 .html-a-informasi-member {
   background: #edf0f2;

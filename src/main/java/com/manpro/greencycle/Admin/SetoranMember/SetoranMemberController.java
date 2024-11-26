@@ -82,11 +82,12 @@ public class SetoranMemberController {
         valueSetoran.forEach((key, value) -> {
             if(!key.equals("memberList")){
                 int id_sampah = Integer.parseInt(key);
-                int kuantitas = Integer.parseInt(value);
-                if(kuantitas > 0){
-                    setoranMemberRepository.addSetoranMember(id_member, id_sampah, kuantitas);
+                if(!value.equals("")){
+                    int kuantitas = Integer.parseInt(value);
+                    if(kuantitas > 0){
+                        setoranMemberRepository.addSetoranMember(id_member, id_sampah, kuantitas);
+                    }
                 }
-                System.out.println(key + " " + value);
             }
         });
         return "redirect:/admin/SetoranMember";

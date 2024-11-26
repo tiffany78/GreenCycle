@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -68,22 +67,6 @@ public class SetoranTPAController {
         return "admin/TambahSetoranTPA/index";
     }
 
-    @PostMapping("/TambahSetoranTPA")
-        public String tambahSetoranTPA2(
-        @ModelAttribute Storage storage,
-        Model model) {
-        System.out.println("Debug");
-        // int res = (int) model.getAttribute("id_sampah");
-        // System.out.println(res);
-
-        // for (int i = 0; i < idSampah.size(); i++) {
-        //     System.out.println("Baris " + (i + 1));
-        //     System.out.println("ID Sampah: " + idSampah.get(i));
-        //     System.out.println("Setoran: " + valueSetoran.get(i));
-        // }
-        return "redirect:/admin/SetoranTPA";
-    }
-
     @PostMapping("/TambahSetoranTPA3")
     public String tambahSetoranTPA3(@RequestParam Map<String, String> valueSetoran, Model model) {
         String tpaValue = valueSetoran.get("tpaList");
@@ -93,10 +76,11 @@ public class SetoranTPAController {
         valueSetoran.forEach((key, value) -> {
             if(!key.equals("tpaList")){
                 int idSampah = key.charAt(13) - '0';
-                int setoran = Integer.parseInt(value);
-                if(setoran > 0){
-                    this.repo.addSetoranTPA(id_tpa, idSampah, setoran);
-                    System.out.println(idSampah + " " + setoran);
+                if(!value.equals("")){
+                    int setoran = Integer.parseInt(value);
+                    if(setoran > 0){
+                        this.repo.addSetoranTPA(id_tpa, idSampah, setoran);
+                    }
                 }
             }
         });

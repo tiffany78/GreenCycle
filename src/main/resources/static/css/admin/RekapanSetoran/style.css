@@ -1,6 +1,7 @@
 .html-a-rekapan-setoran,
 .html-a-rekapan-setoran * {
   box-sizing: border-box;
+  font-family: "Poppins-Regular", sans-serif;
 }
 .html-a-rekapan-setoran {
   background: #edf0f2;
