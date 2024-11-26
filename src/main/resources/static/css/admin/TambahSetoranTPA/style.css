@@ -1,6 +1,7 @@
 .html-a-tambah-setoran-tpa,
 .html-a-tambah-setoran-tpa * {
   box-sizing: border-box;
+  font-family: "Poppins-Regular", sans-serif;
 }
 .html-a-tambah-setoran-tpa {
   background: #edf0f2;

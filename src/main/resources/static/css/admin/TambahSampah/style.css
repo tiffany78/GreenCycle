@@ -1,6 +1,7 @@
 .html-a-tambah-sampah,
 .html-a-tambah-sampah * {
   box-sizing: border-box;
+  font-family: "Poppins-Regular", sans-serif;
 }
 .html-a-tambah-sampah {
   background: #edf0f2;
