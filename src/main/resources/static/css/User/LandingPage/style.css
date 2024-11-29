@@ -36,7 +36,7 @@
   align-items: center;
   justify-content: center;
 }
-.header {
+.header2 {
   background: #ffffff;
   padding: 10px 25px 10px 25px;
   display: flex;
@@ -61,7 +61,7 @@
   align-items: center;
   justify-content: center;
 }
-.data-sampah {
+.data-sampah2 {
   color: #101540;
   text-align: center;
   font-family: "Poppins-Regular", sans-serif;
@@ -73,42 +73,19 @@
   align-items: center;
   justify-content: center;
 }
-.setoran-member {
+.history-setoran {
   color: #101540;
   text-align: center;
   font-family: "Poppins-Regular", sans-serif;
   font-size: 24px;
   font-weight: 400;
   position: relative;
-  width: 213px;
+  width: 245px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.setoran-tpa {
-  color: #101540;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  position: relative;
-  width: 167px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.storage {
-  color: #101540;
-  text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  position: relative;
-  width: 167px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 .logout {
   flex-shrink: 0;
   width: 24px;
