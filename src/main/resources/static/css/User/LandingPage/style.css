@@ -1,0 +1,95 @@
+.html-a-landing-page,
+.html-a-landing-page * {
+  box-sizing: border-box;
+}
+.html-a-landing-page {
+  background: #fffff5;
+  height: 1021px;
+  position: relative;
+  overflow: hidden;
+}
+.section {
+  border-radius: 0px 0px 20px 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: center;
+  width: 1454px;
+  height: 973px;
+  position: absolute;
+  left: -7px;
+  top: 59px;
+}
+.hello-ferdinand {
+  color: #000000;
+  text-align: center;
+  font-family: "PatuaOne-Regular", sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  position: absolute;
+  left: 165px;
+  top: 242px;
+  width: 345px;
+  height: 79px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header2 {
+  background: #ffffff;
+  padding: 10px 25px 10px 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 76px;
+  position: fixed;
+  top: 0px;
+}
+.home {
+  color: #101540;
+  text-align: center;
+  font-family: "Poppins-Bold", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: underline;
+  position: relative;
+  width: 101px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.data-sampah2 {
+  color: #101540;
+  text-align: center;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: relative;
+  width: 179px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.history-setoran {
+  color: #101540;
+  text-align: center;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: relative;
+  width: 245px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logout {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  overflow: visible;
+}
