@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./vars.css">
+  <link rel="stylesheet" href="./style.css">
+  
+  
+  <style>
+   a,
+   button,
+   input,
+   select,
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   * {
+       box-sizing: border-box;
+       margin: 0;
+       padding: 0;
+       border: none;
+       text-decoration: none;
+       background: none;
+   
+       -webkit-font-smoothing: antialiased;
+   }
+   
+   menu, ol, ul {
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+   }
+   </style>
+  <title>Document</title>
+</head>
+<body>
+  <div class="html-b-history-setoran">
+    <div class="section">
+      <div class="section2">
+        <div class="order-container">
+          <div class="judul-page">
+            <div class="history-setoran">History Setoran</div>
+          </div>
+          <div class="fitur">
+            <div class="search-bar">
+              <img class="search" src="search0.svg" />
+              <div class="search-order-id">Search order ID</div>
+            </div>
+            <div class="filter-tgl">
+              <div class="akhir">
+                <div class="tanggal-akhir">Tanggal Akhir</div>
+              </div>
+              <div class="awal">
+                <div class="tanggal-awal">Tanggal Awal</div>
+              </div>
+              <div class="filter-tanggal">Filter Tanggal</div>
+            </div>
+          </div>
+          <div class="header-judul-sampah">
+            <div class="jenis-sampah">Jenis Sampah</div>
+            <div class="kuantitas">Kuantitas</div>
+            <div class="subtotal">Subtotal</div>
+            <div class="tgl">Tanggal Setor</div>
+          </div>
+          <div class="isi-sampah-1">
+            <div class="id">Kaleng</div>
+            <div class="id2">2</div>
+            <div class="_20-000">Rp6.000</div>
+            <div class="id3">01/11/2024</div>
+          </div>
+          <div class="isi-sampah-2">
+            <div class="id">Botol</div>
+            <div class="id2">5</div>
+            <div class="_20-000">Rp10.000</div>
+            <div class="id3">05/11/2024</div>
+          </div>
+          <div class="subtotal2">
+            <div class="id4">Total Pendapatan :</div>
+            <div class="id5">Rp16.000</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header2">
+      <button class="home" th:onclick="'window.location.href=\'/user/LandingPage\''">Home</button>
+      <button class="data-sampah2" th:onclick="'window.location.href=\'/user/DataSampah\''">Harga Jual</button>
+      <button class="data-sampah2" th:onclick="'window.location.href=\'/user/HistorySetoran\''">History Setoran</button>
+      <button th:onclick="'window.location.href=\'/login\''">
+        <img class="logout" src="/images/user/logout-020.svg" />
+      </button>
+    </div>
+  </div>
+  
+</body>
+</html>

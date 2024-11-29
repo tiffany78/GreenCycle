@@ -1,0 +1,433 @@
+.html-b-history-setoran,
+.html-b-history-setoran * {
+  box-sizing: border-box;
+}
+.html-b-history-setoran {
+  background: #edf0f2;
+  height: 1021px;
+  position: relative;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1),
+    0px 40px 87px 0px rgba(0, 0, 0, 0.1),
+    0px 159px 159px 0px rgba(0, 0, 0, 0.09),
+    1px 357px 214px 0px rgba(0, 0, 0, 0.05),
+    1px 635px 254px 0px rgba(0, 0, 0, 0.01),
+    2px 992px 278px 0px rgba(0, 0, 0, 0);
+  overflow: hidden;
+}
+.section {
+  border-radius: 0px 0px 20px 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: center;
+  width: 1440px;
+  height: 931px;
+  position: absolute;
+  left: 0px;
+  top: 90px;
+}
+.section2 {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  width: 1440px;
+  position: relative;
+}
+.order-container {
+  background: #ffffff;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+  width: 1400px;
+  position: relative;
+}
+.judul-page {
+  border-style: solid;
+  border-color: #dee1ff;
+  border-width: 0px 0px 1px 0px;
+  padding: 10px 25px 10px 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  width: 1400px;
+  height: 104px;
+  position: relative;
+}
+.history-setoran {
+  color: #101540;
+  text-align: center;
+  font-family: "Poppins-Medium", sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fitur {
+  border-style: solid;
+  border-color: #dee1ff;
+  border-width: 0px 0px 1px 0px;
+  padding: 10px 25px 10px 25px;
+  display: flex;
+  flex-direction: row;
+  gap: 542px;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 104px;
+  position: relative;
+}
+.search-bar {
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #d9d9d9;
+  border-width: 1px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 479px;
+  position: relative;
+  overflow: hidden;
+}
+.search {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  overflow: visible;
+}
+.search-order-id {
+  color: #d9d9d9;
+  text-align: center;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.filter-tgl {
+  flex-shrink: 0;
+  width: 305px;
+  height: 104px;
+  position: relative;
+  overflow: hidden;
+}
+.akhir {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 16px;
+  border-style: solid;
+  border-color: var(--neutral-700, #8b8b8b);
+  border-width: 1px;
+  padding: 0px 10px 0px 10px;
+  width: 140px;
+  height: 64px;
+  position: absolute;
+  left: 156px;
+  top: 26px;
+}
+.tanggal-akhir {
+  color: rgba(40, 40, 40, 0.5);
+  text-align: left;
+  font-family: var(
+    --tablet-body-body-2-font-family,
+    "Inter-Regular",
+    sans-serif
+  );
+  font-size: var(--tablet-body-body-2-font-size, 14px);
+  font-weight: var(--tablet-body-body-2-font-weight, 400);
+  position: absolute;
+  left: 25px;
+  top: 7px;
+}
+.awal {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 16px;
+  border-style: solid;
+  border-color: var(--neutral-700, #8b8b8b);
+  border-width: 1px;
+  padding: 0px 10px 0px 10px;
+  width: 140px;
+  height: 64px;
+  position: absolute;
+  left: 6px;
+  top: 26px;
+}
+.tanggal-awal {
+  color: rgba(40, 40, 40, 0.5);
+  text-align: left;
+  font-family: var(
+    --tablet-body-body-2-font-family,
+    "Inter-Regular",
+    sans-serif
+  );
+  font-size: var(--tablet-body-body-2-font-size, 14px);
+  font-weight: var(--tablet-body-body-2-font-weight, 400);
+  position: absolute;
+  left: 25px;
+  top: 7px;
+}
+.filter-tanggal {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  position: absolute;
+  left: 6px;
+  top: 0px;
+  width: 100px;
+  height: 15px;
+}
+.header-judul-sampah {
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0px 0px 1px 0px;
+  padding: 10px 25px 10px 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.jenis-sampah {
+  color: #000000;
+  text-align: center;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  position: relative;
+  width: 147px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.kuantitas {
+  color: #000000;
+  text-align: center;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  position: relative;
+  width: 124.13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.subtotal {
+  color: #000000;
+  text-align: center;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  position: relative;
+  width: 124.13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tgl {
+  color: #000000;
+  text-align: center;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  position: relative;
+  width: 175px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.isi-sampah-1 {
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0px 0px 1px 0px;
+  padding: 10px 25px 10px 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.id {
+  color: #000000;
+  text-align: center;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+  width: 147px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.id2 {
+  color: #000000;
+  text-align: center;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+  width: 124.13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+._20-000 {
+  color: #000000;
+  text-align: center;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+  width: 124.13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.id3 {
+  color: #000000;
+  text-align: center;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+  width: 175px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.isi-sampah-2 {
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0px 0px 1px 0px;
+  padding: 10px 25px 10px 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.subtotal2 {
+  background: #62804b;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0px 0px 1px 0px;
+  padding: 10px 25px 10px 25px;
+  display: flex;
+  flex-direction: row;
+  gap: 1px;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.id4 {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Poppins-Bold", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  position: relative;
+  width: 247px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.id5 {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  position: relative;
+  width: 124.13px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header {
+  background: #ffffff;
+  padding: 10px 25px 10px 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 1440px;
+  height: 76px;
+  position: sticky;
+  right: 0px;
+  top: 0px;
+}
+.home {
+  color: #101540;
+  text-align: center;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: relative;
+  width: 101px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.data-sampah {
+  color: #101540;
+  text-align: center;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: relative;
+  width: 179px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.informasi-member {
+  color: #101540;
+  text-align: center;
+  font-family: "Poppins-Bold", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: underline;
+  position: relative;
+  width: 245px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logout-02 {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  overflow: visible;
+}

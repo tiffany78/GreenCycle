@@ -1,0 +1,223 @@
+.html-b-register-data-diri,
+.html-b-register-data-diri * {
+  box-sizing: border-box;
+}
+.html-b-register-data-diri {
+  height: 1024px;
+  position: relative;
+}
+.b-register-data-diri {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+  justify-content: center;
+  width: 1440px;
+  height: 1024px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1),
+    0px 40px 87px 0px rgba(0, 0, 0, 0.1),
+    0px 159px 159px 0px rgba(0, 0, 0, 0.09),
+    1px 357px 214px 0px rgba(0, 0, 0, 0.05),
+    1px 635px 254px 0px rgba(0, 0, 0, 0.01),
+    2px 992px 278px 0px rgba(0, 0, 0, 0);
+  object-fit: cover;
+}
+.register-container {
+  background: #ffffff;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 620px;
+  height: 1024px;
+  position: absolute;
+  left: 820px;
+  top: 0px;
+}
+.register-details {
+  background: #ffffff;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 440px;
+  height: 822px;
+  position: absolute;
+  left: 910px;
+  top: 101px;
+}
+.register {
+  color: #000000;
+  text-align: left;
+  font-family: "Poppins-Medium", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  position: relative;
+}
+.input-collection {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  height: 530px;
+  position: relative;
+}
+.group-4 {
+  flex-shrink: 0;
+  width: 410.06px;
+  height: 505px;
+  position: static;
+}
+.phone-number {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-start;
+  justify-content: center;
+  width: 410px;
+  position: absolute;
+  left: 10px;
+  top: 406px;
+}
+.phone-number2 {
+  color: #101540;
+  text-align: left;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+}
+.rectangle-34 {
+  background: #edf0f2;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #8f8f8f;
+  border-width: 1px;
+  padding: 15px 10px 15px 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 60px;
+  position: relative;
+}
+.enter-you-email {
+  color: rgba(0, 0, 0, 0.68);
+  text-align: left;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  position: relative;
+}
+.confirm-password {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-start;
+  justify-content: center;
+  width: 410px;
+  position: absolute;
+  left: 10px;
+  top: 307px;
+}
+.confirm-password2 {
+  color: #101540;
+  text-align: left;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+}
+.password {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-start;
+  justify-content: center;
+  width: 410px;
+  position: absolute;
+  left: 10px;
+  top: 208px;
+}
+.password2 {
+  color: #101540;
+  text-align: left;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+}
+.email {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-start;
+  justify-content: center;
+  width: 410px;
+  position: absolute;
+  left: 10px;
+  top: 109px;
+}
+.email2 {
+  color: #101540;
+  text-align: left;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+}
+.name {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-start;
+  justify-content: center;
+  width: 410px;
+  position: absolute;
+  left: 10.06px;
+  top: 10px;
+}
+.rectangle-342 {
+  background: #104012;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: #8f8f8f;
+  border-width: 1px;
+  padding: 15px 10px 15px 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 60px;
+  position: relative;
+}
+.selanjutnya {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  position: relative;
+}
