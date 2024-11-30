@@ -398,3 +398,16 @@
   font-weight: 400;
   position: relative;
 }
+.frame {
+  border-radius: 10px;
+  border-style: solid;
+  border-color: var(--grey-40, #d0d0d0);
+  border-width: 1px;
+  flex-shrink: 0;
+  width: 300px;
+  height: 50px;
+  position: relative;
+  border-radius: 8px;
+  right: 4.55%;
+  top: 150%;
+}

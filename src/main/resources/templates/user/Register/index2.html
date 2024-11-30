@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./vars.css">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="/css/User/RegisterAlamat/vars.css">
+  <link rel="stylesheet" href="/css/User/RegisterAlamat/style.css">
   
   
   <style>
@@ -39,40 +39,26 @@
 </head>
 <body>
   <div class="html-b-register-alamat">
-    <img class="b-register-alamat" src="b-register-alamat0.png" />
+    <img class="b-register-alamat" src="/images/User/b-register-alamat0.png" />
     <div class="register-container">
       <div class="register-details">
         <div class="register">Register</div>
         <div class="alamat">
           <div class="address">Alamat*</div>
-          <div class="rectangle-34">
-            <div class="enter-you-email">Jl. Ciumbuleuit No. 94</div>
-          </div>
+          <input type="text" id="alamat" name="alamat" class="rectangle-34" placeholder="Masukkan alamat Anda" required />
           <div class="frame-4">
             <div class="kecamatan-list">
               <div class="kecamatan-1">
-                <div class="kecamatan">Kecamatan</div>
-              </div>
-              <div class="list-box-bg"></div>
-              <img class="chevron" src="chevron0.svg" />
-              <div class="kecamatan-2">
-                <div class="kecamatan2">Kecamatan</div>
-              </div>
-              <div class="clip-list">
-                <div class="kecamatan-3">
-                  <div class="item-1">
-                    <div class="_1">Buah Batu</div>
-                  </div>
-                  <div class="item-2">
-                    <div class="_2">Cidadap</div>
-                  </div>
-                  <div class="item-3">
-                    <div class="_3">Sukajadi</div>
-                  </div>
-                  <div class="item-4">
-                    <div class="_4">Ujung Berung</div>
-                  </div>
-                </div>
+                <div for="tpaList" class="kecamatan">Kecamatan</div>
+                <select class="frame" id="kecamatanList" name="kecamatanList" required>
+                  <!-- Opsi Default -->
+                  <option value="" disabled selected>Pilih TPA</option>
+                  <option th:each="kec : ${kecamatanList}" 
+                  th:value="${kec.id_kecamatan}" 
+                  th:text="${kec.nama}"
+                  th:selected="${kec.id_kecamatan == kec}">
+                  </option>
+                </select>
               </div>
             </div>
             <div class="kelurahan-list">
