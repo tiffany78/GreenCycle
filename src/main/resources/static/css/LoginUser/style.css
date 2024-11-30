@@ -1,6 +1,7 @@
 .html-a-login1,
 .html-a-login1 * {
   box-sizing: border-box;
+  font-family: "Poppins-Regular", sans-serif;
 }
 .html-a-login1 {
   height: 100vh;

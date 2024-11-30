@@ -24,7 +24,7 @@ public class JDBCHistoryRepository {
                        smv.tanggal AS tanggal
                 FROM setoran_member_view smv
                 JOIN sampah sp ON smv.sampah = sp.nama
-                WHERE smv.nama LIKE ?
+                WHERE smv.nama ILIKE ?
         """;
     
         List<Object> params = new ArrayList<>();
@@ -43,7 +43,7 @@ public class JDBCHistoryRepository {
     
         // Add filter for sampah type if provided
         if (filter != null && !filter.isEmpty()) {
-            sql += " AND smv.sampah LIKE ? ";
+            sql += " AND smv.sampah ILIKE ? ";
             params.add("%" + filter + "%");
         }
     

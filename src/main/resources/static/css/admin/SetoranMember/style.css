@@ -305,12 +305,6 @@
   overflow: visible;
 }
 
-input#searchSampah {
-  width: 450px;
-  height: 30px;
-  padding-left: 5px;
-}
-
 .rekapan {
   background: #62804b;
   border-style: solid;
@@ -387,7 +381,7 @@ button.edit-button {
 }
 
 .rekapan {
-  background-color: #4CAF50;
+  background-color: #62804B;
   color: white;
   padding: 15px;
   margin-top: 20px;
@@ -411,7 +405,14 @@ button.edit-button {
 }
 
 input#filterInput.frame{
-  width: 250px;
-  height: 30px;
-  border-color: #000000 solid 1px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: var(--grey-40, #d0d0d0);
+  border-width: 1px;
+  flex-shrink: 0;
+  width: 350px;
+  height: 50px;
+  position: relative;
+  padding-left: 10px;
+  padding-right: 20px;
 }

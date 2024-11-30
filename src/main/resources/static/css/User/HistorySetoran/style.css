@@ -289,7 +289,7 @@ input.searchSampah{
 .nominal {
   color: #ffffff;
   text-align: center;
-  font-family: "Poppins-Regular", sans-serif;
+  font-family: "Poppins-Bold", sans-serif;
   font-size: 20px;
   font-weight: 400;
   position: relative;
@@ -308,27 +308,27 @@ input.searchSampah{
   border-collapse: collapse;
   text-align: center;
 }
-.data-table {
+.member-table {
   width: 100%;
   margin: 20px auto;
   border-collapse: collapse;
   text-align: center;
 }
 
-.data-table th,
-.data-table td {
+.member-table th,
+.member-table td {
   border: 1px solid #ddd;
   padding: 10px;
   font-size: 16px;
   font-weight: 400;
 }
 
-.data-table th {
+.member-table th {
   background-color: #f4f4f4;
   font-size: 18px;
 }
 
-.data-table tbody tr:hover {
+.member-table tbody tr:hover {
   background-color: #f1f1f1;
 }
 
@@ -340,7 +340,14 @@ input.searchSampah{
   }
 
 input#filterInput.frame{
-  width: 250px;
-  height: 30px;
-  border-color: #000000 solid 1px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: var(--grey-40, #d0d0d0);
+  border-width: 1px;
+  flex-shrink: 0;
+  width: 350px;
+  height: 50px;
+  position: relative;
+  padding-left: 10px;
+  padding-right: 20px;
 }
