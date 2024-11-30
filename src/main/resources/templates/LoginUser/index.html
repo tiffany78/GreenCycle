@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/LoginUser/vars.css">
+  <link rel="stylesheet" href="/css/LoginUser/style.css">
+
+
+  <style>
+    a,
+    button,
+    input,
+    select,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      border: none;
+      text-decoration: none;
+      background: none;
+
+      -webkit-font-smoothing: antialiased;
+    }
+
+    menu,
+    ol,
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <title>Login</title>
+</head>
+
+<body>
+  <div class="html-a-login1">
+    <img class="b-login" src="/images/Login/b-login0.png" />
+    <div class="login-container">
+      <!-- Login Form -->
+      <form class="login-details" id="loginForm" method="POST" th:action="@{/loginUser}">
+        <div class="login">Login</div>
+        <div class="email">
+          <div class="email2">Email*</div>
+          <input type="text" id="email" name="email" class="frame" placeholder="Enter your email" required />
+        </div>
+        <div class="password">
+          <div class="password2">Password*</div>
+          <input type="password" id="password" name="password" class="frame" placeholder="Enter your password"
+            required />
+        </div>
+        <div class="rectangle-39">Belum mempunyai akun?
+          <a href="user/RegisterDataDiri/index">Register</a>
+        </div>
+        <button id="loginButton" class="button" type="submit">
+          <div class="login2">Login</div>
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- Pop-up Error Message -->
+  <div id="popup" class="popup" style="display: none;">
+    <div class="popup-content">
+      <span class="close-button" onclick="closePopup()">&times;</span>
+      <p id="popup-message"></p>
+    </div>
+  </div>
+
+  <script>
+    function showPopup(message) {
+      const popup = document.getElementById("popup");
+      const messageElement = document.getElementById("popup-message");
+      messageElement.textContent = message;
+      popup.style.display = "flex";
+
+      setTimeout(function () {
+        closePopup();
+      }, 1000);
+    }
+
+    function closePopup() {
+      const popup = document.getElementById("popup");
+      popup.style.display = "none";
+    }
+
+    document.getElementById("loginButton").addEventListener("click", function (event) {
+      event.preventDefault();
+
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      if (email.trim() === "" || password.trim() === "") {
+        showPopup("Email dan password tidak boleh kosong");
+      } else {
+        document.getElementById("loginForm").submit();
+      }
+    });
+  </script>
+</body>
+
+</html>
