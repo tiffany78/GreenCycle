@@ -3,6 +3,7 @@ package com.manpro.greencycle.User.HistorySetoran;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -15,47 +16,51 @@ public class JDBCHistoryRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public List<HistorySampah> findHistory(String username, String tglAwal, String tglAkhir) {
+    public List<HistorySampah> findHistory(String username, LocalDate tgl_awal, LocalDate tgl_akhir, String filter) {
         String sql = """
                 SELECT smv.sampah AS jenis_sampah,
-                    SUM(smv.kuantitas) AS kuantitas_sampah,
-                    SUM(smv.kuantitas * sp.harga) AS subtotal,
-                    smv.tanggal AS tgl_transaksi,
-                    smv.nama AS nama_member
-                FROM
-                    setoran_member_view smv
-                JOIN
-                    sampah sp ON smv.sampah = sp.nama  -- Menghubungkan dengan tabel sampah untuk harga
-                WHERE
-                    smv.nama = ?  -- Menggunakan nama member yang diteruskan dari session
-                """;
-
+                       SUM(smv.kuantitas) AS total_kuantitas,
+                       SUM(smv.kuantitas * sp.harga) AS total_harga,
+                       smv.tanggal AS tanggal
+                FROM setoran_member_view smv
+                JOIN sampah sp ON smv.sampah = sp.nama
+                WHERE smv.nama LIKE ?
+        """;
+    
         List<Object> params = new ArrayList<>();
-        params.add(username);  // Menambahkan username ke query
-
-        // Menambahkan filter tanggal jika tersedia
-        if (tglAwal != null && !tglAwal.isEmpty()) {
+        params.add("%" + username + "%");  // Username with LIKE for partial match
+    
+        // Add date filters if provided
+        if (tgl_awal != null ) {
             sql += " AND smv.tanggal >= ? ";
-            params.add(tglAwal);
+            params.add(tgl_awal);
         }
-
-        if (tglAkhir != null && !tglAkhir.isEmpty()) {
+    
+        if (tgl_akhir != null ) {
             sql += " AND smv.tanggal <= ? ";
-            params.add(tglAkhir);
+            params.add(tgl_akhir);
         }
-
-        sql += "GROUP BY smv.sampah, smv.tanggal, smv.nama ORDER BY smv.tanggal DESC";
-
+    
+        // Add filter for sampah type if provided
+        if (filter != null && !filter.isEmpty()) {
+            sql += " AND smv.sampah LIKE ? ";
+            params.add("%" + filter + "%");
+        }
+    
+        sql += "GROUP BY smv.sampah, smv.tanggal ORDER BY smv.tanggal";
+    
+        // Execute the query with the provided parameters
         return jdbcTemplate.query(sql, this::mapRow, params.toArray());
     }
+    
 
-    // Memetakan hasil query ke dalam objek HistorySampah
-    public HistorySampah mapRow(ResultSet rs, int rowNum) throws SQLException {
-        HistorySampah history = new HistorySampah();
-        history.setJenisSampah(rs.getString("jenis_sampah"));
-        history.setKuantitas(rs.getInt("kuantitas_sampah"));
-        history.setSubtotal(rs.getLong("subtotal"));
-        history.setTanggal(rs.getDate("tgl_transaksi").toLocalDate());
-        return history;
+    // Mapping the result set to HistorySampah object
+    private HistorySampah mapRow(ResultSet rs, int rowNum) throws SQLException {
+        return new HistorySampah(
+        rs.getString("jenis_sampah"),
+        rs.getInt("total_kuantitas"),
+        rs.getString("total_harga"),
+        rs.getDate("tanggal")
+        );
     }
 }

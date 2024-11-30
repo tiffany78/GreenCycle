@@ -299,14 +299,9 @@ input.searchSampah{
   align-items: center;
   justify-content: center;
   padding-right: 850px;
+  padding-left: 15px;
 }
 /* INI CSS TABLE (sampai bawah) */
-.rekapan {
-  width: 100%;
-  margin: 20px auto;
-  border-collapse: collapse;
-  text-align: center;
-  }
 .member-table {
   width: 100%;
   margin: 20px auto;
@@ -335,4 +330,17 @@ input.searchSampah{
 
 .data-table tbody tr:hover {
   background-color: #f1f1f1;
+}
+
+.rekapan {
+  width: 100%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  text-align: center;
+  }
+
+input#filterInput.frame{
+  width: 250px;
+  height: 30px;
+  border-color: #000000 solid 1px;
 }

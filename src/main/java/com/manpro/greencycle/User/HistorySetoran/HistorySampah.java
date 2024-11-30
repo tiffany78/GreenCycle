@@ -1,7 +1,7 @@
 package com.manpro.greencycle.User.HistorySetoran;
 
 
-import java.time.LocalDate;
+import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +13,6 @@ import lombok.NoArgsConstructor;
 public class HistorySampah {
     private String jenisSampah;
     private int kuantitas;
-    private long subtotal;
-    private LocalDate tanggal;
+    private String subtotal;
+    private Date tanggal;
 }

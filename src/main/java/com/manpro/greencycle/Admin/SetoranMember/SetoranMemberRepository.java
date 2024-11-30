@@ -5,7 +5,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.manpro.greencycle.Admin.Sampah.Sampah;
-import com.manpro.greencycle.Admin.TPA.SampahDetail;
+
 
 import java.math.BigDecimal;
 import java.sql.ResultSet;
