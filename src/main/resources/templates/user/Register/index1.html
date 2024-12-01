@@ -43,7 +43,7 @@
     <div class="register-container"></div>
     <div class="register-details">
       <div class="register">Register</div>
-      <div class="input-collection">
+      <form class="input-collection" method="POST" th:action="@{/register}">
         <div class="group-4">
           <div class="name">
             <div class="password2">Nama Lengkap*</div>
@@ -66,10 +66,10 @@
             <input type="text" id="nohp" name="nohp" class="rectangle-34" placeholder="Masukkan nomor telepon" required />
           </div>
         </div>
-        <div class="rectangle-342">
-          <button class="selanjutnya" th:onclick="'window.location.href=\'/register/page2\''">Selanjutnya</button>
-        </div>
-      </div>
+        <button class="rectangle-342" type="submit">
+          <div class="selanjutnya">Selanjutnya</button>
+        </button>
+      </form>
     </div>
   </div>
   

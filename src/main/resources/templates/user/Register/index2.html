@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/User/RegisterAlamat/vars.css">
   <link rel="stylesheet" href="/css/User/RegisterAlamat/style.css">
+
+  <!--JS-->
+  <script src="/js/register/scripts.js" defer></script>
   
   
   <style>
@@ -41,60 +44,49 @@
   <div class="html-b-register-alamat">
     <img class="b-register-alamat" src="/images/User/b-register-alamat0.png" />
     <div class="register-container">
-      <div class="register-details">
+      <form class="register-details" method="POST" th:action="@{/register/submitForm}">
         <div class="register">Register</div>
+    
         <div class="alamat">
-          <div class="address">Alamat*</div>
-          <input type="text" id="alamat" name="alamat" class="rectangle-34" placeholder="Masukkan alamat Anda" required />
-          <div class="frame-4">
-            <div class="kecamatan-list">
-              <div class="kecamatan-1">
-                <div for="tpaList" class="kecamatan">Kecamatan</div>
-                <select class="frame" id="kecamatanList" name="kecamatanList" required>
-                  <!-- Opsi Default -->
-                  <option value="" disabled selected>Pilih TPA</option>
-                  <option th:each="kec : ${kecamatanList}" 
-                  th:value="${kec.id_kecamatan}" 
-                  th:text="${kec.nama}"
-                  th:selected="${kec.id_kecamatan == kec}">
-                  </option>
-                </select>
-              </div>
-            </div>
-            <div class="kelurahan-list">
-              <div class="kelurahan-1">
-                <div class="kelurahan">Kelurahan</div>
-              </div>
-              <div class="list-box-bg"></div>
-              <img class="chevron2" src="chevron1.svg" />
-              <div class="kelurahan-2">
-                <div class="kelurahan2">Kelurahan</div>
-              </div>
-              <div class="clip-list">
-                <div class="kelurahan-3">
-                  <div class="item-1">
-                    <div class="_1">Cijawura</div>
-                  </div>
-                  <div class="item-2">
-                    <div class="_2">Jatisari</div>
-                  </div>
-                  <div class="item-3">
-                    <div class="_3">Margasari</div>
-                  </div>
-                  <div class="item-4">
-                    <div class="_4">Sekejati</div>
-                  </div>
+            <div class="address">Alamat*</div>
+            <input type="text" id="alamat" name="alamat" class="rectangle-34" placeholder="Masukkan alamat Anda" required />
+    
+            <div class="frame-4">
+                <div class="kecamatan-list">
+                    <div class="kecamatan-1">
+                        <label class="kecamatan" for="kecamatanList">Kecamatan</label>
+                        <select class="frame" id="kecamatanList" name="kecamatanList" required>
+                            <option value="" disabled selected>Pilih Kecamatan</option>
+                            <option th:each="kec : ${kecamatanList}" 
+                                    th:value="${kec.id_kecamatan}" 
+                                    th:text="${kec.nama}">
+                            </option>
+                        </select>
+                    </div>
                 </div>
-              </div>
+    
+                <div class="kelurahan-list">
+                    <div class="kelurahan-1">
+                        <label class="kelurahan" for="kelurahanList">Kelurahan</label>
+                        <select class="frame" id="kelurahanList" name="kelurahanList" required>
+                            <option value="" disabled selected>Pilih Kelurahan</option>
+                        </select>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-        <div class="rectangle-342">
-          <div class="register2">Register</div>
-        </div>
-      </div>
+    
+        <!-- Tombol Submit -->
+        <button type="submit" class="rectangle-342">
+            <div class="register2">Register</div>
+        </button>
+    
+        <!-- Tombol Kembali -->
+        <a class="rectangle-343" th:href="@{/register}">
+            <div class="back">Back</div>
+        </a>
+      </form>    
     </div>
   </div>
-  
 </body>
 </html>
