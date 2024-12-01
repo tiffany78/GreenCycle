@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/User/RegisterAlamat/vars.css">
+  <link rel="stylesheet" href="/css/User/RegisterAlamat/style.css">
+
+  <!--JS-->
+  <script src="/js/register/scripts.js" defer></script>
+  
+  
+  <style>
+   a,
+   button,
+   input,
+   select,
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   * {
+       box-sizing: border-box;
+       margin: 0;
+       padding: 0;
+       border: none;
+       text-decoration: none;
+       background: none;
+   
+       -webkit-font-smoothing: antialiased;
+   }
+   
+   menu, ol, ul {
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+   }
+   </style>
+  <title>Document</title>
+</head>
+<body>
+  <div class="html-b-register-alamat">
+    <img class="b-register-alamat" src="/images/User/b-register-alamat0.png" />
+    <div class="register-container">
+      <form class="register-details" method="POST" th:action="@{/register/submitForm}">
+        <div class="register">Register</div>
+    
+        <div class="alamat">
+            <div class="address">Alamat*</div>
+            <input type="text" id="alamat" name="alamat" class="rectangle-34" placeholder="Masukkan alamat Anda" required />
+    
+            <div class="frame-4">
+                <div class="kecamatan-list">
+                    <div class="kecamatan-1">
+                        <label class="kecamatan" for="kecamatanList">Kecamatan</label>
+                        <select class="frame" id="kecamatanList" name="kecamatanList" required>
+                            <option value="" disabled selected>Pilih Kecamatan</option>
+                            <option th:each="kec : ${kecamatanList}" 
+                                    th:value="${kec.id_kecamatan}" 
+                                    th:text="${kec.nama}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+    
+                <div class="kelurahan-list">
+                    <div class="kelurahan-1">
+                        <label class="kelurahan" for="kelurahanList">Kelurahan</label>
+                        <select class="frame" id="kelurahanList" name="kelurahanList" required>
+                            <option value="" disabled selected>Pilih Kelurahan</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Tombol Submit -->
+        <button type="submit" class="rectangle-342">
+            <div class="register2">Register</div>
+        </button>
+    
+        <!-- Tombol Kembali -->
+        <a class="rectangle-343" th:href="@{/register}">
+            <div class="back">Back</div>
+        </a>
+      </form>    
+    </div>
+  </div>
+</body>
+</html>

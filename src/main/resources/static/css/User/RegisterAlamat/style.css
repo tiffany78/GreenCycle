@@ -34,7 +34,7 @@
   gap: 10px;
   align-items: center;
   justify-content: center;
-  width: 620px;
+  width: auto;
   height: 1024px;
   position: absolute;
   left: 820px;
@@ -390,6 +390,24 @@
   height: 60px;
   position: relative;
 }
+
+.rectangle-343 {
+  border-radius: 20px;
+  border-style: solid;
+  border-color: #104012;
+  border-width: 1px;
+  padding: 15px 10px 15px 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 416px;
+  height: 60px;
+  position: relative;
+}
+
 .register2 {
   color: #ffffff;
   text-align: left;
@@ -397,4 +415,26 @@
   font-size: 15px;
   font-weight: 400;
   position: relative;
+}
+
+.back {
+  color: #104012;
+  text-align: left;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  position: relative;
+}
+.frame {
+  border-radius: 10px;
+  border-style: solid;
+  border-color: var(--grey-40, #d0d0d0);
+  border-width: 1px;
+  flex-shrink: 0;
+  width: 300px;
+  height: 50px;
+  position: relative;
+  border-radius: 8px;
+  right: 4.55%;
+  top: 150%;
 }
