@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.manpro.greencycle.Admin.Sampah.Sampah;
 
 @Controller
-@RequestMapping("/admin/SetoranMember") // Update this to match the path used in your template
+@RequestMapping("/admin/SetoranMember")
 public class SetoranMemberController {
     @Autowired
     private final SetoranMemberRepository setoranMemberRepository;
@@ -35,23 +35,19 @@ public class SetoranMemberController {
             @RequestParam(value = "tgl_awal", required = false) LocalDate tgl_awal,
             @RequestParam(value = "tgl_akhir", required = false) LocalDate tgl_akhir,
             Model model) {
-        // Retrieve list of SetoranMember
+        
         model.addAttribute("filter", filter);
         model.addAttribute("tgl_awal", tgl_awal);
         model.addAttribute("tgl_akhir", tgl_akhir);
         var setoranList = setoranMemberRepository.findAll(filter,tgl_awal,tgl_akhir);
 
-        // Calculate total income (sum of all subtotal)
         double totalPendapatan = setoranList.stream()
-                .mapToDouble(setoran -> Double.parseDouble(setoran.getSubtotal())) // assuming subtotal is stored as a
-                                                                                   // String
-                .sum();
+                .mapToDouble(setoran -> Double.parseDouble(setoran.getSubtotal())).sum();
 
-        // Add data to model
-        model.addAttribute("setoranList", setoranList); // Pass list of SetoranMember
-        model.addAttribute("totalPendapatan", totalPendapatan); // Add total income
+        model.addAttribute("setoranList", setoranList); 
+        model.addAttribute("totalPendapatan", totalPendapatan); 
 
-        return "admin/SetoranMember/index"; // Ensure this matches the template path
+        return "admin/SetoranMember/index"; 
     }
 
     @GetMapping("/SetoranMember/details/{setoranId}")

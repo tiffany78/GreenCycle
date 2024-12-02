@@ -49,14 +49,22 @@ public class LoginUserController {
         List<LoginUserPengguna> pengguna = findPengguna(email);
 
         if (pengguna.isEmpty()) {
-            return "LoginUser/index";
+            return "Login/index";
         } else {
             String realPassword = pengguna.get(0).getPassword();
-            if (realPassword.equals(password) && pengguna.get(0).getPeran().equals("member")) {
+            if (realPassword.equals(password)) {    //Password benar
                 // Simpan nama pengguna dalam session
                 session.setAttribute("username", pengguna.get(0).getNama());
-                return "redirect:/user";
-            } else {
+                // Jika yang login adalah admin
+                if(pengguna.get(0).getPeran().equals("admin")){
+                    return "redirect:/admin/LandingPage";
+                }
+                // Jika yang login adalah member
+                else{
+                    return "redirect:/user";
+                }   
+            } 
+            else {  //Password salah
                 return "LoginUser/index";
             }
         }

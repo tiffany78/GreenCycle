@@ -67,7 +67,7 @@
               <th>ID</th>
               <th>Jenis Sampah</th>
               <th>Unit</th>
-              <th>Kapasitas</th>
+              <th>Stok</th>
               <th>Banyaknya Setoran</th>
             </tr>
           </thead>
@@ -77,13 +77,13 @@
                 <td th:text="${storage.id_sampah}"></td>
                 <td th:text="${storage.sampah}"></td>
                 <td th:text="${storage.unit}"></td>
-                <td th:text="${storage.kapasitas}"></td>
+                <td th:text="${storage.stok}"></td>
                 <td style="width: 225px;">
                   <input type="text" 
                    th:name="'valueSetoran[' + ${storage.id_sampah} + ']'" 
                    class="valueSetoran" 
                    placeholder="Masukkan banyaknya setoran" 
-                   th:attr="kapasitas=${storage.kapasitas}">
+                   th:attr="stok=${storage.stok}">
                 </td>
                 <td>
                   <span class="error-message hidden">Tidak Valid</span>
@@ -109,7 +109,7 @@
       <button class="setoran-member" th:onclick="'window.location.href=\'/admin/SetoranMember\''">Setoran Member</button>
       <button class="setoran-tpa" th:onclick="'window.location.href=\'/admin/SetoranTPA\''">Setoran TPA</button>
       <button class="storage" th:onclick="'window.location.href=\'/admin/Storage\''">Storage</button>
-      <button th:onclick="'window.location.href=\'/login\''">
+      <button th:onclick="'window.location.href=\'/loginUser\''">
         <img class="logout" src="/images/admin/logout0.svg" />
       </button>
     </div>
