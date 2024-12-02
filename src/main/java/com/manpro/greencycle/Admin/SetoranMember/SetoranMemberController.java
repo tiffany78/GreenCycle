@@ -66,21 +66,51 @@ public class SetoranMemberController {
 
     @PostMapping("/TambahSetoranMember")
     public String tambahSetoranMember(@RequestParam Map<String, String> valueSetoran, Model model) {
-        String tpaValue = valueSetoran.get("memberList");
-        int id_member = Integer.parseInt(tpaValue);
-        System.out.println(id_member);
+    String tpaValue = valueSetoran.get("memberList");
+    int id_member = Integer.parseInt(tpaValue);
 
-        valueSetoran.forEach((key, value) -> {
-            if(!key.equals("memberList")){
-                int id_sampah = Integer.parseInt(key);
-                if(!value.equals("")){
-                    int kuantitas = Integer.parseInt(value);
-                    if(kuantitas > 0){
-                        setoranMemberRepository.addSetoranMember(id_member, id_sampah, kuantitas);
-                    }
-                }
+    // Variabel untuk menyimpan error
+    boolean hasError = false;
+    StringBuilder errorMessage = new StringBuilder("Nilai setoran tidak boleh negatif untuk: ");
+
+    for (Map.Entry<String, String> entry : valueSetoran.entrySet()) {
+        String key = entry.getKey();
+        String value = entry.getValue();
+
+        if (!key.equals("memberList") && !value.isEmpty()) {
+            int id_sampah = Integer.parseInt(key);
+            int kuantitas = Integer.parseInt(value);
+
+            if (kuantitas < 0) {
+                hasError = true;
+                errorMessage.append("ID Sampah ").append(id_sampah).append(" ");
             }
-        });
-        return "redirect:/admin/SetoranMember";
+        }
+    }
+
+    if (hasError) {
+        // Jika ada error, tambahkan pesan error ke model dan kembali ke halaman tambah setoran
+        model.addAttribute("errorMessage", errorMessage.toString());
+        List<Member> list = setoranMemberRepository.findMemberAll();
+        model.addAttribute("memberList", list);
+
+        List<Sampah> list2 = setoranMemberRepository.findSampahAll();
+        model.addAttribute("sampahList", list2);
+
+        return "admin/TambahSetoranMember/index";
+    }
+
+    // Jika tidak ada error, lakukan penyimpanan data ke database
+    valueSetoran.forEach((key, value) -> {
+        if (!key.equals("memberList") && !value.equals("")) {
+            int id_sampah = Integer.parseInt(key);
+            int kuantitas = Integer.parseInt(value);
+            if (kuantitas > 0) {
+                setoranMemberRepository.addSetoranMember(id_member, id_sampah, kuantitas);
+            }
+        }
+    });
+
+    return "redirect:/admin/SetoranMember";
     }
 }

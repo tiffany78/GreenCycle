@@ -43,6 +43,11 @@
       <div class="judul-page">
         <div class="tambah-setoran-member">Tambah Setoran Member</div>
       </div>
+      <!-- Menampilkan pesan error jika ada -->
+      <div th:if="${errorMessage}" class="error-message">
+        <p th:text="${errorMessage}"></p>
+      </div>
+      <!-- Form Setoran -->
       <form class="input-tambah-setoran" method="POST" th:action="@{/admin/SetoranMember/TambahSetoranMember}">
         <div class="input-member-dan-jenis-sampah">
           <div class="sampah">
@@ -57,13 +62,6 @@
               </option>
             </select>
           </div>
-          <!-- <div class="kuantitas">
-            <div class="kuantitas2">Kuantitas</div>
-            <input type="text" id="kuantitas" name="kuantitas" class="frame" placeholder="Masukkan Kuantitas Setoran Sampah">
-          </div> -->
-          <!-- <button class="button">
-            <div class="tambah-sampah">Tambah Sampah</div>
-          </button> -->
         </div>
         <div class="setoran-member">List Setoran Member</div>
         <!-- BAGIAN TABLE SETORAN SAMPAH -->
@@ -100,6 +98,14 @@
           </button>
         </div>
       </form>
+      <!-- Tambahkan CSS untuk styling pesan error -->
+      <style>
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+      </style>
     </div>
     <div class="header">
       <button class="home" th:onclick="'window.location.href=\'/admin/LandingPage\''">Home</button>
