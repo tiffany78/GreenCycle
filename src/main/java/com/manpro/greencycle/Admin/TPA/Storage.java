@@ -9,5 +9,5 @@ public class Storage {
     private Integer id_sampah;
     private String sampah;
     private String unit;
-    private Integer kapasitas;
+    private Integer stok;
 }
