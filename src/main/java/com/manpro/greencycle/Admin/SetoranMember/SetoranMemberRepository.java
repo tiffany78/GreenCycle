@@ -62,9 +62,9 @@ public class SetoranMemberRepository {
         );
     }
     
-    public List<SetoranDetail> getSetoranDetails(int setoranId) {
-        String sql = "SELECT sampah, kuantitas, unit FROM setoran_member_view WHERE id_member = ?";
-        return jdbcTemplate.query(sql, this::mapRowToSampahDetail, setoranId);
+    public List<SetoranDetail> getSetoranDetails(int setoranId, LocalDate tanggal) {
+        String sql = "SELECT sampah, SUM(kuantitas) as kuantitas, unit FROM setoran_member_view WHERE id_member = ? AND tanggal = ? GROUP BY sampah, unit";
+        return jdbcTemplate.query(sql, this::mapRowToSampahDetail, setoranId, tanggal);
     }
 
     private SetoranDetail mapRowToSampahDetail(ResultSet resultSet, int rowNum) throws SQLException {

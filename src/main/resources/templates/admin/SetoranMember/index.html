@@ -94,7 +94,7 @@
             <td th:text="${stat.index + 1}"></td>
             <td th:text="${setoran.nama}"></td>
             <td th:text="'Rp' + ${setoran.subtotal}"></td>
-            <td th:text="${#dates.format(setoran.tanggal, 'dd/MM/yyyy')}"></td>
+            <td th:data-tanggal="${setoran.tanggal}" th:text="${#dates.format(setoran.tanggal, 'dd/MM/yyyy')}"></td>
             <td>
               <button class="edit-button" th:data-id="${setoran.id}">
                 <img class="edit-icon" src="/images/admin/detail1.svg" alt="Edit">

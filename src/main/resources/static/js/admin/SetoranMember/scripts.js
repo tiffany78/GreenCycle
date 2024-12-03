@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
   editButtons.forEach(button => {
     button.addEventListener('click', (event) => {
       const setoranId = button.getAttribute('data-id');  // Get setoran ID from button
-      toggleSetoranDetails(event.target.closest('tr'), setoranId);  // Call the function to toggle details
+      const tanggal = button.closest('tr').querySelector('td[data-tanggal]').getAttribute('data-tanggal'); 
+      toggleSetoranDetails(event.target.closest('tr'), setoranId, tanggal);  // Call the function to toggle details
     });
   });
   document.getElementById('filterInput').addEventListener('keydown', function (event) {
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Function to toggle setoran details
-function toggleSetoranDetails(row, setoranId) {
+function toggleSetoranDetails(row, setoranId, tanggal) {
   // Check if the details are already shown for this row
   const existingDetailsRow = row.nextElementSibling;
   if (existingDetailsRow && existingDetailsRow.classList.contains('setoran-details')) {
@@ -25,9 +26,9 @@ function toggleSetoranDetails(row, setoranId) {
     existingDetailsRow.remove();
     return;
   }
-  console.log(setoranId)
+  console.log(setoranId, tanggal)
   // Fetch the setoran details from the server
-  fetch(`/admin/SetoranMember/SetoranMember/details/${setoranId}`)
+  fetch(`/admin/SetoranMember/SetoranMember/details/${setoranId}/${tanggal}`)
     .then(response => response.json())
     .then(data => {
       // Log the data to verify what is being returned
