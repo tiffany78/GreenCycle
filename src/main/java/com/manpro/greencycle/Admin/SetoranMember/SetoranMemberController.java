@@ -1,10 +1,12 @@
 package com.manpro.greencycle.Admin.SetoranMember;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,11 +48,12 @@ public class SetoranMemberController {
         return "admin/SetoranMember/index"; 
     }
 
-    @GetMapping("/SetoranMember/details/{setoranId}")
+    @GetMapping("/SetoranMember/details/{setoranId}/{tanggal}")
     @ResponseBody
     public List<SetoranDetail> getSetoranDetails(
-        @PathVariable int setoranId)  {
-        return setoranMemberRepository.getSetoranDetails(setoranId);
+            @PathVariable int setoranId,
+            @PathVariable LocalDate tanggal) {
+        return setoranMemberRepository.getSetoranDetails(setoranId, tanggal);
     }
 
     
