@@ -71,7 +71,7 @@
               <td th:text="${item.jenisSampah}"></td>
               <td th:text="${item.kuantitas}"></td>
               <td th:text="'Rp' + ${item.subtotal}"></td>
-              <td th:text="${item.tanggal}"></td>
+              <td th:text="${#dates.format(item.tanggal, 'dd/MM/yyyy')}"></td>
           </tr>
         </tbody>
       </table>
